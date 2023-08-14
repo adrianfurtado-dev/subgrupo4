@@ -1,0 +1,16 @@
+#ojo{
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 35.3%;
+    left: 57%;
+    cursor: pointer;
+    opacity: 0.3;
+
+}
+input:invalid{
+    background-color: rgb(238, 97, 97);
+}
+input:valid{
+    background-color: whitesmoke;
+}

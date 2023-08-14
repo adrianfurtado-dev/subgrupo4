@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
+  <link href="css/ui.css" rel="stylesheet">
   <style>
     body {
       background-color: rgb(248, 249, 250);
@@ -17,11 +19,44 @@
 </head>
 
 <body>
+  
   <main class="mt-5">
-    <div class="container">
+    <!--<div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
+    </div> -->
+    <div class="d-flex justify-content-center align-items-center">
+      <form action="">
+        <img id="logo-login" src="img/login logo.png" alt="login logo" />
+        <h1>Iniciar sesión</h1>
+        <label class="label1"> 
+          <img
+            id="icono-usuario"
+            class="icono"
+            src="img/icono-usuario.png"
+            alt="icono usuario" />
+          <input type="email" id="usuario" placeholder="usuario123@gmail.com" title="Ingrese su usuario"
+        /></label>
+        
+        <label class="inputcontraseña"> 
+          <img
+            id="icono-password"
+            class="icono"
+            src="img/icono-contraseña.png"
+            alt="icono contraseña" />
+          <input type="password" id="contrasena" placeholder="Contraseña" title="Ingrese su contraseña"/>
+          <img src="img/ojo.png" id="ojo" alt="mostrar contraseña" title="Mostrar contraseña">
+        
+        </label>
+        <div id="recordar-checkbox">
+          <input type="checkbox" id="recordar" name="recordar" />
+          <label for="recordar">Recordar contraseña</label>
+        </div>
+        <a href="#">Olvidó la contraseña</a>
+        <button id="button-login">Ingresar</button>
+        <p>¿No esta registrado? registrese <a href="#">aquí</a></p>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
@@ -33,6 +68,7 @@
     </div>
   </footer>
   <script src="js/login.js"></script>
+  <script src="js/ux.js"></script>
 </body>
 
 </html>
