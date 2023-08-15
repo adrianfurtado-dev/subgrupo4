@@ -9,8 +9,51 @@
 
 }
 input:invalid{
-    background-color: rgb(238, 97, 97);
+    background-color: rgba(250, 6, 6, 0.247);
 }
 input:valid{
     background-color: whitesmoke;
+}
+#usuario{
+    backdrop-filter: 20px;
+}
+#logo-login{
+    filter: drop-shadow(30px 20px 70px);
+}
+input {
+    transition: border-color 0.3s ease;
+}
+input:focus {
+    border-color: blue;
+}
+#contrasena:focus{
+    transform: translateY(5px);
+}
+#usuario:focus{
+    transform: translateY(5px);
+}
+
+.ojorelative{
+    position: absolute;
+    left: 16rem;
+
+}
+form{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#button-login{
+    transition: transform 0.5s ease;
+}
+
+#button-login:hover {
+    transform: rotate(5deg);
 }
