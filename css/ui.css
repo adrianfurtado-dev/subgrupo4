@@ -2,17 +2,18 @@
     position: absolute;
     height: 25px;
     width: 25px;
-    top: 35.3%;
+    top: 53%;
     left: 57%;
     cursor: pointer;
     opacity: 0.3;
-
+    position: absolute;
+    left: 16rem;
 }
 input:invalid{
     background-color: rgba(250, 6, 6, 0.247);
 }
 input:valid{
-    background-color: whitesmoke;
+    background-color: rgb(245, 245, 245);
 }
 #usuario{
     backdrop-filter: 20px;
@@ -28,16 +29,15 @@ input:focus {
 }
 #contrasena:focus{
     transform: translateY(5px);
+    background-color: none;
+    transition: 0.2s ease-in;
 }
 #usuario:focus{
     transform: translateY(5px);
+    transition: 0.2s ease-in;
+    background-color: none;
 }
 
-.ojorelative{
-    position: absolute;
-    left: 16rem;
-
-}
 form{
     opacity: 0;
     transform: translateY(20px);
@@ -56,4 +56,8 @@ form{
 
 #button-login:hover {
     transform: rotate(5deg);
+}
+input{
+    box-shadow: 0 0 30px rgba(0,-0,-0,-0.568);
+    transition: 0.5 ease-in;
 }

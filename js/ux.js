@@ -8,20 +8,7 @@ function mostrar(){
 }
 const ojo= document.getElementById('ojo')
 ojo.addEventListener('click', mostrar)
-const form = document.getElementById('login-form');
 
-form.addEventListener('click', (event) => {
-    event.preventDefault();
-    const username = form.username.value;
-    const password = form.password.value;
-
-    
-    if (username === 'user' && password === 'password') {
-        alert('Login successful!');
-    } else {
-        alert('Login failed. Please check your credentials.');
-    }
-});
 
 
 
