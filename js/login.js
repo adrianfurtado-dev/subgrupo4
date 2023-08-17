@@ -1,3 +1,4 @@
+
 const email = document.querySelector('#usuario');
 const password = document.querySelector('#contrasena');
 const remember = document.querySelector('#recordar')
@@ -23,3 +24,4 @@ loginButton.addEventListener('click', () => {
     else
         loginAlert();
 });
+
