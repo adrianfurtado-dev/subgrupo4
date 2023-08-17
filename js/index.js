@@ -1,5 +1,6 @@
-const session = localStorage.getItem("logged");
-if (!session) {
+const session = sessionStorage.getItem("logged");
+const local = localStorage.getItem("logged")
+if (!session || !local) {
     window.location.href = "login.html";
 }
 
