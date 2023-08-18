@@ -4,11 +4,15 @@ const remember = document.querySelector('#recordar')
 const loginButton = document.querySelector('#button-login');
 const title = document.querySelector('#title');
 
-const checkLoginInputs = () => email.value !== '' && password.value !== '';
+const checkValidPassword = () => password.value.length >= 8 && password.value.length <= 13;
+
+const checkLoginInputs = () => email.value !== '' && (password.value !== '' && checkValidPassword());
+
 const alertHTML =
 `<div class="alert alert-danger max-content" id="login-alert" role="alert">
     Email o contraseña incorrectos
-</div>`
+</div>`;
+
 const loginAlert = () => {
     title.insertAdjacentHTML('afterend', alertHTML);
     setTimeout(() => {
