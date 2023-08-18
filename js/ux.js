@@ -3,10 +3,10 @@ const ojo = document.getElementById('ojo');
 
 function mostrar() { 
     if (contrasena.type == 'password') {
-        ojo.src = '/img/ojo con barra.png';
+        ojo.src = '../img/ojo con barra.png';
         contrasena.type = 'text';
     } else {
-        ojo.src = '/img/ojo.png';
+        ojo.src = '../img/ojo.png';
         contrasena.type = 'password';
     }
 }
