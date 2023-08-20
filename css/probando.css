@@ -1,0 +1,45 @@
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #020000;
+}
+
+#boton-darkmode {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: gold;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+#boton-darkmode::before{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    transition: 3s ease all;
+    z-index: 2;
+}
+#boton-darkmode.active::before{
+    right: 0;
+    left: unset;
+    border: solid thin #fff;
+}
+.dark-mode{
+    transition: 0.5s;
+    background-color: #333;
+}
+.luz{
+    color: white;
+}
