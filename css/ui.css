@@ -1,3 +1,67 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 5px;   
+}
+#boton-darkmode{
+    border-radius: 62rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 15rem;
+    left: 23rem;
+    right: unset;
+    z-index: 2;
+    background-color: grey;
+}
+#boton-darkmode::before{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: rgb(87, 82, 82);
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    border: solid thin #000;
+    transition: 3s ease all;
+    z-index: 2;
+}
+#boton-darkmode.active::before{
+    right: 0;
+    left: unset;
+    border: solid thin #fff;
+}
+span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: gold;
+    z-index: 2;
+}
+
+
+.dark-mode{
+    transition: 0.5s;
+    background-color: #333;
+}
+.h1-darkmode{
+    color: black;
+}
+.luz{
+    color: white;
+}
+
 .inputcontraseña {
     position: relative;
 }
@@ -7,7 +71,7 @@
     height: 18px;
     width: 18px;
     right: 10px;
-    top: 50%;
+    top: 29%;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.3;
@@ -51,8 +115,15 @@ form{
         transform: translateY(0);
     }
 }
-#button-login{
-    transition: .5s ease;
+#button-login:hover{
+    animation: size 0.2s forwards;
+}
+@keyframes size{
+    to {
+        opacity: 1;
+        transform: scale(1.09);
+        background: linear-gradient(0deg, transparent,#fc6a49,#fa6949,#f76545);
+    }
 }
 
 #button-login:active {
