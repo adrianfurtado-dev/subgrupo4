@@ -14,6 +14,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/dropzone.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -55,11 +56,11 @@
       </div>
       <div class="row justify-content-md-center">
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Información del producto</h4>
+          <h4 id="infoprod" class="mb-3">Información del producto</h4>
           <form class="needs-validation" id="sell-info">
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="productName">Nombre</label>
+                <label for="productName" id="darkmode1">Nombre</label>
                 <input
                   type="text"
                   class="form-control"
@@ -72,7 +73,7 @@
             </div>
             <div class="row">
               <div class="col-md-8 order-md-1">
-                <label>Imágenes</label>
+                <label id="darkmode2">Imágenes</label>
                 <div class="needsclick dz-clickable" id="file-upload">
                   <div class="dz-message needsclick">
                     Arrastra tus fotos aquí<br />
@@ -92,7 +93,7 @@
             </div>
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="productCostInput">Costo</label>
+                <label id="dark-mode" for="productCostInput">Costo</label>
                 <input
                   type="number"
                   name="productCostInput"
@@ -255,6 +256,9 @@
           >
         </p>
       </div>
+      <div>
+        <button id="boton-darkmode"><i class="fa-solid fa-sun"></i></button>
+      </div>
     </footer>
 
     <div
@@ -282,7 +286,7 @@
               </div>
               <hr />
               <div class="row">
-                <h5 class="text-primary">Premium (7%)</h5>
+                <h5 id="premium" class="text-primary">Premium (7%)</h5>
                 <p class="muted text-justify">
                   Se mostrará el producto en los primeros lugares de resultados
                   de búsqueda, así cómo cuando se ingrese a la categoría que
@@ -324,5 +328,7 @@
     <script src="js/dropzone.js"></script>
     <script src="js/init.js"></script>
     <script src="js/sell.js"></script>
+    <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
+  <script src="js/darkmodeglobal.js"></script>
   </body>
 </html>
