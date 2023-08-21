@@ -38,7 +38,7 @@ function login() {
     if(checkLoginInputs()) {
         const storage = remember.checked ? window.localStorage : window.sessionStorage;
         storage.setItem('logged', true);
-        window.location.href = '../index.html';
+        window.location.href = 'index.html';
     } else {
         loginAlert();
     }
