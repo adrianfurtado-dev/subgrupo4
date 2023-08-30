@@ -52,7 +52,7 @@ span{
 
 
 .dark-mode{
-    transition: 0.5s;
+    transition: 1s;
     background-color: #333;
 }
 .h1-darkmode{

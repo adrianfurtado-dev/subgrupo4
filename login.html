@@ -18,6 +18,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/login.css" rel="stylesheet">
   <link href="css/ui.css" rel="stylesheet">
+  <link href="css/sign.up.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
   <style>
     body {
@@ -44,36 +45,79 @@
 
         </nav>
       </div>
-      <form action="">
-        <img id="logo-login" src="img/login logo.png" alt="login logo" />
-        <h1 id="title">Iniciar sesión</h1>
-        <label> 
-            <img
-            id="icono-usuario"
-            class="icono"
-            src="img/icono-usuario.png"
-            alt="icono usuario" />
-          <input type="email" id="usuario" placeholder="usuario123@gmail.com" title="Ingrese su usuario"
-        /></label>
-        
-        <label class="inputcontraseña"> 
-          <img
-            id="icono-password"
-            class="icono"
-            src="img/icono-contraseña.png"
-            alt="icono contraseña" />
-            <input type="password" id="contrasena" placeholder="Contraseña" title="Ingrese su contraseña" minlength="8" maxlength="13" />
-          <span class="ojorelative"><img src="img/ojo.png" id="ojo" alt="mostrar contraseña" title="Mostrar contraseña"></span>
-        
-        </label>
-        <div id="recordar-checkbox">
-          <input type="checkbox" id="recordar" name="recordar" />
-          <label id="recordarcontraseñaosc" for="recordar">Recordar contraseña</label>
+      <div id="contenerformlogin">
+        <div id="divformlogin">
+          <form action="" id="formlogin">
+            <img id="logo-login" src="img/login logo.png" alt="login logo" />
+            <h1 id="title">Iniciar sesión</h1>
+            <label> 
+                <img
+                id="icono-usuario"
+                class="icono"
+                src="img/icono-usuario.png"
+                alt="icono usuario" />
+              <input type="email" id="usuario" placeholder="usuario123@gmail.com" title="Ingrese su usuario"
+            /></label>
+            
+            <label class="inputcontraseña"> 
+              <img
+                id="icono-password"
+                class="icono"
+                src="img/icono-contraseña.png"
+                alt="icono contraseña" />
+                <input type="password" id="contrasena" placeholder="Contraseña" title="Ingrese su contraseña" minlength="8" maxlength="13" />
+              <span class="ojorelative"><i class="fa-solid fa-eye" id="ojo" alt="mostrar contraseña" title="Mostrar contraseña"></i></span>
+            </label>
+            <div id="recordar-checkbox">
+              <input type="checkbox" id="recordar" name="recordar" />
+              <label id="recordarcontraseñaosc" for="recordar">Recordar contraseña</label>
+            </div>
+            <a href="#"><small>Olvidó la contraseña</small></a>
+            <button id="button-login">Ingresar</button>
+            <p id="registradoosc" >¿No esta registrado? registrese <a href="#" id="registro">aquí</a></p>
+          </form>
+
         </div>
-        <a href="#"><small>Olvidó la contraseña</small></a>
-        <button id="button-login">Ingresar</button>
-        <p id="registradoosc" >¿No esta registrado? registrese <a href="#">aquí</a></p>
-      </form>
+        <div id="formsignup" class="form" style="display: none;">
+          <form id="signupform">
+            <label id="blancor">
+              <input type="text" id="registrousuario" placeholder="Nombre de usuario"> 
+            </label>
+            <label> 
+              <input type="email" id="emailregistro" placeholder="Correo electronico">
+            </label>
+            <label>
+              <input type="date" id="fecha">
+            </label>
+            <label> 
+              <input type="password" id="contraseñaregistro" placeholder="Ingrese su contraseña">
+            </label>
+            <label>
+              <ul class="requisitos-contraseña">
+                <li>Al menos 4 caracteres</li>
+                <li>Al menos una letra mayúscula</li>
+                <li>Al menos un número</li>
+                <li>Al menos un carácter especial</li>
+              </ul>
+            </label>
+            <div class="medidor">
+              <div class="fuerza">
+                <p id="ParrafoF"></p>
+              </div>
+            </div>
+
+            <label>
+              <input type="password" id="repitacontraseña" placeholder="Repita su contraseña">
+            </label>
+            <p id="yaregistrado">¿Ya esta registrado?</p> <a href="#" id="loginbtn">Ingrese aquí</a> <button type="submit" id="registrarsebtn">Registrarse</button>
+          </form>
+          <div><input type="checkbox" id="terminos"><label for="terminos" style="font-size: small;">Acepto terminos y condiciones</label></div>
+          <p class="mensaje-error" id="mensaje-error" style="color: red; font-size: small;"></p>
+
+        </div>
+      </div>
+
+      </div>
     </div>
   </main>
   <footer class="text-muted">
@@ -86,6 +130,7 @@
   </footer>
   <script src="js/login.js"></script>
   <script src="js/ux.js"></script>
+  <script src="js/signup.js"></script>
 </body>
 
 </html>
