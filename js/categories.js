@@ -6,6 +6,15 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+const minCountInput = document.querySelector('#rangeFilterCountMin');
+const maxCountInput = document.querySelector('#rangeFilterCountMax');
+const filterButton = document.querySelector('#rangeFilterCount');
+
+filterButton.addEventListener('click', () => {
+    minCount = minCountInput.value;
+    maxCount = maxCountInput.value;
+});
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
