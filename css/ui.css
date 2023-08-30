@@ -1,0 +1,139 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 5px;   
+}
+#boton-darkmode{
+    border-radius: 62rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 15rem;
+    left: 23rem;
+    right: unset;
+    z-index: 2;
+    background-color: grey;
+}
+#boton-darkmode::before{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: rgb(87, 82, 82);
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    border: solid thin #000;
+    transition: 3s ease all;
+    z-index: 2;
+}
+#boton-darkmode.active::before{
+    right: 0;
+    left: unset;
+    border: solid thin #fff;
+}
+span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: gold;
+    z-index: 2;
+}
+
+
+.dark-mode{
+    transition: 0.5s;
+    background-color: #333;
+}
+.h1-darkmode{
+    color: black;
+}
+.luz{
+    color: white;
+}
+
+.inputcontraseña {
+    position: relative;
+}
+
+#ojo {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    right: 10px;
+    top: 29%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.3;
+    position: absolute;
+}
+input:invalid{
+    background-color: rgba(250, 6, 6, .15);
+}
+input:valid{
+    background: none;
+}
+#usuario{
+    backdrop-filter: 20px;
+}
+#logo-login{
+    filter: drop-shadow(30px 20px 70px);
+}
+input {
+    position: relative;
+    transition: border-color 0.3s ease;
+    border-radius: 4px;
+    padding: 5px;
+}
+input:focus {
+    border-color: blue;
+}
+#contrasena:focus, #usuario:focus {
+    background-color: none;
+    transition: 0.2s ease-in;
+}
+
+form{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#button-login:hover{
+    animation: size 0.2s forwards;
+}
+@keyframes size{
+    to {
+        opacity: 1;
+        transform: scale(1.09);
+        background: linear-gradient(0deg, transparent,#fc6a49,#fa6949,#f76545);
+    }
+}
+
+#button-login:active {
+    background: #c47141;
+}
+input{
+    box-shadow: 0 0 30px rgba(0,-0,-0,-0.568);
+    transition: 0.5 ease-in;
+}
+
+#recordar {
+    accent-color: #ff7221;
+}

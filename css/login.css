@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #ededed;
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 25px;
+    max-height: 80vh;
+    width: 350px;
+  
+    background-color: white;
+  
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  h1 {
+    margin: 10px;
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+  
+  #logo-login {
+    width: 120px;
+    height: 120px;
+    margin-left: 40px;
+  }
+  
+  #icono-usuario,
+  #icono-password {
+    width: 20px;
+    height: 20px;
+  }
+  
+  form label {
+    margin-bottom: 30px;
+  }
+  form label input {
+    outline: none;
+    border: none;
+    border-bottom: solid 1px orangered;
+    padding: 0px 5px;
+    font-size: 15px;
+  }
+  
+  #recordar-checkbox {
+    margin-top: 10px;
+  }
+  
+  #button-login {
+    background-color: #ff7221;
+    width: 180px;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 15px;
+    border: none;
+    margin-top: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  #button-login:hover {
+    background-color: #ff9151;
+  }
