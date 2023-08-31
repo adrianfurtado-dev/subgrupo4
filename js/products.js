@@ -29,8 +29,8 @@ function listProducts(products){
     <p>${product.description}</p>
     </div>
     <div class="col-2">
-        <small>
-          ${product.soldCount}
+        <small class="text-muted">
+          ${product.soldCount} artículos
         </small>
     </div>
     </div>`
