@@ -254,3 +254,6 @@ a.custom-card:hover {
   left: -30px;
 }
 
+.text-left {
+  text-align: left;
+}
