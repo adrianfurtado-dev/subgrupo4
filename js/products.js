@@ -21,35 +21,46 @@ function getCatID() {
 function listTitle(catName) {
     const title = document.getElementById("title");
     title.innerHTML += `
-    <br>
-    <h1>Productos</h1>
-    <h5><span class="lead">Veras aqui todos los productos de la categoría</span> <b>${catName}</b> </h5>
-    <br>`;
+        <br>
+        <h1>Productos</h1>
+        <h5><span class="lead">Veras aqui todos los productos de la categoría</span> <b>${catName}</b> </h5>
+        <br>`;
 }
 
 function listProducts(products) {
-  productosDiv.innerHTML = "";
+    productosDiv.innerHTML = "";
+    let resultFound = false; 
+
     products.forEach(product => {
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
-            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
-        productosDiv.innerHTML += `
-    <div class="row list-group-item d-flex justify-content-between">
-    <div class="col-3">
-      <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
-    </div>
-    <div class="col-7 text-left">
-    <h3>${product.name} - ${product.currency} ${product.cost}</h3>
-    <p>${product.description}</p>
-    </div>
-    <div class="col-2">
-        <small>
-          ${product.soldCount} vendidos
-        </small>
-    </div>
-    </div>`
-    }
-})
+            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
+            productosDiv.innerHTML += `
+                <div class="row list-group-item d-flex justify-content-between">
+                    <div class="col-3">
+                        <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
+                    </div>
+                    <div class="col-7 text-left">
+                        <h3>${product.name} - ${product.currency} ${product.cost}</h3>
+                        <p>${product.description}</p>
+                    </div>
+                    <div class="col-2">
+                        <small>
+                            ${product.soldCount} vendidos
+                        </small>
+                    </div>
+                </div>`;
+            resultFound = true; 
+        }
+    });
 
+    if (!resultFound) {
+        productosDiv.innerHTML += `
+            <div class="row list-group-item d-flex justify-content-between">
+                <div class="col-12 text-left">
+                    <p>No hay resultados para este filtro</p>
+                </div>
+            </div>`;
+    }
 }
 
 function request() {
@@ -60,7 +71,7 @@ function request() {
         .then(response => response.json())
         .then(data => {
             listTitle(data.catName);
-            currentProductsArray = data.products
+            currentProductsArray = data.products;
             listProducts(currentProductsArray);
         })
         .catch(error => {
@@ -83,22 +94,16 @@ function sorters() {
         if (isValidFilter(ORDER_BY_PROD_PRICE))
             sortAndShowProducts(ORDER_BY_PROD_PRICE);
         else
-            productosDiv.innerHTML = ''
-            productosDiv.innerHTML += `
-                <div class="row list-group-item d-flex justify-content-between">
-                    <div class="col-12 text-left">
-                        <p>No hay resultados para este filtro</p>
-                    </div>
-                </div>`
+            listProducts([]); 
     });
 
-     document.getElementById("sortByCount").addEventListener("click", function () {
+    document.getElementById("sortByCount").addEventListener("click", function () {
         sortAndShowProducts(ORDER_BY_PROD_PRICE);
     });
 }
 
 function isValidFilter(sortCriteria) {
-    return sortProducts(sortCriteria, currentProductsArray) !== [];
+    return sortProducts(sortCriteria, currentProductsArray).length > 0;
 }
 
 function documentLoaded() {
@@ -107,7 +112,6 @@ function documentLoaded() {
 }
 
 function sortAndShowProducts(sortCriteria) {
-    productosDiv.innerHTML = "";
     listProducts(sortProducts(sortCriteria, currentProductsArray));
 }
 
