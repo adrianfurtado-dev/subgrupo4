@@ -4,7 +4,6 @@ const Msignup = document.getElementById('formsignup')
 const signupbtn = document.getElementById('registro')
 const btndarkmode = document.querySelector('#boton-darkmode')
 //Determina la fuerza de la contraseña según los criterios dentro de la función
-
 function fuerza(contraseña){
     let i=0
     if(contraseña.length > 6){
@@ -28,7 +27,6 @@ let medidor = document.querySelector('.medidor')
 let barra = document.querySelector('.fuerza')
 var str = document.getElementById('ParrafoF')
 //Aplica las clases a la contraseña según se vaya actualizando
-
 document.addEventListener('keyup', function(e){
     let contraseña = document.querySelector('#contraseñaregistro').value;
     let barra = fuerza(contraseña)
@@ -68,7 +66,6 @@ contraseñaregistro.addEventListener('click', () =>{
     requisitos.style.display = 'block'
 })
 //Si se clickea fuera del campo de texto, desaparece la tabla
-
 document.addEventListener('click', (event) =>{
     if(event.target !== contraseñaregistro){
         requisitos.style.display ='none'
