@@ -27,7 +27,7 @@ let medidor = document.querySelector('.medidor')
 let barra = document.querySelector('.fuerza')
 var str = document.getElementById('ParrafoF')
 //Aplica las clases a la contraseña según se vaya actualizando
-document.addEventListener('keyup', function(e){
+document.addEventListener('input', function(e){
     let contraseña = document.querySelector('#contraseñaregistro').value;
     let barra = fuerza(contraseña)
     if(barra ===0){
@@ -125,6 +125,8 @@ function mostrarlogin() {
 
 document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
+    medidor.style.display = 'none';
+    requisitos.style.display = 'none';
     signupbtn.addEventListener('click', mostrarregistro);
     loginbtn.addEventListener('click', mostrarlogin);
 });

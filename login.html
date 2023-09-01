@@ -43,13 +43,13 @@
           <form action="" id="formlogin">
             <img id="logo-login" src="img/login logo.png" alt="login logo" />
             <h1 id="title">Iniciar sesión</h1>
-            <label> 
+            <label class="input-label"> 
                 <img
                 id="icono-usuario"
                 class="icono"
                 src="img/icono-usuario.png"
                 alt="icono usuario" />
-              <input type="email" id="usuario" placeholder="usuario123@gmail.com" title="Ingrese su usuario"
+              <input type="email" id="usuario" class="input-field"  placeholder="usuario123@gmail.com" title="Ingrese su usuario"
             /></label>
             
             <label class="inputcontraseña"> 
@@ -58,7 +58,7 @@
                 class="icono"
                 src="img/icono-contraseña.png"
                 alt="icono contraseña" />
-                <input type="password" id="contrasena" placeholder="Contraseña" title="Ingrese su contraseña" minlength="8" maxlength="13" />
+                <input type="password" id="contrasena" class="input-field" placeholder="Contraseña" title="Ingrese su contraseña" minlength="8" maxlength="13" />
               <span class="ojorelative"><i class="fa-solid fa-eye" id="ojo" alt="mostrar contraseña" title="Mostrar contraseña"></i></span>
             </label>
             <div id="recordar-checkbox">
@@ -81,19 +81,19 @@
         </div>
         <div id="formsignup" class="form" style="display: none;">
           <form id="signupform">
-            <label id="blancor">
+            <label id="blancor" class="input-label">
               <input type="text" id="registrousuario" placeholder="Nombre de usuario"> 
             </label>
-            <label> 
-              <input type="email" id="emailregistro" placeholder="Correo electronico">
+            <label class="input-label"> 
+              <input type="email" id="emailregistro" class="input-field" placeholder="Correo electronico">
             </label>
-            <label>
+            <label class="input-label">
               <input type="date" id="fecha">
             </label>
-            <label> 
-              <input type="password" id="contraseñaregistro" placeholder="Ingrese su contraseña">
+            <label class="input-label"> 
+              <input type="password" id="contraseñaregistro" class="input-field" placeholder="Ingrese su contraseña">
             </label>
-            <label>
+            <label class="input-label">
               <ul class="requisitos-contraseña">
                 <li>Al menos 4 caracteres</li>
                 <li>Al menos una letra mayúscula</li>
@@ -106,8 +106,8 @@
                 <p id="ParrafoF"></p>
               </div>
             </div>
-            <label>
-              <input type="password" id="repitacontraseña" placeholder="Repita su contraseña">
+            <label class="input-label">
+              <input type="password" id="repitacontraseña" class="input-field" placeholder="Repita su contraseña">
             </label>
             <p id="yaregistrado">¿Ya esta registrado?</p> <a href="#" id="loginbtn">Ingrese aquí</a> <button type="submit" id="registrarsebtn">Registrarse</button>
             <button type="button" id="boton-darkmode-registro">
