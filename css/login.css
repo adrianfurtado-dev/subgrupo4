@@ -16,9 +16,7 @@
     padding: 20px 25px;
     max-height: 80vh;
     width: 350px;
-  
     background-color: white;
-  
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
   
@@ -72,3 +70,6 @@
   #button-login:hover {
     background-color: #ff9151;
   }
+  #contenerformlogin {
+    margin: 0 auto;
+}
