@@ -1,3 +1,4 @@
+/*Replicar boton del login */
 #registrarsebtn{
     background-color: #ff7221;
     width: 180px;
@@ -21,6 +22,7 @@
         background: linear-gradient(0deg, transparent,#fc6a49,#fa6949,#f76545);
     }
 }
+/*Implementar boton modo oscuro */
 #boton-darkmode{
     border-radius: 62rem;
     border: none;
@@ -56,10 +58,12 @@
     left: unset;
     border: solid thin #fff;
 }
+/*Teñir de blanco los placeholders */
 input.activep::placeholder{
     color: white;
     transition: 2s;
 }
+/*Cambia colores */
 span.ojorelative{
     color: black;
 }
@@ -90,6 +94,7 @@ input.pblanco::placeholder{
 input[type="date"].activecal::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
+/*Diseño del medidor de fortaleza de la contraseña */
 .medidor {
     width: 13rem;
     height: 0.625rem;
@@ -104,7 +109,7 @@ input[type="date"].activecal::-webkit-calendar-picker-indicator {
     margin-top: 5px;
 }
 
-
+/*Clases aplicables al medidor */
 .vacio{
     background-color: white;
 }
@@ -133,3 +138,58 @@ input[type="date"].activecal::-webkit-calendar-picker-indicator {
     left: 4.7rem;
     
 }
+/*Modificaciones al modo oscuro */
+.darkRegistro{
+    display: flex;
+    left: -5rem;
+    position: absolute;
+}
+#boton-darkmode-registro{
+    border-radius: 62rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    right: 50px; 
+    z-index: 2;
+    background-color: grey;
+}
+#boton-darkmode-registro::before{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: rgb(87, 82, 82);
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    border: solid thin #000;
+    transition: 3s ease all;
+    z-index: 2;
+}
+#boton-darkmode-registro.active::before{
+    right: 0;
+    left: unset;
+    border: solid thin #fff;
+}
+#boton-darkmode-registro{
+    display: flex;
+    top: 0.3rem;
+    right: 0.3rem;
+    position: absolute;
+}
+/*Placeholders blancos al activar modo oscuro */
+.holdersreg::placeholder{
+    color: white;
+    transition: 2s;
+}
+/*Al cargar la pagina ocultar medidor de fortaleza de la contraseña registro */
+.oculto {
+    display: none;
+  }
+  

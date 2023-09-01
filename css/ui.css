@@ -1,3 +1,4 @@
+/*Modificaciónes para implementar el boton con iconos de modo oscuro*/
 nav{
     display: flex;
     justify-content: space-between;
@@ -14,9 +15,10 @@ nav{
     position: relative;
     justify-content: space-between;
     align-items: center;
-    right: 50px; /* Ajusta el margen derecho según tu preferencia */
+    right: 50px; 
     z-index: 2;
     background-color: grey;
+    transition: background-color 1s;
 }
 #boton-darkmode::before{
     content: '';
@@ -47,10 +49,13 @@ span{
     color: gold;
     z-index: 2;
 }
-
-
+/* Transiciones*/
+.luzlenta{
+    transition: background-color 1s;
+    background-color: white;
+}
 .dark-mode{
-    transition: 1s;
+    transition: background-color 1s;
     background-color: #333;
 }
 .h1-darkmode{
@@ -87,6 +92,7 @@ input:valid{
 #logo-login{
     filter: drop-shadow(30px 20px 70px);
 }
+/*Detalles en los inputs */
 input {
     position: relative;
     transition: border-color 0.3s ease;
@@ -100,7 +106,7 @@ input:focus {
     background-color: none;
     transition: 0.2s ease-in;
 }
-
+/* Animación de deslizar formularios*/
 form{
     opacity: 0;
     transform: translateY(20px);
@@ -113,6 +119,7 @@ form{
         transform: translateY(0);
     }
 }
+/*Animacion aumentar tamaño del boton si el mouse esta postrado en el */
 #button-login:hover{
     animation: size 0.2s forwards;
 }
@@ -123,7 +130,7 @@ form{
         background: linear-gradient(0deg, transparent,#fc6a49,#fa6949,#f76545);
     }
 }
-
+/*Detalles menores */
 #button-login:active {
     background: #c47141;
 }
@@ -138,49 +145,5 @@ input{
 .dark{
     display: flex;
     left: -5rem;
-    position: absolute;
-}
-.darkRegistro{
-    display: flex;
-    left: -5rem;
-    position: absolute;
-}
-#boton-darkmode-registro{
-    border-radius: 62rem;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    outline: none;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    right: 50px; 
-    z-index: 2;
-    background-color: grey;
-}
-#boton-darkmode-registro::before{
-    content: '';
-    display: block;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background-color: rgb(87, 82, 82);
-    top: 0;
-    left: 0;
-    right: unset;
-    border-radius: 50%;
-    border: solid thin #000;
-    transition: 3s ease all;
-    z-index: 2;
-}
-#boton-darkmode-registro.active::before{
-    right: 0;
-    left: unset;
-    border: solid thin #fff;
-}
-#boton-darkmode-registro{
-    display: flex;
-    top: 0.3rem;
-    right: 0.3rem;
     position: absolute;
 }
