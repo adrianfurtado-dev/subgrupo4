@@ -123,13 +123,13 @@ function sortProducts(criteria, array) {
             if (a.cost < b.cost) return 1;
             return 0;
         });
-    } else if (criteria === ORDER_DESC_BY_PRICE) {
+    } else if (criteria === ORDER_BY_PROD_PRICE) {
         result = array.sort(function (a, b) {
             if (a.cost < b.cost) return -1;
             if (a.cost > b.cost) return 1;
             return 0;
         });
-    } else if (criteria === ORDER_BY_PROD_PRICE) {
+    } else if (criteria === ORDER_DESC_BY_PRICE) {
         result = array.sort(function (a, b) {
             return b.soldCount - a.soldCount;
         });
