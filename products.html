@@ -56,10 +56,10 @@
         <div id="title" class="text-center p4">
         </div>
         <div class="container">
-          <form action="../../form-result.php" method="post" target="_blank" class="buscador">
-              <input type="search" class="barrabuscar" name="busquedacat" placeholder="Autos, Juguetes, Muebles, etc">
-              <button class="boton-buscar" role="button">Buscar</button>
-          </form>
+          <div class="search-bar mb-3">
+            <input type="search" id="searchInput" class="barrabuscar" placeholder="Buscar productos...">
+          </div>
+        </div>   
           <div class="row">
             <div class="col text-end">
               <div
@@ -132,9 +132,7 @@
               </div>
             </div>
           </div>
-        <div class="container">
-          <div id="productos" class="container list-group"></div>
-        </div>
+        <div id="productos" class="container list-group"></div>
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
