@@ -163,7 +163,8 @@ clearBtn.addEventListener('click', clearPriceInputs);
 document.addEventListener('DOMContentLoaded', documentLoaded);
 
 document.addEventListener('DOMContentLoaded', function() {
-    const url = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+    const catID = getCatID();
+    const url = APIUrl(catID);
   
     fetch(url)
       .then(response => response.json())
@@ -211,3 +212,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
       });
   });
+
