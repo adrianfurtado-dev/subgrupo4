@@ -37,7 +37,7 @@ function login() {
     event.preventDefault();
     if(checkLoginInputs()) {
         const storage = remember.checked ? window.localStorage : window.sessionStorage;
-        storage.setItem('logged', true);
+        storage.setItem('email', email.value);
         window.location.href = 'index.html';
     } else {
         loginAlert();

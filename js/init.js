@@ -39,3 +39,16 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+const userProfile = () => {
+  const user = document.querySelector('#user');
+  const email = localStorage.getItem('email') ? localStorage.getItem('email') : sessionStorage.getItem('email');
+  user.textContent = email;
+  user.href = 'my-profile.html'
+}
+
+if (!sessionStorage.getItem("email") && !localStorage.getItem("email")) {
+  window.location.href = "login.html";
+} else {
+  userProfile();
+}
