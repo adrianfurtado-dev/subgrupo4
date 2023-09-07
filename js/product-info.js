@@ -47,5 +47,34 @@ const domLoaded = (productID) => {
     const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
     requestToAPI(API_URL);
 };
-
+//Obtener comentarios y URL de los comentarios, los comentarios se muestran en el div comments-container
+const commentsContainer = document.querySelector('#comments-container')
+const commentsURL = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
+fetch(commentsURL)
+.then((response) => response.json())
+.then((commentsData) =>{
+    commentsContainer.innerHTML = '';
+    if(commentsData && commentsData.length > 0){
+        commentsData.forEach((comment) =>{
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment')
+          const scoreHTML = `<div>Puntuación:</div>`;
+          commentElement.innerHTML = `
+          <div class="list-group-item list-group-item-action cursor-active">
+            <h4><strong>${comment.user}</strong></h4> 
+            <p>${scoreHTML}</p>
+            <p>${comment.description}</p>
+            <p>Fecha y hora: ${comment.dateTime}</p>
+            </div>
+          `;
+          commentsContainer.appendChild(commentElement);
+        })
+    } else{
+        commentsContainer.innerHTML = '<p>No hay comentarios disponibles.</p>';
+    }
+})
+.catch((error) =>{
+    console.error('Error:', error)
+    commentsContainer.innerHTML = '<p>Error al cargar los comentarios.</p>';
+})
 document.addEventListener('DOMContentLoaded', domLoaded(productID));
