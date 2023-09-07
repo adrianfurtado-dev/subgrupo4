@@ -35,7 +35,7 @@ function listProducts(products) {
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
             productosDiv.innerHTML += `
-                <div class="row list-group-item d-flex justify-content-between">
+                <div onclick="setProductID(${product.id})" class="row list-group-item d-flex justify-content-between">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
                     </div>
@@ -175,3 +175,8 @@ function filterProducts() {
 // Escuchar el evento input en el campo de búsqueda
 searchInput.addEventListener('input', filterProducts);
 
+//Se guarda el identificador del producto en el localstorage y se redirige a product-info.html
+function setProductID(id) {
+    localStorage.setItem('productoSeleccionado', id);
+    window.location = 'product-info.html'
+}
