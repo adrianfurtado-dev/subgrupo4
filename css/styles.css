@@ -257,3 +257,30 @@ a.custom-card:hover {
 .text-left {
   text-align: left;
 }
+
+.nuevo-comentario{
+  width: 60%;
+  border-radius: 5px;
+  padding: 20px;
+  resize: none;
+}
+
+.btn-comen {
+  background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  margin: 10px;
+  padding: 15px ;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  }
+
+.btn-comen:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  }
+
