@@ -77,4 +77,37 @@ fetch(commentsURL)
     console.error('Error:', error)
     commentsContainer.innerHTML = '<p>Error al cargar los comentarios.</p>';
 })
+
 document.addEventListener('DOMContentLoaded', domLoaded(productID));
+
+const formComen = document.getElementsByClassName('comentario');
+
+function newComment(event) {
+    event.preventDefault();
+
+    const comentarioNuevo = event.target.querySelector('.nuevo-comentario');
+
+
+    if (comentarioNuevo) {
+        const fechaYHora = new Date().toLocaleString('en-CA', {
+            hour12: false,
+        });
+
+
+        const nuevoComentario = document.createElement('div');
+        nuevoComentario.classList.add('list-group-item', 'list-group-item-action', 'cursor-active');
+        nuevoComentario.innerHTML = `
+            <h4><strong>${user.textContent}</strong></h4>
+            <p>Puntuación: </p>
+            <p>${comentarioNuevo.value}</p>
+            <p>Fecha y hora: ${fechaYHora.replace(/\//g, '-').replace(',', '')}</p>
+        `;
+        commentsContainer.appendChild(nuevoComentario);
+
+        comentarioNuevo.value = '';
+    }
+}
+
+for (let i = 0; i < formComen.length; i++) {
+    formComen[i].addEventListener('submit', newComment);
+}
