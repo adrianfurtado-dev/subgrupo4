@@ -89,10 +89,10 @@ function sorters() {
     });
 
     document.getElementById("rangeFilterPrice").addEventListener("click", function () {
-        minPrice = parseFloat(priceMin.value);
-        maxPrice = parseFloat(priceMax.value);
-        if (isValidFilter(ORDER_BY_PROD_PRICE))
-            sortAndShowProducts(ORDER_BY_PROD_PRICE);
+        minPrice = priceMin.value !== '' ? parseFloat(priceMin.value) : undefined;
+        maxPrice = priceMax.value !== '' ? parseFloat(priceMax.value) : undefined;
+        if (isValidFilter(ORDER_DESC_BY_PRICE))
+            sortAndShowProducts(ORDER_DESC_BY_PRICE);
         else
             listProducts([]);
     });
@@ -143,7 +143,9 @@ const clearPriceInputs = () => {
     priceMax.value = '';
     minPrice = undefined;
     maxPrice = undefined;
-    listProducts(currentProductsArray);
+    listProducts(currentProductsArray.sort(function (x, y) {
+        return x.id < y.id ? -1 : 1;
+    }));
 }
 
 priceMin.addEventListener('input', () => {
@@ -178,5 +180,5 @@ searchInput.addEventListener('input', filterProducts);
 //Se guarda el identificador del producto en el localstorage y se redirige a product-info.html
 function setProductID(id) {
     localStorage.setItem('productoSeleccionado', id);
-    window.location = 'product-info.html'
+    window.location = 'product-info.html';
 }
