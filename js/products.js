@@ -149,15 +149,11 @@ const clearPriceInputs = () => {
 }
 
 priceMin.addEventListener('input', () => {
-    if (isNaN(priceMin.value) || priceMin.value < 0) {
-        priceMin.value = 0;
-    }
+    priceMin.value = priceMin.value.replace(/[^0-9.]/g, '');
 });
 
 priceMax.addEventListener('input', () => {
-    if (isNaN(priceMax.value) || priceMax.value < 0) {
-        priceMax.value = 0;
-    }
+    priceMax.value = priceMax.value.replace(/[^0-9.]/g, '');
 });
 
 clearBtn.addEventListener('click', clearPriceInputs);
