@@ -1,12 +1,27 @@
 // Se obtiene el producto seleccionado en el localStorage
 const productID = localStorage.getItem('productoSeleccionado');
-const container = document.querySelector('#product-container')
+const container = document.querySelector('#product-container');
+const commentsContainer = document.querySelector('#comments-container');
 
-const showProduct = data => {
+// Función para crear las estrellas
+function stars(puntaje) {
+  const starOuter = document.createElement('div');
+  starOuter.classList.add('stars-outer');
 
-    const imgs = data.images.map(element => `<img src="${element}" width="250">`).join('');
+  const starInner = document.createElement('div');
+  starInner.classList.add('stars-inner');
+  starInner.style.width = (puntaje / 5) * 100 + '%';
 
-    container.innerHTML += `
+  starOuter.appendChild(starInner);
+  return starOuter;
+}
+
+const showProduct = (data) => {
+  const imgs = data.images
+    .map((element) => `<img src="${element}" width="250">`)
+    .join('');
+
+  container.innerHTML = `
     <h2 class="my-3">${data.name}</h2>
     <hr/>
     <div class="d-flex flex-column gap-3">
@@ -34,80 +49,123 @@ const showProduct = data => {
         </div>
     </div>
     `;
-}
+};
 
-const requestToAPI = URL => {
-    fetch(URL)
-    .then(response => response.json())
-    .then(data => showProduct(data))
-    .catch(error => console.error('Error to display product: ', error))
-}
+const requestToAPI = (URL) => {
+  fetch(URL)
+    .then((response) => response.json())
+    .then((data) => showProduct(data))
+    .catch((error) => console.error('Error displaying product: ', error));
+};
 
-const domLoaded = (productID) => {
+const loadComments = () => {
+  if (productID) {
+    const API_URL = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((commentsData) => {
+        commentsContainer.innerHTML = '';
+        if (commentsData && commentsData.length > 0) {
+          commentsData.forEach((comment) => {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+
+            const productRating = comment.score;
+            const starsElement = stars(productRating);
+
+            commentElement.innerHTML = `
+              <div class="list-group-item list-group-item-action cursor-active">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>${comment.user}</strong> ${comment.dateTime}
+                    </div>
+                    <div class="d-flex align-items-center">
+                        ${starsElement.outerHTML} 
+                        <p class="rating-container">(${comment.score})</p> 
+                    </div>
+                </div>
+                <div> 
+                    <p>${comment.description}</p>
+                </div>
+              </div>
+            `;
+
+            commentsContainer.appendChild(commentElement);
+          });
+        } else {
+          commentsContainer.innerHTML = '<p>No hay comentarios disponibles.</p>';
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        commentsContainer.innerHTML = '<p>Error loading comments.</p>';
+      });
+  }
+};
+
+const domLoaded = () => {
+  loadComments();
+  if (productID) {
     const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
     requestToAPI(API_URL);
+  }
 };
-//Obtener comentarios y URL de los comentarios, los comentarios se muestran en el div comments-container
-const commentsContainer = document.querySelector('#comments-container')
-const commentsURL = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
-fetch(commentsURL)
-.then((response) => response.json())
-.then((commentsData) =>{
-    commentsContainer.innerHTML = '';
-    if(commentsData && commentsData.length > 0){
-        commentsData.forEach((comment) =>{
-            const commentElement = document.createElement('div');
-            commentElement.classList.add('comment')
-          const scoreHTML = `<div>Puntuación:</div>`;
-          commentElement.innerHTML = `
-          <div class="list-group-item list-group-item-action cursor-active">
-            <h4><strong>${comment.user}</strong></h4> 
-            <p>${scoreHTML}</p>
-            <p>${comment.description}</p>
-            <p>Fecha y hora: ${comment.dateTime}</p>
-            </div>
-          `;
-          commentsContainer.appendChild(commentElement);
-        })
-    } else{
-        commentsContainer.innerHTML = '<p>No hay comentarios disponibles.</p>';
-    }
-})
-.catch((error) =>{
-    console.error('Error:', error)
-    commentsContainer.innerHTML = '<p>Error al cargar los comentarios.</p>';
-})
 
-document.addEventListener('DOMContentLoaded', domLoaded(productID));
-
-const formComen = document.getElementsByClassName('comentario');
+document.addEventListener('DOMContentLoaded', domLoaded);
 
 function newComment(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const comentarioNuevo = event.target.querySelector('.nuevo-comentario');
+  const comentarioNuevo = event.target.querySelector('.new-comment');
+  const nuevoRating = parseFloat(document.getElementById('newRating').value);
 
+  if (
+    comentarioNuevo &&
+    !isNaN(nuevoRating) &&
+    nuevoRating >= 0 &&
+    nuevoRating <= 5
+  ) {
+    const fechaYHora = new Date().toLocaleString('en-CA', {
+      hour12: false,
+    });
 
-    if (comentarioNuevo) {
-        const fechaYHora = new Date().toLocaleString('en-CA', {
-            hour12: false,
-        });
+    const nuevoComentario = document.createElement('div');
+    nuevoComentario.classList.add(
+      'list-group-item',
+      'list-group-item-action',
+      'cursor-active'
+    );
+    nuevoComentario.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <strong>${user.textContent}</strong> ${fechaYHora
+      .replace(/\//g, '-')
+      .replace(',', '')}
+          </div>
+          <div class="d-flex align-items-center">
+            ${stars(nuevoRating).outerHTML}
+            <p class="rating-container">(${nuevoRating})</p>
+          </div>
+        </div>
+        <div>
+          <p>${comentarioNuevo.value}</p>
+        </div>
+      `;
 
+    commentsContainer.appendChild(nuevoComentario);
 
-        const nuevoComentario = document.createElement('div');
-        nuevoComentario.classList.add('list-group-item', 'list-group-item-action', 'cursor-active');
-        nuevoComentario.innerHTML = `
-            <h4><strong>${user.textContent}</strong></h4>
-            <p>Puntuación: </p>
-            <p>${comentarioNuevo.value}</p>
-            <p>Fecha y hora: ${fechaYHora.replace(/\//g, '-').replace(',', '')}</p>
-        `;
-        commentsContainer.appendChild(nuevoComentario);
-
-        comentarioNuevo.value = '';
-    }
+    comentarioNuevo.value = '';
+    document.getElementById('newRating').value = '';
+  }
 }
 
-for (let i = 0; i < formComen.length; i++) {
-    formComen[i].addEventListener('submit', newComment);
+const formComen = document.getElementById('commentForm');
+
+if (formComen) {
+  formComen.addEventListener('submit', newComment);
 }
+
+    newRating.addEventListener('input', () => {
+      // Reemplazar "e" con una cadena vacía
+      newRating.value = newRating.value.replace(/[^0-9.]/g, '');
+    });

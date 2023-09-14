@@ -35,7 +35,7 @@ function listProducts(products) {
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
             productosDiv.innerHTML += `
-                <div onclick="setProductID(${product.id})" class="row list-group-item d-flex justify-content-between">
+                <div onclick="setProductID(${product.id})" class="row list-group-item list-group-item-action cursor-active d-flex justify-content-between">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
                     </div>

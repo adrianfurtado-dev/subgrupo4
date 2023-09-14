@@ -210,16 +210,17 @@ a.custom-card:hover {
   text-align: left;
 }
 
-.nuevo-comentario{
-  width: 60%;
+
+
+.new-comment{
+  width: 55%;
   border-radius: 5px;
   padding: 20px;
-  resize: none;
 }
 
-.btn-comen {
+.btn-comment {
   background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
-  margin: 10px;
+  margin-top: 20px;
   padding: 15px ;
   text-align: center;
   text-transform: uppercase;
@@ -230,9 +231,50 @@ a.custom-card:hover {
   border-radius: 10px;
   }
 
-.btn-comen:hover {
+.btn-comment:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
   }
 
+  .new-rating {
+width: 10%;
+  }
+
+/* estilo estrellas rate */
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: orange;
+}
+
+.stars-and-rate {
+  display: flex;
+  align-items: center; 
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  padding-top: 11px;
+  padding-left: 5px;
+}
+
+.stars-and-rate span {
+  margin-left: 5px; 
+}
