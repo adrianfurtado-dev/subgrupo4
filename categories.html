@@ -15,7 +15,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
+    <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
   </head>
 
   <body>
@@ -51,7 +51,7 @@
       </div>
     </nav>
     <main class="pb-5">
-      <div class="text-center p-4">
+      <div class="cate text-center p-4">
         <h2>Categorías</h2>
         <p class="lead">Verás aquí todas las categorías del sitio.</p>
       </div>
@@ -61,6 +61,7 @@
             <div
               class="btn-group btn-group-toggle mb-4"
               data-bs-toggle="buttons"
+              id="botones"
             >
               <input
                 type="radio"
@@ -68,14 +69,14 @@
                 name="options"
                 id="sortAsc"
               />
-              <label class="btn btn-light" for="sortAsc">A-Z</label>
+              <label class="btn" for="sortAsc">A-Z</label>
               <input
                 type="radio"
                 class="btn-check"
                 name="options"
                 id="sortDesc"
               />
-              <label class="btn btn-light" for="sortDesc">Z-A</label>
+              <label class="btn" for="sortDesc">Z-A</label>
               <input
                 type="radio"
                 class="btn-check"
@@ -83,13 +84,13 @@
                 id="sortByCount"
                 checked
               />
-              <label class="btn btn-light" for="sortByCount"
+              <label class="btn" for="sortByCount"
                 ><i class="fas fa-sort-amount-down mr-1"></i
               ></label>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row cate">
           <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
             <div class="row container p-0 m-0">
               <div class="col">
@@ -129,7 +130,10 @@
         </div>
       </div>
       <div>
-        <button id="boton-darkmode"><i class="fa-solid fa-sun"></i></button>
+        <button id="boton-darkmode" class="btn btn-secondary">
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
     </main>
     <footer class="text-muted">
@@ -156,7 +160,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
-    <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
     <script src="js/darkmodeglobal.js"></script>
+    <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
   </body>
 </html>

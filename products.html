@@ -15,6 +15,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
   </head>
 
   <body>
@@ -53,7 +54,7 @@
   <main class="pb-5 container">
     <div class="container">
       <div class="container text-center p-5">
-        <div id="title" class="text-center p4">
+        <div id="title" class="text-center p4 cate">
         </div>
         <div class="container">
           <div class="search-bar mb-3">
@@ -72,7 +73,7 @@
                   name="options"
                   id="sortAsc"
                 />
-                <label class="btn btn-light" for="sortAsc"> 
+                <label class="btn" for="sortAsc"> 
                   <i class="fas fa-sort-amount-down mr-1"></i>$
                 </label>
                 <input
@@ -81,7 +82,7 @@
                   name="options"
                   id="sortDesc"
                 />
-                <label class="btn btn-light" for="sortDesc">
+                <label class="btn" for="sortDesc">
                   <i class="fas fa-sort-amount-up mr-1"></i>$
                 </label>
                 <input
@@ -91,7 +92,7 @@
                   id="sortByCount"
                   checked
                 />
-                <label class="btn btn-light" for="sortByCount">
+                <label class="btn" for="sortByCount">
                   <i class="fas fa-sort-amount-down mr-1"></i>Rel.
                   </label>
               </div>
@@ -101,7 +102,7 @@
             <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
               <div class="row container p-0 m-0">
                 <div class="col">
-                  <p class="font-weight-normal text-end my-2">Precio</p>
+                  <p class="cate font-weight-normal text-end my-2">Precio</p>
                 </div>
                 <div class="col">
                   <input
@@ -133,9 +134,14 @@
             </div>
           </div>
         <div id="productos" class="container list-group"></div>
-    </div>
+        </div>
+        <div>
+          <button id="boton-darkmode"><i class="fa-solid fa-sun"></i></button>
+        </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/darkmodeglobal.js"></script>
+    <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
   </body>
 </html>

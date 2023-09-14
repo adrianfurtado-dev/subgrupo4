@@ -1,7 +1,26 @@
-body.dark-mode {
+
+body.dark-mode .list-group-item,
+.dark-mode,
+.dark-mode .cate input,
+.dark-mode .cate #rangeFilterCount,
+.dark-mode .row #botones label,
+.dark-mode .barrabuscar,
+.dark-mode .row input,
+.dark-mode .row #rangeFilterPrice,
+.dark-mode .btn-group label,
+.dark-mode #commentForm textarea,
+.dark-mode #commentForm input,
+.dark-mode textarea,
+.dark-mode #file-upload,
+.dark-mode select {
     background-color: #1a1a1a;
-    color: #020000;
+    color: white;
 }
+
+.dark-mode .btn-link, .dark-mode .cate{
+    color: white;
+}
+
 
 #boton-darkmode {
     position: fixed;
@@ -18,7 +37,7 @@ body.dark-mode {
     cursor: pointer;
   }
 
-#boton-darkmode::before{
+  #boton-darkmode::before {
     content: '';
     display: block;
     width: 30px;
@@ -28,15 +47,16 @@ body.dark-mode {
     left: 0;
     right: unset;
     border-radius: 50%;
-    transition: 3s ease all;
+    transition: left 0.3s ease; /* Cambia 'all' a 'left' y ajusta la duración (0.3s) según tus preferencias */
     z-index: 2;
 }
-#boton-darkmode.active::before{
-    right: 0;
-    left: unset;
+
+#boton-darkmode.active::before {
+    right: 30px; /* Cambia 'right' a 'left' para revertir la transición */
+    right: unset;
     border: solid thin #fff;
 }
-.dark-mode{
+body.dark-mode{
     transition: 0.5s;
     background-color: #333;
 }
