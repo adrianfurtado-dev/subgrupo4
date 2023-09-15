@@ -1,6 +1,9 @@
 
 body.dark-mode .list-group-item,
 .dark-mode,
+.dark-mode .album #autos,
+.dark-mode .album #juguetes,
+.dark-mode .album #muebles,
 .dark-mode .cate input,
 .dark-mode .cate #rangeFilterCount,
 .dark-mode .row #botones label,
@@ -11,9 +14,10 @@ body.dark-mode .list-group-item,
 .dark-mode #commentForm textarea,
 .dark-mode #commentForm input,
 .dark-mode textarea,
+.dark-mode #mas,
 .dark-mode #file-upload,
 .dark-mode select {
-    background-color: #1a1a1a;
+    background-color: #141414;
     color: white;
 }
 
@@ -21,6 +25,9 @@ body.dark-mode .list-group-item,
     color: white;
 }
 
+.dark-mode .jumbotron{
+    filter: invert(0.815)
+}
 
 #boton-darkmode {
     position: fixed;
@@ -46,8 +53,7 @@ body.dark-mode .list-group-item,
     top: 0;
     left: 0;
     right: unset;
-    border-radius: 50%;
-    transition: left 0.3s ease; /* Cambia 'all' a 'left' y ajusta la duración (0.3s) según tus preferencias */
+    border-radius: 50%;; /* Cambia 'all' a 'left' y ajusta la duración (0.3s) según tus preferencias */
     z-index: 2;
 }
 
@@ -57,9 +63,9 @@ body.dark-mode .list-group-item,
     border: solid thin #fff;
 }
 body.dark-mode{
-    transition: 0.5s;
     background-color: #333;
 }
+
 .luz{
     color: white;
 }
