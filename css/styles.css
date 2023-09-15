@@ -216,6 +216,7 @@ a.custom-card:hover {
   width: 55%;
   border-radius: 5px;
   padding: 20px;
+  resize: none;
 }
 
 .btn-comment {
