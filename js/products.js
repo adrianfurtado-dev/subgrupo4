@@ -35,7 +35,7 @@ function listProducts(products) {
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
             productosDiv.innerHTML += `
-                <div class="row list-group-item d-flex justify-content-between">
+                <div onclick="setProductID(${product.id})" class="row list-group-item list-group-item-action cursor-active d-flex justify-content-between">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
                     </div>
@@ -89,10 +89,10 @@ function sorters() {
     });
 
     document.getElementById("rangeFilterPrice").addEventListener("click", function () {
-        minPrice = parseFloat(priceMin.value);
-        maxPrice = parseFloat(priceMax.value);
-        if (isValidFilter(ORDER_BY_PROD_PRICE))
-            sortAndShowProducts(ORDER_BY_PROD_PRICE);
+        minPrice = priceMin.value !== '' ? parseFloat(priceMin.value) : undefined;
+        maxPrice = priceMax.value !== '' ? parseFloat(priceMax.value) : undefined;
+        if (isValidFilter(ORDER_DESC_BY_PRICE))
+            sortAndShowProducts(ORDER_DESC_BY_PRICE);
         else
             listProducts([]);
     });
@@ -143,19 +143,17 @@ const clearPriceInputs = () => {
     priceMax.value = '';
     minPrice = undefined;
     maxPrice = undefined;
-    listProducts(currentProductsArray);
+    listProducts(currentProductsArray.sort(function (x, y) {
+        return x.id < y.id ? -1 : 1;
+    }));
 }
 
 priceMin.addEventListener('input', () => {
-    if (isNaN(priceMin.value) || priceMin.value < 0) {
-        priceMin.value = 0;
-    }
+    priceMin.value = priceMin.value.replace(/[^0-9.]/g, '');
 });
 
 priceMax.addEventListener('input', () => {
-    if (isNaN(priceMax.value) || priceMax.value < 0) {
-        priceMax.value = 0;
-    }
+    priceMax.value = priceMax.value.replace(/[^0-9.]/g, '');
 });
 
 clearBtn.addEventListener('click', clearPriceInputs);
@@ -175,3 +173,8 @@ function filterProducts() {
 // Escuchar el evento input en el campo de búsqueda
 searchInput.addEventListener('input', filterProducts);
 
+//Se guarda el identificador del producto en el localstorage y se redirige a product-info.html
+function setProductID(id) {
+    localStorage.setItem('productoSeleccionado', id);
+    window.location = 'product-info.html';
+}

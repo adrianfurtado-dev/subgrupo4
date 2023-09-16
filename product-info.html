@@ -15,6 +15,12 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
+    <!-- Agregado el enlace a Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    >
   </head>
 
   <body>
@@ -50,10 +56,27 @@
       </div>
     </nav>
     <main>
-      <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-        </div>
+      <div class="container" id="product-container">
+        <!-- Aquí se mostrarán los detalles del producto -->
+      </div>
+      <br>
+      <br>
+      <h2 class="container">Comentarios</h2>
+      <div class="container" id="comments-container">
+        <!-- Aquí se mostrarán los comentarios -->
+      </div>
+      <br>
+      <div class="container" id="new-comment-container">
+        <h3>Comentar</h3>
+        <form id="commentForm" class="comment">
+          <label for="opinion">Tu opinión:</label><br>
+          <textarea class="new-comment" placeholder="Haz un comentario" required></textarea><br>
+          <label for="rating">Tu puntuación:</label><br>
+          <!-- Input para la calificación -->
+          <input class="new-rating" type="number" placeholder="1" id="newRating" min="0" max="5" step="0.1"/>
+          <div id="ratingSlider"></div>
+          <button class="btn-comment" type="submit" style="display: flex;">Enviar</button>
+        </form>
       </div>
     </main>
     <footer class="text-muted">
@@ -64,7 +87,7 @@
         <p>
           Este sitio forma parte de
           <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
+            >Jóvenes a Programar</a
           >
         </p>
       </div>
@@ -77,8 +100,13 @@
         <div></div>
       </div>
     </div>
+    <div>
+      <button id="boton-darkmode"><i class="fa-solid fa-sun"></i></button>
+    </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
+    <script src="js/darkmodeglobal.js"></script>
+    <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
   </body>
 </html>

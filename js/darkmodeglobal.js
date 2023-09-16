@@ -1,19 +1,25 @@
-const botondarkmode = document.querySelector("#boton-darkmode");
-const body= document.body
-const lead = document.querySelector(".lead")
-const h2 = document.querySelector("h2")
-const cant= document.querySelector("#pcant")
-const contenedor = document.querySelector(".container")
-const oscurecer = document.querySelector("#cat-list-container")
 
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
 
+    // Guardar el estado en localStorage
+    const isDarkModeEnabled = body.classList.contains('dark-mode');
+    localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
+}
 
-botondarkmode.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    lead.classList.toggle("luz")
-    h2.classList.toggle("luz")
-    cant.classList.toggle("luz")
-    contenedor.classList.toggle("luz")
-    oscurecer.classList.toggle("dark-mode")
-    botondarkmode.classList.toggle("active")
-});
+function applyDarkModePreference() {
+    const body = document.body;
+    const isDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+
+    if (isDarkModeEnabled) {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
+    }
+}
+
+const darkModeButton = document.getElementById('boton-darkmode');
+darkModeButton.addEventListener('click', toggleDarkMode);
+
+applyDarkModePreference();

@@ -144,14 +144,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     countMin.addEventListener('input', () => {
-        if (isNaN(countMin.value) || countMin.value < 0) {
-            countMin.value = 0;
-        }
+        countMin.value = countMin.value.replace(/[^0-9.]/g, '');
     });
     
     countMax.addEventListener('input', () => {
-        if (isNaN(countMax.value) || countMax.value < 0) {
-            countMax.value = 0;
-        }
+        countMax.value = countMax.value.replace(/[^0-9.]/g, '');
     });
 });

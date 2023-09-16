@@ -193,13 +193,6 @@ a.custom-card:hover {
   width: max-content;
 }
 
-.buscador{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-}
-
 .barrabuscar{
   width: 119%;
   max-width: 600px;
@@ -212,48 +205,77 @@ a.custom-card:hover {
   overflow: hidden;
 }
 
-.boton-buscar{
-  --color: #ff7221;
-  font-family: inherit;
-  display: inline-block;
-  width: 6em;
-  height: 2.6em;
-  line-height: 2.5em;
-  overflow: hidden;
-  margin: 5px;
-  font-size: 17px;
-  z-index: 1;
-  color: var(--color);
-  border: 2px solid var(--color);
-  border-radius: 6px;
-  position: relative;
-}
-
-.boton-buscar::before {
-  position: absolute;
-  content: "";
-  background: var(--color);
-  width: 150px;
-  height: 200px;
-  z-index: -1;
-  border-radius: 50%;
-}
-
-.boton-buscar:hover {
-  color: white;
-}
-
-.boton-buscar:before {
-  top: 100%;
-  left: 100%;
-  transition: .3s all;
-}
-
-.boton-buscar:hover::before {
-  top: -30px;
-  left: -30px;
-}
 
 .text-left {
   text-align: left;
+}
+
+
+
+.new-comment{
+  width: 55%;
+  border-radius: 5px;
+  padding: 20px;
+  resize: none;
+}
+
+.btn-comment {
+  background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  margin-top: 20px;
+  padding: 15px ;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  }
+
+.btn-comment:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  }
+
+  .new-rating {
+width: 10%;
+  }
+
+/* estilo estrellas rate */
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: orange;
+}
+
+.stars-and-rate {
+  display: flex;
+  align-items: center; 
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  padding-top: 11px;
+  padding-left: 5px;
+}
+
+.stars-and-rate span {
+  margin-left: 5px; 
 }
