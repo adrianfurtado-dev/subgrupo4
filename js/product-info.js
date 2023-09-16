@@ -123,7 +123,8 @@ function newComment(event) {
     comentarioNuevo &&
     !isNaN(nuevoRating) &&
     nuevoRating >= 0 &&
-    nuevoRating <= 5
+    nuevoRating <= 5 &&
+    comentarioNuevo.value.trim() !== ''
   ) {
     const fechaYHora = new Date().toLocaleString('en-CA', {
       hour12: false,
@@ -139,8 +140,8 @@ function newComment(event) {
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <strong>${user.textContent}</strong> ${fechaYHora
-      .replace(/\//g, '-')
-      .replace(',', '')}
+        .replace(/\//g, '-')
+        .replace(',', '')}
           </div>
           <div class="d-flex align-items-center">
             ${stars(nuevoRating).outerHTML}
@@ -165,7 +166,11 @@ if (formComen) {
   formComen.addEventListener('submit', newComment);
 }
 
-    newRating.addEventListener('input', () => {
-      // Reemplazar "e" con una cadena vacía
-      newRating.value = newRating.value.replace(/[^0-9.]/g, '');
-    });
+newRating.addEventListener('input', event => {
+  newRating.value.replace(/[^0-9.]/g, '')
+
+  if (newRating.value > 5) {
+    let stringRating = newRating.value.toString();
+    newRating.value = stringRating.slice(-1) > 5 ? 5 : stringRating.slice(-1)
+  }
+});
