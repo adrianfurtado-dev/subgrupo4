@@ -166,8 +166,8 @@ if (formComen) {
   formComen.addEventListener('submit', newComment);
 }
 
-newRating.addEventListener('input', event => {
-  newRating.value.replace(/[^0-9.]/g, '')
+newRating.addEventListener('input', () => {
+  newRating.value = newRating.value.replace(/[^0-9.]/g, '')
 
   if (newRating.value > 5) {
     let stringRating = newRating.value.toString();
