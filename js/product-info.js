@@ -167,10 +167,19 @@ if (formComen) {
 }
 
 newRating.addEventListener('input', () => {
-  newRating.value = newRating.value.replace(/[^0-9.]/g, '')
+  //newRating.value = newRating.value.replace(/[^0-9.]/g, '')
+  const value = newRating.value;
+  const isValid = /^-?\d*\.?\d*$/.test(value);
 
-  if (newRating.value > 5) {
-    let stringRating = newRating.value.toString();
+  if(!isValid) {
+    newRating.value = '';
+  }
+  if(value > 5) {
+    let stringRating = newRating.value.toString(); 
     newRating.value = stringRating.slice(-1) > 5 ? 5 : stringRating.slice(-1)
   }
+  /*if (parseFloat(newRating.value) > 5) {
+    let stringRating = newRating.value.toString(); 
+    newRating.value = stringRating.slice(-1) > 5 ? 5 : stringRating.slice(-1)
+  }*/
 });
