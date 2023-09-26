@@ -42,23 +42,34 @@ let getJSONData = function(url){
 
 const userProfile = () => {
   const user = document.querySelector('#user');
-  const email = localStorage.getItem('email') ? localStorage.getItem('email') : sessionStorage.getItem('email');
-  user.textContent = email;
-  user.href = 'my-profile.html'
-}
 
-if (!sessionStorage.getItem("email") && !localStorage.getItem("email")) {
+  if (isLoggedIn()) {
+    const email = localStorage.getItem('email') || sessionStorage.getItem('email');
+    user.textContent = email;
+    user.href = 'my-profile.html';
+  } else {
+    user.textContent = 'Iniciar sesión';
+    user.href = 'login.html';
+  }
+}
+//Función que evalua si el usuario esta logeado
+function isLoggedIn() {
+  return sessionStorage.getItem("email") || localStorage.getItem("email");
+}
+if (!isLoggedIn()) {
   
+  window.location.href = 'login.html';
 } else {
   userProfile();
 }
+
 function logout() {
   localStorage.removeItem('email');
   sessionStorage.removeItem('email');
   window.location.href = 'index.html'; // Redirige a la página de inicio
 }
 
-// Agrega un evento al botón "Cerrar sesión"
+// Función de cierre de sesión
 const logoutButton = document.getElementById('logout');
 if (logoutButton) {
   logoutButton.addEventListener('click', logout);
