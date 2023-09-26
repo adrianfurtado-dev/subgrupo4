@@ -48,7 +48,18 @@ const userProfile = () => {
 }
 
 if (!sessionStorage.getItem("email") && !localStorage.getItem("email")) {
-  window.location.href = "login.html";
+  
 } else {
   userProfile();
+}
+function logout() {
+  localStorage.removeItem('email');
+  sessionStorage.removeItem('email');
+  window.location.href = 'index.html'; // Redirige a la página de inicio
+}
+
+// Agrega un evento al botón "Cerrar sesión"
+const logoutButton = document.getElementById('logout');
+if (logoutButton) {
+  logoutButton.addEventListener('click', logout);
 }
