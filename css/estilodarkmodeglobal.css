@@ -16,8 +16,20 @@ body.dark-mode .list-group-item,
 .dark-mode textarea,
 .dark-mode #mas,
 .dark-mode #file-upload,
-.dark-mode select {
+.dark-mode select{
     background-color: #141414;
+    color: white;
+}
+
+.dark-mode h4,
+.dark-mode .related{
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .card{
+    border: 2px solid white;
+    background-color: #333;
     color: white;
 }
 

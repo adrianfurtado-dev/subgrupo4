@@ -2,6 +2,8 @@
 const productID = localStorage.getItem('productoSeleccionado');
 const container = document.querySelector('#product-container');
 const commentsContainer = document.querySelector('#comments-container');
+const relatedProductContainer = document.querySelector('#relacionados');
+const relatedAPI = `https://japceibal.github.io/emercado-api/products/${productID}.json`
 
 // Función para crear las estrellas
 function stars(puntaje) {
@@ -58,7 +60,7 @@ const requestToAPI = (URL) => {
     .catch((error) => console.error('Error displaying product: ', error));
 };
 
-const loadComments = () => {
+const loadComments = (productID) => {
   if (productID) {
     const API_URL = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
     fetch(API_URL)
@@ -104,7 +106,7 @@ const loadComments = () => {
 };
 
 const domLoaded = () => {
-  loadComments();
+  loadComments(productID);
   if (productID) {
     const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
     requestToAPI(API_URL);
@@ -186,3 +188,78 @@ newRating.addEventListener('keydown', (event) => {
     event.preventDefault();
   }
 });
+
+function updateProduct(productID) {
+  const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
+
+  fetch(API_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      // Limpia el contenido actual
+      container.innerHTML = '';
+      commentsContainer.innerHTML = '';
+
+      // Muestra los detalles del nuevo producto
+      showProduct(data);
+
+      // Actualiza el ID del producto seleccionado en el localStorage
+      localStorage.setItem('productoSeleccionado', productID);
+
+      // Carga los comentarios del nuevo producto
+      loadComments(productID);
+    })
+    .catch((error) => console.error('Error displaying product: ', error));
+
+  // Luego, carga los productos relacionados
+  const relatedAPI = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
+  fetch(relatedAPI)
+    .then(response => response.json())
+    .then(data => {
+      // Limpia el contenedor de productos relacionados
+      relatedProductContainer.innerHTML = '';
+      showRelatedProducts(data);
+    })
+    .catch(error => {
+      console.error('Error al cargar datos relacionados:', error);
+    });
+}
+
+
+function showProductDetails(productID) {
+  updateProduct(productID);
+}
+
+function showRelatedProducts(data) {
+  const containerRelatedProducts = document.createElement('div');
+  containerRelatedProducts.classList.add('d-flex');
+
+  data.relatedProducts.forEach((relateProduct) => {
+    const conte = document.createElement('div');
+    conte.classList.add('related');
+    conte.innerHTML += `
+      <div class="card mx-2" style="width: 18rem">
+        <div id="card-titulo" class="card-title text-center"><h4>${relateProduct.name}<h4></div>
+        <img class="card-img-top img-thumbnail"" src="${relateProduct.image}">
+      </div>
+    `;
+    containerRelatedProducts.appendChild(conte);
+
+    const tempID = `${relateProduct.id}`;
+    conte.addEventListener('click', () => {
+      // Al hacer clic en una tarjeta relacionada, actualiza el producto seleccionado
+      updateProduct(tempID);
+    });
+  });
+
+  relatedProductContainer.appendChild(containerRelatedProducts);
+}
+
+// Carga inicial de los productos relacionados
+fetch(relatedAPI)
+  .then(response => response.json())
+  .then(data => {
+    showRelatedProducts(data)
+  })
+  .catch(error => {
+    console.error('Error al cargar datos relacionados:', error);
+  });
