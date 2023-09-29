@@ -18,70 +18,13 @@ function stars(puntaje) {
   return starOuter;
 }
 
-/*
-const showProduct = (data) => {
-  const imgs = data.images
-    .map((element, index) => `
-    <div class="carousel-item${index === 0 ? ' active' : ''}">
-      <img src="${element}" class="d-block w-100">
-    </div>
-  `)
-    .join('');
-
-  container.innerHTML = `
-    <h2 class="my-3">${data.name}</h2>
-    <hr/>
-    <div class="d-flex flex-column gap-3">
-        <div>
-            <strong>Precio</strong><br/>
-            <span>${data.currency} ${data.cost}</span>
-        </div>
-        <div>
-            <strong>Descripción</strong><br/>
-            <span>${data.description}</span>
-        </div>
-        <div>
-            <strong>Categoría</strong><br/>
-            <span>${data.category}</span>
-        </div>
-        <div>
-            <strong>Cantidad de vendidos</strong><br/>
-            <span>${data.soldCount}</span>
-        </div>
-        <div>
-            <strong>Imágenes ilustrativas</strong><br/>
-            <div id="carouselProduct" class="carousel slide">
-  <div class="carousel-inner">
-    ${imgs}
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-          </div>
-          `;
-};
-
-const requestToAPI = (URL) => {
-  fetch(URL)
-    .then((response) => response.json())
-    .then((data) => showProduct(data))
-    .catch((error) => console.error('Error displaying product: ', error));
-}; 
-*/
-
 const showProduct = (data) => {
   const imgs = data.images
     .map((element) => `<img src="${element}" width="250">`)
     .join('');
 
   container. innerHTML = `
-    <h2 class="my-3">${data. name}</h2>
+    <h2 class="my-3">${data.name}</h2>
     <hr/>
     <div class="d-flex flex-column gap-3">
       <div>
@@ -165,7 +108,6 @@ const loadComments = (productID) => {
 };
 
 const domLoaded = () => {
-  loadComments(productID);
   if (productID) {
     const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
     requestToAPI(API_URL);
