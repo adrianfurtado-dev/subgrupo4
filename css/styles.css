@@ -279,3 +279,6 @@ width: 10%;
 .stars-and-rate span {
   margin-left: 5px; 
 }
+#esconder{
+  display: none;
+}
