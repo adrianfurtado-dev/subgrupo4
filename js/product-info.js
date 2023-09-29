@@ -20,7 +20,11 @@ function stars(puntaje) {
 
 const showProduct = (data) => {
   const imgs = data.images
-    .map((element) => `<img src="${element}" width="250">`)
+    .map((element, index) => `
+    <div class="carousel-item${index === 0 ? ' active' : ''}">
+      <img src="${element}" class="d-block w-100">
+    </div>
+  `)
     .join('');
 
   container.innerHTML = `
@@ -45,31 +49,22 @@ const showProduct = (data) => {
         </div>
         <div>
             <strong>Imágenes ilustrativas</strong><br/>
-            <div id="carousel-images" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            ${imgs}
-          </div>
-          <div class="carousel-item">
-            ${imgs}
-          </div>
-          <div class="carousel-item">
-            ${imgs}
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="carousel-images" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="carousel-images" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-              </div>
+            <div id="carouselProduct" class="carousel slide">
+  <div class="carousel-inner">
+    ${imgs}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
           </div>
           `;
-      };
+};
 
 const requestToAPI = (URL) => {
   fetch(URL)
