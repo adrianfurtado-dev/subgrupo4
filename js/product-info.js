@@ -202,71 +202,6 @@ newRating.addEventListener('keydown', (event) => {
   }
 });
 
-function updateProduct(productID) {
-  const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
-
-  fetch(API_URL)
-    .then((response) => response.json())
-    .then((data) => {
-      // Limpia el contenido actual
-      container.innerHTML = '';
-      commentsContainer.innerHTML = '';
-
-      // Muestra los detalles del nuevo producto
-      showProduct(data);
-
-      // Actualiza el ID del producto seleccionado en el localStorage
-      localStorage.setItem('productoSeleccionado', productID);
-
-      // Carga los comentarios del nuevo producto
-      loadComments(productID);
-    })
-    .catch((error) => console.error('Error displaying product: ', error));
-
-  // Luego, carga los productos relacionados
-  const relatedAPI = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
-  fetch(relatedAPI)
-    .then(response => response.json())
-    .then(data => {
-      // Limpia el contenedor de productos relacionados
-      relatedProductContainer.innerHTML = '';
-      showRelatedProducts(data);
-    })
-    .catch(error => {
-      console.error('Error al cargar datos relacionados:', error);
-    });
-}
-
-
-function showProductDetails(productID) {
-  updateProduct(productID);
-}
-
-function showRelatedProducts(data) {
-  const containerRelatedProducts = document.createElement('div');
-  containerRelatedProducts.classList.add('d-flex');
-
-  data.relatedProducts.forEach((relateProduct) => {
-    const conte = document.createElement('div');
-    conte.classList.add('related');
-    conte.innerHTML += `
-      <div class="card mx-2" style="width: 18rem">
-        <div id="card-titulo" class="card-title text-center"><h4>${relateProduct.name}<h4></div>
-        <img class="card-img-top img-thumbnail"" src="${relateProduct.image}">
-      </div>
-    `;
-    containerRelatedProducts.appendChild(conte);
-
-    const tempID = `${relateProduct.id}`;
-    conte.addEventListener('click', () => {
-      // Al hacer clic en una tarjeta relacionada, actualiza el producto seleccionado
-      updateProduct(tempID);
-    });
-  });
-
-  relatedProductContainer.appendChild(containerRelatedProducts);
-}
-
 // Carga inicial de los productos relacionados
 fetch(relatedAPI)
   .then(response => response.json())
@@ -276,3 +211,70 @@ fetch(relatedAPI)
   .catch(error => {
     console.error('Error al cargar datos relacionados:', error);
   });
+
+
+function showRelatedProducts(data) {
+  // Crea un contenedor para los productos relacionados
+  const containerRelatedProducts = document.createElement('div');
+  containerRelatedProducts.classList.add('d-flex');
+
+  // Itera a través de los productos relacionados en los datos
+  data.relatedProducts.forEach((relateProduct) => {
+    // Crea un elemento para un producto relacionado
+    const conte = document.createElement('div');
+    conte.classList.add('related');
+    // Genera el HTML para la tarjeta de producto relacionado
+    conte.innerHTML += `
+      <div class="card mx-2" style="width: 18rem">
+        <div id="card-titulo" class="card-title text-center"><h4>${relateProduct.name}<h4></div>
+        <img class="card-img-top img-thumbnail"" src="${relateProduct.image}">
+      </div>
+    `;
+    // Agrega el producto relacionado al contenedor
+    containerRelatedProducts.appendChild(conte);
+
+    // Al hacer clic en una tarjeta relacionada, actualiza el producto seleccionado
+    const tempID = `${relateProduct.id}`;
+    conte.addEventListener('click', () => {
+      updateProduct(tempID);
+      scrollToTop();
+    });
+  });
+
+  // Agrega el contenedor de productos relacionados a la página
+  relatedProductContainer.appendChild(containerRelatedProducts);
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+
+function updateProduct(productID) {
+  const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
+
+  // Realiza una solicitud fetch a la URL de la API
+  fetch(API_URL)
+    .then((response) => response.json()) // Procesa la respuesta como JSON
+    .then((data) => {
+      // Limpia el contenido actual en la página
+      container.innerHTML = '';
+      commentsContainer.innerHTML = '';
+      relatedProductContainer.innerHTML = '';
+
+      // Muestra los detalles del nuevo producto
+      showProduct(data);
+      loadComments(productID);
+      showRelatedProducts(data);
+
+      // Actualiza el ID del producto seleccionado en el localStorage
+      localStorage.setItem('productoSeleccionado', productID);
+    })
+    .catch((error) => {
+      console.error('Error al mostrar el producto:', error);
+    });
+}
+
