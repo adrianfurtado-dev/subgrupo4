@@ -102,13 +102,13 @@ dropdown.addEventListener('click', () => {
 validate()
 })
 //Oculta o muestra el menú desplegable o boton de iniciar sesión según corresponda si esta logeado o no
-document.addEventListener('DOMContentLoaded',function(){
-  const esconder= document.getElementById('esconder')
-  if(isLoggedIn()){
-    user.style.display= 'block';
-    esconder.style.display='none';
-  } else{
-    user.style.display='none';
-    esconder.style.display='block';
+document.addEventListener('DOMContentLoaded', function() {
+  const esconder = document.getElementById('esconder');
+  if (isLoggedIn()) {
+    user.style.display = 'block';
+    esconder.style.display = 'none';
+  } else {
+    user.style.display = 'none';
+    esconder.style.display = 'block';
   }
-})
+});

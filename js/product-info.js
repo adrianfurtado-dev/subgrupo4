@@ -20,10 +20,13 @@ function stars(puntaje) {
 
 const showProduct = (data) => {
   const imgs = data.images
-    .map((element) => `<img src="${element}" width="250">`)
-    .join('');
+    .map((element, index) => `
+  <div class="carousel-item${index === 0 ? ' active' : ''}">
+    <img src="${element}" class="d-block w-100">
+  </div>
+`).join('');
 
-  container. innerHTML = `
+  container.innerHTML = `
     <h2 class="my-3">${data.name}</h2>
     <hr/>
     <div class="d-flex flex-column gap-3">
@@ -45,9 +48,19 @@ const showProduct = (data) => {
       </div>
       <div>
         <strong>Imágenes ilustrativas</strong><br/>
-        <div class="d-flex gap-2">
-          ${imgs}
-        </div>
+        <div id="carouselProduct" class="carousel slide">
+  <div class="carousel-inner">
+    ${imgs}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
       </div>
     </div>
   `;
@@ -55,9 +68,9 @@ const showProduct = (data) => {
 };
 
 const requestToAPI = (URL) => {
-  fetch (URL)
-    .then((response) => response. json())
-    .then ((data) => showProduct(data))
+  fetch(URL)
+    .then((response) => response.json())
+    .then((data) => showProduct(data))
     .catch((error) => console.error('Error displaying product: ', error));
 };
 
