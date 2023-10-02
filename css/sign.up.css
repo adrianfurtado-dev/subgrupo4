@@ -192,7 +192,7 @@ input[type="date"].activecal::-webkit-calendar-picker-indicator {
 .oculto {
     display: none;
   }
-  .texto-fecha{
+  #texto-fecha{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

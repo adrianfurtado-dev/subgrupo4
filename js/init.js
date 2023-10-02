@@ -42,13 +42,73 @@ let getJSONData = function(url){
 
 const userProfile = () => {
   const user = document.querySelector('#user');
-  const email = localStorage.getItem('email') ? localStorage.getItem('email') : sessionStorage.getItem('email');
-  user.textContent = email;
-  user.href = 'my-profile.html'
-}
 
-if (!sessionStorage.getItem("email") && !localStorage.getItem("email")) {
-  window.location.href = "login.html";
-} else {
+  if (isLoggedIn()) {
+    const email = localStorage.getItem('email') || sessionStorage.getItem('email');
+    user.textContent = email;
+    user.href = 'my-profile.html';
+  } else {
+    user.textContent = 'Iniciar sesión';
+    user.href = 'login.html';
+  }
+}
+//Función que evalua si el usuario esta logeado
+function isLoggedIn() {
+  return sessionStorage.getItem("email") || localStorage.getItem("email");
+}
+if (!isLoggedIn()) {
   userProfile();
 }
+
+function logout() {
+  localStorage.removeItem('email');
+  sessionStorage.removeItem('email');
+  window.location.href = 'index.html'; // Redirige a la página de inicio
+}
+
+// Función de cierre de sesión
+const logoutButton = document.getElementById('logout');
+if (logoutButton) {
+  logoutButton.addEventListener('click', logout);
+}
+//Función para que el usuario/iniciar sesión se actualice
+function updateUserContent() {
+  if (isLoggedIn()) {
+    const email = localStorage.getItem('email') || sessionStorage.getItem('email');
+    user.textContent = email;
+    user.href = 'my-profile.html';
+  } else {
+    user.textContent = 'Iniciar sesión';
+    user.href = 'login.html';
+  }
+}
+document.addEventListener('userLoggedIn', updateUserContent);
+if (isLoggedIn()) {
+  const userLoggedInEvent = new Event('userLoggedIn');
+  document.dispatchEvent(userLoggedInEvent);
+}
+const dropdown = document.querySelector('.dropdown');
+//Función para validar si esta logeado
+function validate(){
+    if (!isLoggedIn()) {
+ 
+        window.location.href = 'login.html';
+      } else {
+        userProfile();
+      }
+}
+//Al clickear valida si esta logeado
+dropdown.addEventListener('click', () => {
+validate()
+})
+//Oculta o muestra el menú desplegable o boton de iniciar sesión según corresponda si esta logeado o no
+document.addEventListener('DOMContentLoaded', function() {
+  const esconder = document.getElementById('esconder');
+  if (isLoggedIn()) {
+    user.style.display = 'block';
+    esconder.style.display = 'none';
+  } else {
+    user.style.display = 'none';
+    esconder.style.display = 'block';
+  }
+});
