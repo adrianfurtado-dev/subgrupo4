@@ -26,43 +26,76 @@ const showProduct = (data) => {
   </div>
 `).join('');
 
+const buttons = data.images
+    .map((_, index) => `
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
+`).join('');
+
   container.innerHTML = `
-    <h2 class="my-3">${data.name}</h2>
-    <hr/>
-    <div class="d-flex flex-column gap-3">
-      <div>
-        <strong>Precio</strong><br/>
-        <span>${data.currency} ${data.cost}</span>
-      </div>
-      <div>
-        <strong>Descripción</strong><br/>
-        <span>${data.description}</span>
-      </div>
-      <div>
-        <strong>Categoría</strong><br/>
-        <span>${data.category}</span>
-      </div>
-      <div>
-        <strong>Cantidad de vendidos</strong><br/>
-        <span>${data.soldCount}</span>
-      </div>
-      <div>
-        <strong>Imágenes ilustrativas</strong><br/>
-        <div id="carouselProduct" class="carousel slide">
-  <div class="carousel-inner">
-    ${imgs}
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+  <div class="row my-4">
+    <div class="col-6">
+      <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            ${buttons}
+          </div>
+          <div class="carousel-inner">
+            ${imgs}
+          </div>
+          <button class="carousel-control-prev carousel-control_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next carousel-control_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
       </div>
     </div>
+    <div class="col-6">
+      <span class="fs-sm">
+        ${data.soldCount} vendidos
+      </span>
+      <h4 class="fw-bolder mt-1">${data.name}</h4>
+      <span id="product-rating_container">
+        
+      </span>
+      <div class="product-price_container">
+        <span class="fs-4">
+          ${data.currency} ${data.cost}
+        </span>
+      </div>
+      <div class="product-category_container">
+        <span>
+          <b>Categoría:</b> ${data.category}
+        </span>
+      </div>
+      <div class="product-description_container">
+        <strong>Descripción:</strong>
+        <p>
+          ${data.description}
+        </p>
+      </div>
+      <div class="product-buttons_container">
+        <div class="my-2">
+          <button class="px-3 py-1 btn_product-info">
+            <span>
+              <i class="fa-regular fa-credit-card"></i>
+              Comprar
+            </span>
+          </button>
+        </div>
+        <button class="px-3 py-1 btn_product-info">
+          <span>
+            <i class="fa-solid fa-cart-shopping"></i>
+            Agregar al carrito
+          </span>
+        </button>
+        <button class="px-2 py-1 btn_product-info">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+      </div>
+    </div>
+  </div>
   `;
   loadComments(productID);
 };
@@ -83,6 +116,7 @@ const loadComments = (productID) => {
       .then((commentsData) => {
         commentsContainer.innerHTML = '';
         if (commentsData && commentsData.length > 0) {
+          commentsData.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
           commentsData.forEach((comment) => {
             const commentElement = document.createElement('div');
             commentElement.classList.add('comment');

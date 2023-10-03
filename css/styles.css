@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: "Verdana", serif !important;
 }
 
 .jumbotron .display-4 {
@@ -32,8 +32,8 @@ nav a {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -73,12 +73,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -86,7 +86,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -193,10 +193,10 @@ a.custom-card:hover {
   width: max-content;
 }
 
-.barrabuscar{
+.barrabuscar {
   width: 119%;
   max-width: 600px;
-  padding: 10px;  
+  padding: 10px;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -205,14 +205,11 @@ a.custom-card:hover {
   overflow: hidden;
 }
 
-
 .text-left {
   text-align: left;
 }
 
-
-
-.new-comment{
+.new-comment {
   width: 55%;
   border-radius: 5px;
   padding: 20px;
@@ -220,27 +217,33 @@ a.custom-card:hover {
 }
 
 .btn-comment {
-  background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
   margin-top: 20px;
-  padding: 15px ;
+  padding: 0.75rem 1.5rem;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;            
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  }
+  color: #eee;
+  border-radius: 12px;
+  border: none;
+}
 
 .btn-comment:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-  }
+  background-position: right center;
+}
 
-  .new-rating {
-width: 10%;
-  }
+.btn-comment:active {
+  transform: scale(.97);
+}
+
+.new-rating {
+  width: 10%;
+}
 
 /* estilo estrellas rate */
 .stars-outer {
@@ -266,7 +269,7 @@ width: 10%;
 
 .stars-and-rate {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .rating-container {
@@ -277,8 +280,41 @@ width: 10%;
 }
 
 .stars-and-rate span {
-  margin-left: 5px; 
+  margin-left: 5px;
 }
-#esconder{
+#esconder {
   display: none;
+}
+
+.fs-sm {
+  font-size: small;
+}
+
+.carousel-control_btn {
+  transition: .25s ease-in-out;
+}
+
+.carousel-control_btn:hover {
+  background: rgba(20, 20, 20, .15);
+}
+
+.btn_product-info {
+  border: none;
+  border-radius: 4px;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  transition: .25s ease-in-out;
+}
+
+.btn_product-info:hover {
+  background: rgba(20, 20, 20, .15);
+}
+
+#newRating {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #767676;
+  width: 3.1rem;
+  text-align: right;
+  transition: .25s ease-in-out;
 }
