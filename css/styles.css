@@ -318,3 +318,8 @@ a.custom-card:hover {
   text-align: right;
   transition: .25s ease-in-out;
 }
+
+#productCarousel {
+  border-radius: 8px;
+  overflow: hidden;
+}

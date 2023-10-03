@@ -28,24 +28,24 @@ const showProduct = (data) => {
 
 const buttons = data.images
     .map((_, index) => `
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
+    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
 `).join('');
 
   container.innerHTML = `
   <div class="row my-4">
     <div class="col-6">
-      <div id="carouselExampleIndicators" class="carousel slide">
+      <div id="productCarousel" class="carousel slide">
           <div class="carousel-indicators">
             ${buttons}
           </div>
           <div class="carousel-inner">
             ${imgs}
           </div>
-          <button class="carousel-control-prev carousel-control_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <button class="carousel-control-prev carousel-control_btn" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next carousel-control_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <button class="carousel-control-next carousel-control_btn" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
