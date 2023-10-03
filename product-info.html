@@ -83,25 +83,31 @@
       </div>
       <br>
       <br>
-      <h2 class="container">Comentarios</h2>
-      <div class="container" id="comments-container">
-        <!-- Aquí se mostrarán los comentarios -->
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <h2>Comentarios</h2>
+            <!-- Aquí se mostrarán los comentarios -->
+            <div id="comments-container">
+
+            </div>
+          </div>
+          <br>
+          <div class="col-5" id="new-comment-container">
+            <h3>Comentar</h3>
+            <form id="commentForm" class="comment">
+              <label for="opinion">Tu opinión:</label><br>
+              <textarea class="new-comment" placeholder="Haz un comentario" required></textarea><br>
+              <label for="rating">Tu puntuación:</label>
+              <!-- Input para la calificación -->
+              <input class="new-rating" type="number" placeholder="1" id="newRating" min="0" max="5" step="0.1"/>
+              <div id="ratingSlider"></div>
+              <button class="btn-comment" type="submit" style="display: flex;">Enviar</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <br>
-      <div class="container" id="new-comment-container">
-        <h3>Comentar</h3>
-        <form id="commentForm" class="comment">
-          <label for="opinion">Tu opinión:</label><br>
-          <textarea class="new-comment" placeholder="Haz un comentario" required></textarea><br>
-          <label for="rating">Tu puntuación:</label>
-          <!-- Input para la calificación -->
-          <input class="new-rating" type="number" placeholder="1" id="newRating" min="0" max="5" step="0.1"/>
-          <div id="ratingSlider"></div>
-          <button class="btn-comment" type="submit" style="display: flex;">Enviar</button>
-        </form>
-        <hr>
-        <div id="relacionados"></div>
-      </div>
+      <div id="relacionados" class="my-4 d-flex justify-content-center"></div>
     </main>
     <footer class="text-muted">
       <div class="container">
@@ -124,6 +130,7 @@
         <div></div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>

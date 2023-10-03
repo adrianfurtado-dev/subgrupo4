@@ -55,7 +55,7 @@ const buttons = data.images
       <span class="fs-sm">
         ${data.soldCount} vendidos
       </span>
-      <h4 class="fw-bolder mt-1">${data.name}</h4>
+      <h4 class="fw-bolder mt-1 bg-transparent">${data.name}</h4>
       <span id="product-rating_container">
         
       </span>
@@ -204,7 +204,13 @@ function newComment(event) {
       `;
 
     commentsContainer.appendChild(nuevoComentario);
-
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Comentario enviado',
+      showConfirmButton: false,
+      timer: 1500
+    })
     comentarioNuevo.value = '';
     document.getElementById('newRating').value = '';
   }

@@ -38,7 +38,7 @@ body.dark-mode .list-group-item,
 }
 
 .dark-mode .jumbotron{
-    filter: invert(0.815)
+    background-image: url(../img/cover_back.jpg);
 }
 
 #boton-darkmode {
@@ -75,9 +75,13 @@ body.dark-mode .list-group-item,
     border: solid thin #fff;
 }
 body.dark-mode{
-    background-color: #333;
+    background-color: #010101;
 }
 
 .luz{
     color: white;
+}
+
+body, .jumbotron {
+    transition: .5s ease-in-out;
 }
