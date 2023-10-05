@@ -53,12 +53,12 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active my-1">
+            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active my-1 list-card-item">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
                     </div>
-                    <div class="col">
+                    <div class="col text-left">
                         <div class="d-flex w-100 justify-content-between">
                             <h3 class="mb-1">${category.name}</h3>
                             <small class="text-muted">${category.productCount} artículos</small>

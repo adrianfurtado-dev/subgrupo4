@@ -1,164 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet"
-    />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
-  </head>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>eMercado - Todo lo que busques está aquí</title>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item">
-              <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="user" data-bs-toggle="dropdown" aria-expanded="false">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/estilodarkmodeglobal.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown dropdown-user">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="user" data-bs-toggle="dropdown"
+                aria-expanded="false">
 
                 iniciar sesion
-                </a>
-                <button class="btn btn-dark" type="button" id="esconder">
-                  Iniciar sesión
-                </button>
-                <div id= "user-container">
-                  
-                </div>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <button type="button" id="boton-darkmode-registro">
-                    <span><i class="fa-solid fa-sun"></i> </span>
-                    <span><i class="fa-solid fa-moon"></i> </span>
-                  </button>
-                  <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                  <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
-                  <li><a class="dropdown-item" id="logout" href="#">Cerrar sesión</a></li>
-                </ul>
+              </a>
+              <button class="btn btn-dark" type="button" id="esconder">
+                Iniciar sesión
+              </button>
+              <div id="user-container">
+
               </div>
-            </li>
-          </ul>
-        </div>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <button type="button" id="boton-darkmode-registro">
+                  <span><i class="fa-solid fa-sun"></i> </span>
+                  <span><i class="fa-solid fa-moon"></i> </span>
+                </button>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
+                <li><a class="dropdown-item" id="logout" href="#">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
+    </div>
     </div>
   </nav>
   <main class="pb-5 container">
     <div class="container">
-      <div class="container text-center p-5">
-        <div id="title" class="text-center p4 cate">
-        </div>
-        <div class="container">
-          <div class="search-bar mb-3">
-            <input type="search" id="searchInput" class="barrabuscar" placeholder="Buscar productos...">
-          </div>
-        </div>   
-          <div class="row">
-            <div class="col text-end">
-              <div
-                class="btn-group btn-group-toggle mb-4"
-                data-bs-toggle="buttons"
-              >
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="options"
-                  id="sortAsc"
-                />
-                <label class="btn" for="sortAsc"> 
-                  <i class="fas fa-sort-amount-down mr-1"></i>$
-                </label>
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="options"
-                  id="sortDesc"
-                />
-                <label class="btn" for="sortDesc">
-                  <i class="fas fa-sort-amount-up mr-1"></i>$
-                </label>
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="options"
-                  id="sortByCount"
-                  checked
-                />
-                <label class="btn" for="sortByCount">
-                  <i class="fas fa-sort-amount-down mr-1"></i>Rel.
-                  </label>
+      <div class="container-90 text-center p-5">
+        <div class="row">
+          <div class="col-xl-3 col-12 text-center" id="products-title">
+            <div id="title"></div>
+            <div class="search-bar d-flex justify-content-center mb-3">
+              <input type="search" id="searchInput" class="barrabuscar" placeholder="Buscar productos...">
+            </div>
+
+            <div class="btn-group btn-group-toggle mb-4 gap-1" data-bs-toggle="buttons">
+              <input type="radio" class="btn-check" name="options" id="sortAsc" />
+              <label class="btn" for="sortAsc">
+                <i class="fas fa-sort-amount-down mr-1"></i>$
+              </label>
+              <input type="radio" class="btn-check" name="options" id="sortDesc" />
+              <label class="btn" for="sortDesc">
+                <i class="fas fa-sort-amount-up mr-1"></i>$
+              </label>
+              <input type="radio" class="btn-check" name="options" id="sortByCount" checked />
+              <label class="btn" for="sortByCount">
+                <i class="fas fa-sort-amount-down mr-1"></i>Rel.
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-center gap-1">
+              <input class="form-control inputRangeFilterPrice" type="number" placeholder="Mínimo"
+                id="rangeFilterPriceMin" />
+              <input class="form-control inputRangeFilterPrice" type="number" placeholder="Máximo"
+                id="rangeFilterPriceMax" />
+            </div>
+            <div class="mt-3 p-0">
+              <div class="btn-group gap-1" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterPrice">
+                  Filtrar
+                </button>
+                <button class="btn btn-light btn-block" id="clearRangeFilter">
+                  Limpiar
+                </button>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-              <div class="row container p-0 m-0">
-                <div class="col">
-                  <p class="cate font-weight-normal text-end my-2">Precio</p>
-                </div>
-                <div class="col">
-                  <input
-                    class="form-control"
-                    type="number"
-                    placeholder="min."
-                    id="rangeFilterPriceMin"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    class="form-control"
-                    type="number"
-                    placeholder="máx."
-                    id="rangeFilterPriceMax"
-                  />
-                </div>
-                <div class="col-3 p-0">
-                  <div class="btn-group" role="group">
-                    <button class="btn btn-light btn-block" id="rangeFilterPrice">
-                      Filtrar
-                    </button>
-                    <button class="btn btn-link btn-sm" id="clearRangeFilter">
-                      Limpiar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col-xl-9 col-12 list-group" id="products-column">
+            <div id="productos"></div>
           </div>
-        <div id="productos" class="container list-group"></div>
         </div>
+      </div>
+    </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
     <script src="js/darkmodeglobal.js"></script>
     <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>
