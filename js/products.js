@@ -34,27 +34,11 @@ function listProducts(products) {
                 <div onclick="setProductID(${product.id})" class="card list-card-item" style="width: 18rem;">
                     <img src="${product.image}" alt="${product.name}">
                     <div class="card-body text-left">
-                        <h5>${product.name}</h5>
+                        <h5 class="fw-bold">${product.name}</h5>
                         <h6>${product.currency} ${product.cost}</h6>
                     </div>
                 </div>
                 `;
-            /*productosDiv.innerHTML += `
-                <div onclick="setProductID(${product.id})" class="row list-group-item list-group-item-action cursor-active d-flex my-1">
-                    <div class="col-3">
-                        <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
-                    </div>
-                    <div class="col-7 text-left d-flex flex-column justify-content-center">
-
-                        <h5>${product.name}</h5>
-                        <h6>${product.currency} ${product.cost}</h6>
-                    </div>
-                    <div class="col-2">
-                        <small>
-                            ${product.soldCount} vendidos
-                        </small>
-                    </div>
-                </div>`;*/
             resultFound = true;
         }
     });

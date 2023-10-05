@@ -394,9 +394,19 @@ body.dark-mode .btn_product-info:hover {
   border: none !important;
   border-radius: 8px;
   cursor: pointer;
+  transition: .25s ease-in-out;
   & .card-body {
     background: #dedede;
   }
+}
+
+.list-card-item:hover {
+  transform: scale(1.02);
+}
+
+.min-max_container input {
+  border-radius: 8px;
+  border: 1px solid #252525;
 }
 
 .dropdown-user > .btn {
