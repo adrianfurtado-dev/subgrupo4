@@ -20,11 +20,7 @@ function getCatID() {
 
 function listTitle(catName) {
     const title = document.getElementById("title");
-    title.innerHTML += `
-        <br>
-        <h1>Productos</h1>
-        <h5><span class="lead">Veras aqui todos los productos de la categoría</span> <b>${catName}</b> </h5>
-        <br>`;
+    title.innerHTML += `<span class="family-inter fs-5">${catName}</span>`;
 }
 
 function listProducts(products) {
@@ -34,21 +30,15 @@ function listProducts(products) {
     products.forEach(product => {
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
-            productosDiv.innerHTML += `
-                <div onclick="setProductID(${product.id})" class="row list-group-item list-group-item-action cursor-active d-flex my-1">
-                    <div class="col-3">
-                        <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
+                productosDiv.innerHTML += `
+                <div onclick="setProductID(${product.id})" class="card list-card-item" style="width: 18rem;">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="card-body text-left">
+                        <h5 class="fw-bold">${product.name}</h5>
+                        <h6>${product.currency} ${product.cost}</h6>
                     </div>
-                    <div class="col-7 text-left">
-                        <h3>${product.name} - ${product.currency} ${product.cost}</h3>
-                        <p>${product.description}</p>
-                    </div>
-                    <div class="col-2">
-                        <small>
-                            ${product.soldCount} vendidos
-                        </small>
-                    </div>
-                </div>`;
+                </div>
+                `;
             resultFound = true;
         }
     });

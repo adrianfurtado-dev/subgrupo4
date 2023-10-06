@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.family-inter {
+  font-family: 'Inter', sans-serif !important;
+}
+
 .jumbotron,
 .card-body,
 .container,
 .site-header {
-  font-family: "Verdana", serif !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
 .jumbotron .display-4 {
@@ -194,7 +204,7 @@ a.custom-card:hover {
 }
 
 .barrabuscar {
-  width: 119%;
+  border: 1px solid #252525;
   max-width: 600px;
   padding: 10px;
   display: flex;
@@ -310,6 +320,10 @@ a.custom-card:hover {
   background: rgba(20, 20, 20, .15);
 }
 
+body.dark-mode .btn_product-info:hover {
+  background: rgba(255, 255, 255, .75);
+}
+
 #newRating {
   border: none;
   outline: none;
@@ -322,4 +336,87 @@ a.custom-card:hover {
 #productCarousel {
   border-radius: 8px;
   overflow: hidden;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.inputRangeFilterPrice {
+  width: 6.5rem;
+}
+
+#searchInput {
+  width: 95%;
+}
+
+.container-90 {
+  max-width: 90vw;
+}
+
+/* Funciona en Brave y otros navegadores basados en Blink */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #eee #101010;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  border-radius: 20px;
+  border: 3px solid #101010;
+}
+
+#productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 18rem);
+  gap: .5rem;
+}
+
+#productos .list-group-item {
+  border-radius: .25rem;
+  overflow: hidden;
+}
+
+.img-list-group {
+  height: 7rem;
+}
+
+.list-card-item {
+  overflow: hidden;
+  border: none !important;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .25s ease-in-out;
+  & .card-body {
+    background: #dedede;
+  }
+}
+
+.list-card-item:hover {
+  transform: scale(1.02);
+}
+
+.min-max_container input {
+  border-radius: 8px;
+  border: 1px solid #252525;
+}
+
+.dropdown-user > .btn {
+  background: transparent !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background: transparent !important;
+}
+
+.bg-navbar_dark {
+  background: #080808;
 }

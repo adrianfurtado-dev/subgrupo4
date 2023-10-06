@@ -10,6 +10,8 @@ body.dark-mode .list-group-item,
 .dark-mode .barrabuscar,
 .dark-mode .row input,
 .dark-mode .row #rangeFilterPrice,
+.dark-mode .row #clearRangeFilter,
+.dark-mode .row #rangeFilterCount,
 .dark-mode .btn-group label,
 .dark-mode #commentForm textarea,
 .dark-mode #commentForm input,
@@ -84,4 +86,10 @@ body.dark-mode{
 
 body, .jumbotron {
     transition: .5s ease-in-out;
+}
+
+body.dark-mode .list-card-item {
+    & .card-body {
+        background: #121212;
+    }
 }
