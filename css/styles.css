@@ -416,3 +416,7 @@ body.dark-mode .btn_product-info:hover {
 h1, h2, h3, h4, h5, h6 {
   background: transparent !important;
 }
+
+.bg-navbar_dark {
+  background: #080808;
+}
