@@ -33,7 +33,7 @@ const buttons = data.images
 
   container.innerHTML = `
   <div class="row my-4">
-    <div class="col-6">
+    <div class="col-xl-6 col-12">
       <div id="productCarousel" class="carousel slide">
           <div class="carousel-indicators">
             ${buttons}
@@ -51,7 +51,7 @@ const buttons = data.images
           </button>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-xl-6 col-12">
       <span class="fs-sm">
         ${data.soldCount} vendidos
       </span>
@@ -174,7 +174,8 @@ function newComment(event) {
     !isNaN(nuevoRating) &&
     nuevoRating >= 0 &&
     nuevoRating <= 5 &&
-    comentarioNuevo.value.trim() !== ''
+    comentarioNuevo.value.trim() !== '' &&
+    isLoggedIn()
   ) {
     const fechaYHora = new Date().toLocaleString('en-CA', {
       hour12: false,
@@ -213,6 +214,16 @@ function newComment(event) {
     })
     comentarioNuevo.value = '';
     document.getElementById('newRating').value = '';
+  } else {
+    if(!isLoggedIn()) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Es necesario iniciar sesión para realizar un comentario',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   }
 }
 
@@ -319,3 +330,6 @@ function updateProduct(productID) {
     });
 }
 
+function isLoggedIn() {
+  return sessionStorage.getItem("email") || localStorage.getItem("email");
+}

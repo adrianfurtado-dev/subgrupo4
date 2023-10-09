@@ -18,7 +18,8 @@ body.dark-mode .list-group-item,
 .dark-mode textarea,
 .dark-mode #mas,
 .dark-mode #file-upload,
-.dark-mode select{
+.dark-mode select,
+.dark-mode .modal-sell{
     background-color: #141414;
     color: white;
 }
