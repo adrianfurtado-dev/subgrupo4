@@ -73,6 +73,51 @@
                     <div id="product-details">
                         <!-- Aquí puedes agregar los detalles de los productos en el carrito -->
                     </div>
+                    <div id="graphics-controllers">
+                        <h5>Tipo de envio</h5>
+                        <fieldset>
+                        <div>
+                            <input type="radio" id="Premium" name="shipment" value="Premium"/>
+                            <label for="Premium">Premium 2 a 5 días (15%)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="Express" name="shipment" value="Express"/>
+                            <label for="Express">Express 5 a 8 días (7%)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="Standard" name="shipment" value="Standard"/>
+                            <label for="Standard">Standard 12 a 15 días (5%)</label>
+                        </div>
+                        <hr>
+                    </fieldset>
+                    <div id="direccion">
+                        <div class="d-flex justify-content-center">
+                        <h5>Dirección de envío</h5>
+                        </div>
+                        <fieldset>
+                            <div class="street1">
+                                <label for="calle">Calle:</label>
+                                <br>
+                                <input type="text" id="calle" name="calle" class="form-control">
+                            </div>
+                            <div class="number1">
+                                <label for="numero">Numero:</label>
+                                <br>
+                                <input type="text" id="numero" name="numero" class="form-control">
+                            </div>
+                            <div class="esquina1">
+                                <label for="esquina">Esquina:</label>
+                                <br>
+                                <input type="text" id="esquina" name="esquina" class="form-control">
+                            </div>
+                        </fieldset>
+                        <div class="d-flex justify-content-center">
+                        <button type="submit" id="confirm" class="btn btn-success">Comprar</button>
+                         </div>
+                    </div>
+                    
+                    
+                    </div>
                 </div>
             </div>
         </div>
