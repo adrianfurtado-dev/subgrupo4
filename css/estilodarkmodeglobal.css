@@ -94,3 +94,8 @@ body.dark-mode .list-card-item {
         background: #121212;
     }
 }
+
+.dark-mode table td,
+.dark-mode table th {
+    color: white;
+}
