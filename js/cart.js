@@ -33,7 +33,7 @@ fetch(API_CART_URL)
         <td><img src="${item.image}" alt="${item.name}" class="img-thumbnail" width="250"></td>
         <td>${item.name}</td>
         <td>${item.currency} ${item.unitCost}</td>
-        <td><input type="number" value="${item.count}"></td>
+        <td><input type="number" class="item-count" value="${item.count}" oninput="validateInput(this)"></td>
         <td><strong>${item.currency} ${item.unitCost * item.count}</strong></td>
       `;
       tbody.appendChild(row);
@@ -45,5 +45,10 @@ fetch(API_CART_URL)
   })
   .catch(error => console.error('Error:', error));
 
-
-
+// Función para validar el campo de entrada
+function validateInput(input) {
+  input.value = input.value.replace(/[-+e]/ig, '');
+  if (input.value < 1) {
+    input.value = 1;
+  }
+}
