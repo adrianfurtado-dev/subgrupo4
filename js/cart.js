@@ -37,7 +37,12 @@ fetch(API_CART_URL)
         <td><strong>${item.currency} ${item.unitCost * item.count}</strong></td>
       `;
       tbody.appendChild(row);
-    });
+    
+      const input = row.querySelector('.item-count');
+      input.addEventListener('input', () => {
+        validateInput(input);
+      });
+    });    
     table.appendChild(tbody);
 
     // Agregar la tabla al contenedor de detalles del producto
@@ -51,4 +56,12 @@ function validateInput(input) {
   if (input.value < 1) {
     input.value = 1;
   }
+
+  const row = input.parentNode.parentNode;
+  const unitCost = parseFloat(row.querySelector('td:nth-child(3)').innerText.split(' ')[1]);
+  const itemCount = parseInt(input.value);
+  const currency = row.querySelector('td:nth-child(3)').innerText.split(' ')[0];
+  const subtotal = row.querySelector('td:nth-child(5) strong');
+  subtotal.innerText = `${currency} ${itemCount * unitCost}`;
 }
+
