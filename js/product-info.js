@@ -72,16 +72,13 @@ const buttons = data.images
           ${data.currency} ${data.cost}
         </span>
       </div>
-      <div class="product-category_container">
-        <span>
-          <b>Categoría:</b> ${data.category}
-        </span>
+      <div>
+        <strong>Categoría</strong><br/>
+        <span>${data.category}</span>
       </div>
-      <div class="product-description_container">
-        <strong>Descripción:</strong>
-        <p>
-          ${data.description}
-        </p>
+      <div>
+        <strong>Cantidad de vendidos</strong><br/>
+        <span>${data.soldCount}</span>
       </div>
       <div class="product-buttons_container">
         <div class="my-2">
@@ -103,7 +100,6 @@ const buttons = data.images
         </button>
       </div>
     </div>
-  </div>
   `;
   loadComments(productID);
 };
