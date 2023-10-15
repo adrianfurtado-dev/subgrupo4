@@ -124,7 +124,7 @@ const loadComments = (productID) => {
       .then((commentsData) => {
         commentsContainer.innerHTML = '';
         if (commentsData && commentsData.length > 0) {
-          commentsData.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+          commentsData.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
           commentsData.forEach((comment) => {
             const commentElement = document.createElement('div');
             commentElement.classList.add('comment');
