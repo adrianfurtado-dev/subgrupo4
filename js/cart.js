@@ -27,6 +27,7 @@ fetch(API_CART_URL)
 
     // Crear el cuerpo de la tabla
     const tbody = document.createElement('tbody');
+    tbody.id = 'tableBodyCart'
     data.articles.forEach(item => {
       const row = document.createElement('tr');
       row.innerHTML = `
@@ -37,16 +38,17 @@ fetch(API_CART_URL)
         <td><strong>${item.currency} ${item.unitCost * item.count}</strong></td>
       `;
       tbody.appendChild(row);
-    
+
       const input = row.querySelector('.item-count');
       input.addEventListener('input', () => {
         validateInput(input);
       });
-    });    
+    });
     table.appendChild(tbody);
 
     // Agregar la tabla al contenedor de detalles del producto
     productDetails.appendChild(table);
+    showProducts()
   })
   .catch(error => console.error('Error:', error));
 
@@ -65,3 +67,39 @@ function validateInput(input) {
   subtotal.innerText = `${currency} ${itemCount * unitCost}`;
 }
 
+const showProduct = (product, count) => {
+  const tbody = document.querySelector('#tableBodyCart');
+  tbody.innerHTML += `
+  <tr>
+      <td>
+        <img src="${product.images[0]}" alt="${product.name}" class="img-thumbnail" width="250">
+      </td>
+      <td>
+        ${product.name}
+      </td>
+      <td>
+        ${product.currency} ${product.cost}
+      </td>
+      <td>
+        <input type="number" class="item-count" value="${parseInt(count)}" oninput="validateInput(this)">
+      </td>
+      <td>
+        <strong>${product.currency} ${product.cost * parseInt(count)}</strong>
+      </td>
+  </tr>
+    `;
+}
+
+const fetchToAPI = (idProduct, count) => {
+  const URL_API = `https://japceibal.github.io/emercado-api/products/${idProduct}.json`;
+  fetch(URL_API)
+    .then(response => response.json())
+    .then(data => showProduct(data, count))
+}
+
+const showProducts = () => {
+  const cartList = JSON.parse(localStorage.getItem('cartList'));
+  cartList.forEach(product => {
+    fetchToAPI(product.id, product.count);
+  });
+}

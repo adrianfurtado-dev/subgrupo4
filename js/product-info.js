@@ -18,6 +18,14 @@ function stars(puntaje) {
   return starOuter;
 }
 
+const addToCart = idProduct => {
+  let cartList = JSON.parse(localStorage.getItem('cartList'));
+  if (cartList.indexOf(idProduct) === -1) {
+    cartList.push( { id: idProduct, count: 1 });
+    localStorage.setItem('cartList',  JSON.stringify(cartList));
+  }
+}
+
 const showProduct = (data) => {
   const imgs = data.images
     .map((element, index) => `
@@ -84,7 +92,7 @@ const buttons = data.images
             </span>
           </button>
         </div>
-        <button class="px-3 py-1 btn_product-info">
+        <button class="px-3 py-1 btn_product-info" onclick="addToCart('${data.id}')">
           <span>
             <i class="fa-solid fa-cart-shopping"></i>
             Agregar al carrito
