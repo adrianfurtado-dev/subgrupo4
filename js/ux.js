@@ -45,6 +45,7 @@ const formregistro = document.querySelector('#signupform');
 const formlogin = document.getElementById('formlogin');
 const terminos= document.getElementById('terminos')
 const textofecha=document.getElementById('texto-fecha')
+const registro = document.getElementById('registro')
 let darkModeActive = false;
 //Función para alternar el modo oscuro entre ambos forms
 function toggleDarkMode() {
@@ -73,6 +74,9 @@ function toggleDarkMode() {
         requisitos.classList.add("luz")
         parrafoF.classList.add("luz")
         textofecha.classList.add(("luz"))
+        usuario.classList.add("holdersreg")
+        contrasena.classList.add("holdersreg")
+        registro.classList.add("holdersreg")
 
     } else {
         body.classList.remove("dark-mode");
@@ -98,11 +102,14 @@ function toggleDarkMode() {
         requisitos.classList.remove("luz")
         parrafoF.classList.remove("luz")
         textofecha.classList.remove(("luz"))
+        usuario.classList.remove("holdersreg")
+        contrasena.classList.remove("holdersreg")
 
     }
 }
 
 botondarkmodeRegistro.addEventListener("click", toggleDarkMode);
 botondarkmode.addEventListener('click', toggleDarkMode);
+
 
 

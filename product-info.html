@@ -25,7 +25,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar_dark p-1">
       <div class="container">
         <button
           class="navbar-toggler"
@@ -50,7 +50,7 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item">
-              <div class="dropdown">
+              <div class="dropdown dropdown-user">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="user" data-bs-toggle="dropdown" aria-expanded="false">
 
                 iniciar sesion
@@ -81,30 +81,33 @@
       <div class="container" id="product-container">
         <!-- Aquí se mostrarán los detalles del producto -->
       </div>
-      <div class="carousel-item" id="carousel-images">
-        <!-- Aquí se mostrarán las imágenes en un carrusel-->
-      </div>
       <br>
       <br>
-      <h2 class="container">Comentarios</h2>
-      <div class="container" id="comments-container">
-        <!-- Aquí se mostrarán los comentarios -->
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-7 col-12">
+            <h2>Comentarios</h2>
+            <!-- Aquí se mostrarán los comentarios -->
+            <div id="comments-container">
+
+            </div>
+          </div>
+          <br>
+          <div class="col-xl-5 col-12" id="new-comment-container">
+            <h3>Comentar</h3>
+            <form id="commentForm" class="comment">
+              <label for="opinion">Tu opinión:</label><br>
+              <textarea class="new-comment" placeholder="Haz un comentario" required></textarea><br>
+              <label for="rating">Tu puntuación:</label>
+              <!-- Input para la calificación -->
+              <input class="new-rating" type="number" placeholder="1" id="newRating" min="0" max="5" step="0.1"/>
+              <div id="ratingSlider"></div>
+              <button class="btn-comment" type="submit" style="display: flex;">Enviar</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <br>
-      <div class="container" id="new-comment-container">
-        <h3>Comentar</h3>
-        <form id="commentForm" class="comment">
-          <label for="opinion">Tu opinión:</label><br>
-          <textarea class="new-comment" placeholder="Haz un comentario" required></textarea><br>
-          <label for="rating">Tu puntuación:</label><br>
-          <!-- Input para la calificación -->
-          <input class="new-rating" type="number" placeholder="1" id="newRating" min="0" max="5" step="0.1"/>
-          <div id="ratingSlider"></div>
-          <button class="btn-comment" type="submit" style="display: flex;">Enviar</button>
-        </form>
-        <hr>
-        <div id="relacionados"></div>
-      </div>
+      <div id="relacionados" class="my-4 d-flex justify-content-center"></div>
     </main>
     <footer class="text-muted">
       <div class="container">
@@ -127,12 +130,12 @@
         <div></div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
     <script src="js/darkmodeglobal.js"></script>
     <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
-      <!-- Bootstrap carrusel-->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   </body>
 </html>

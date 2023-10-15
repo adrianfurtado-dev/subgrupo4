@@ -112,3 +112,5 @@ document.addEventListener('DOMContentLoaded', function() {
     esconder.style.display = 'block';
   }
 });
+
+if (!localStorage.getItem('cartList')) { localStorage.setItem('cartList', JSON.stringify([])) }

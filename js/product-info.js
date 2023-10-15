@@ -18,6 +18,14 @@ function stars(puntaje) {
   return starOuter;
 }
 
+const addToCart = idProduct => {
+  let cartList = JSON.parse(localStorage.getItem('cartList'));
+  if (cartList.indexOf(idProduct) === -1) {
+    cartList.push( { id: idProduct, count: 1 });
+    localStorage.setItem('cartList',  JSON.stringify(cartList));
+  }
+}
+
 const showProduct = (data) => {
   const imgs = data.images
     .map((element, index) => `
@@ -26,17 +34,43 @@ const showProduct = (data) => {
   </div>
 `).join('');
 
+const buttons = data.images
+    .map((_, index) => `
+    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
+`).join('');
+
   container.innerHTML = `
-    <h2 class="my-3">${data.name}</h2>
-    <hr/>
-    <div class="d-flex flex-column gap-3">
-      <div>
-        <strong>Precio</strong><br/>
-        <span>${data.currency} ${data.cost}</span>
+  <div class="row my-4">
+    <div class="col-xl-6 col-12">
+      <div id="productCarousel" class="carousel slide">
+          <div class="carousel-indicators">
+            ${buttons}
+          </div>
+          <div class="carousel-inner">
+            ${imgs}
+          </div>
+          <button class="carousel-control-prev carousel-control_btn" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next carousel-control_btn" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
       </div>
-      <div>
-        <strong>Descripción</strong><br/>
-        <span>${data.description}</span>
+    </div>
+    <div class="col-xl-6 col-12">
+      <span class="fs-sm">
+        ${data.soldCount} vendidos
+      </span>
+      <h4 class="fw-bolder mt-1 bg-transparent">${data.name}</h4>
+      <span id="product-rating_container">
+        
+      </span>
+      <div class="product-price_container">
+        <span class="fs-4">
+          ${data.currency} ${data.cost}
+        </span>
       </div>
       <div>
         <strong>Categoría</strong><br/>
@@ -46,21 +80,24 @@ const showProduct = (data) => {
         <strong>Cantidad de vendidos</strong><br/>
         <span>${data.soldCount}</span>
       </div>
-      <div>
-        <strong>Imágenes ilustrativas</strong><br/>
-        <div id="carouselProduct" class="carousel slide">
-  <div class="carousel-inner">
-    ${imgs}
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+      <div class="product-buttons_container">
+        <div class="my-2">
+          <button class="px-3 py-1 btn_product-info">
+            <span>
+              <i class="fa-regular fa-credit-card"></i>
+              Comprar
+            </span>
+          </button>
+        </div>
+        <button class="px-3 py-1 btn_product-info" onclick="addToCart('${data.id}')">
+          <span>
+            <i class="fa-solid fa-cart-shopping"></i>
+            Agregar al carrito
+          </span>
+        </button>
+        <button class="px-2 py-1 btn_product-info">
+            <i class="fa-regular fa-heart"></i>
+        </button>
       </div>
     </div>
   `;
@@ -83,6 +120,7 @@ const loadComments = (productID) => {
       .then((commentsData) => {
         commentsContainer.innerHTML = '';
         if (commentsData && commentsData.length > 0) {
+          commentsData.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
           commentsData.forEach((comment) => {
             const commentElement = document.createElement('div');
             commentElement.classList.add('comment');
@@ -140,7 +178,8 @@ function newComment(event) {
     !isNaN(nuevoRating) &&
     nuevoRating >= 0 &&
     nuevoRating <= 5 &&
-    comentarioNuevo.value.trim() !== ''
+    comentarioNuevo.value.trim() !== '' &&
+    isLoggedIn()
   ) {
     const fechaYHora = new Date().toLocaleString('en-CA', {
       hour12: false,
@@ -170,9 +209,25 @@ function newComment(event) {
       `;
 
     commentsContainer.appendChild(nuevoComentario);
-
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Comentario enviado',
+      showConfirmButton: false,
+      timer: 1500
+    })
     comentarioNuevo.value = '';
     document.getElementById('newRating').value = '';
+  } else {
+    if(!isLoggedIn()) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Es necesario iniciar sesión para realizar un comentario',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   }
 }
 
@@ -279,3 +334,6 @@ function updateProduct(productID) {
     });
 }
 
+function isLoggedIn() {
+  return sessionStorage.getItem("email") || localStorage.getItem("email");
+}
