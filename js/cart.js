@@ -103,3 +103,45 @@ const showProducts = () => {
     fetchToAPI(product.id, product.count);
   });
 }
+//Función para restringir valores no númericos en los input del Modal
+// numeric-input.js
+const inputcreditcardnumber= document.getElementById('inputcreditnumber')
+const inputsecuritynumber = document.getElementById('securitynumber')
+const inputexpiration = document.getElementById('expirationdate')
+// numeric-input.js
+function allowOnlyNumbers(...inputElements) {
+  inputElements.forEach(inputElement => {
+    inputElement.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+  });
+}
+
+allowOnlyNumbers(inputcreditcardnumber, inputsecuritynumber, inputexpiration)
+
+//Función para deshabilitar cambios
+const creditcarddiv= document.getElementById('paymentcreditcard')
+const accountnumber= document.getElementById('accountnumber')
+function disablebank(){
+  accountnumber.disabled = true
+  inputcreditcardnumber.disabled= false
+inputsecuritynumber.disabled = false
+inputexpiration.disabled = false
+inputcreditcardnumber.value = ""
+inputexpiration.value = ""
+inputsecuritynumber = ""
+}
+creditcarddiv.addEventListener('click', disablebank)
+
+const bankdiv= document.getElementById('paymentbank')
+function disablecreditcard(){
+inputcreditcardnumber.disabled= true
+inputsecuritynumber.disabled = true
+inputexpiration.disabled = true
+accountnumber.disabled = false
+accountnumber.value = ""
+}
+bankdiv.addEventListener('click', disablecreditcard)
+document.addEventListener('DOMContentLoaded', ()=>{
+  accountnumber.disabled=true
+})

@@ -432,3 +432,15 @@ margin: 40px;
 #direccion .number1 {
   margin-left: 10px; 
 }
+/*Estilos necesarios para el Modal de Cart.html*/
+
+#securitynumber{
+  width: 60%;
+}
+#expirationdate{
+  width: 50%;
+  justify-content: center;
+}
+#accountnumber{
+  width: 50%
+}
