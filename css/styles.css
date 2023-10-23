@@ -444,3 +444,26 @@ margin: 40px;
 #accountnumber{
   width: 50%
 }
+
+.swal2-popup {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.showMessage_title {
+  font-size: 1.2rem;
+}
+
+.showMessage_icon {
+  font-size: .5rem;
+}
+
+.swal2-shown {
+  overflow: unset !important;
+  padding-right: 0px !important;
+}
+
+body.swal2-shown {
+  overflow-y: scroll !important;
+}
