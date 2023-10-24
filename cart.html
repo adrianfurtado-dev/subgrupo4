@@ -126,16 +126,18 @@
         </div>
         <div class="modal-body">
             <div id="divcreditcard">
-              <p id="creditcardinput"> <input type="radio" name="payment" id="paymentcreditcard" checked>Tarjeta de crédito</p>
+              <p id="creditcardinput"> </p>
+              <input type="radio" name="payment" id="paymentcreditcard" checked>
+              <label for="paymentcreditcard">Tarjeta de crédito</label>
               <hr>
               
               <div class="row">
                 <div class="col">
-                  <label id="creditcardnumberlabel">Numero de tarjeta</label>
+                  <label id="creditcardnumberlabel">Número de tarjeta</label>
                   <input type="text" name="creditcardnumber" class="form-control" id="inputcreditnumber">
                 </div>
                 <div class="col">
-                  <label class="form">Codigo de seg</label>
+                  <label class="form">Código de seg</label>
                   <input type="text" class="form-control" id="securitynumber">
                 </div>
                 <div class="row">
@@ -147,11 +149,12 @@
                 </div>
                 
                 <div>
-                    <p id="transferencia"><input type="radio" name="payment" id="paymentbank">Transferencia Bancaria</p>
+                    <input type="radio" name="payment" id="paymentbank">
+                    <label for="paymentbank">Transferencia bancaria</label>
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <label id="accountnumberlabel">Numero de cuenta</label>
+                            <label id="accountnumberlabel">Número de cuenta</label>
                             <input type="text" class="form-control" id="accountnumber">
                         </div>
                     </div>

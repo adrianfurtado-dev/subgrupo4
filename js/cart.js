@@ -136,11 +136,10 @@ const showProducts = () => {
 }
 
 //Función para restringir valores no númericos en los input del Modal
-// numeric-input.js
 const inputcreditcardnumber= document.getElementById('inputcreditnumber')
 const inputsecuritynumber = document.getElementById('securitynumber')
 const inputexpiration = document.getElementById('expirationdate')
-// numeric-input.js
+const accountnumber= document.getElementById('accountnumber')
 function allowOnlyNumbers(...inputElements) {
   inputElements.forEach(inputElement => {
     inputElement.addEventListener('input', function () {
@@ -149,11 +148,20 @@ function allowOnlyNumbers(...inputElements) {
   });
 }
 
-allowOnlyNumbers(inputcreditcardnumber, inputsecuritynumber, inputexpiration)
+allowOnlyNumbers(inputcreditcardnumber, inputsecuritynumber, inputexpiration, accountnumber)
+//Función para el formato fecha MM/AA
+inputexpiration.addEventListener('input', function () {
+  // Elimina cualquier carácter que no sea un número
+  this.value = this.value.replace(/\D/g, '');
+
+  // Formatea MM/AA
+  if (this.value.length > 2) {
+    this.value = this.value.substring(0, 2) + '/' + this.value.substring(2, 4);
+  }
+});
 
 //Función para deshabilitar campos
 const creditcarddiv= document.getElementById('paymentcreditcard')
-const accountnumber= document.getElementById('accountnumber')
 function disablebank(){
   accountnumber.disabled = true
   inputcreditcardnumber.disabled= false
@@ -161,7 +169,8 @@ inputsecuritynumber.disabled = false
 inputexpiration.disabled = false
 inputcreditcardnumber.value = ""
 inputexpiration.value = ""
-inputsecuritynumber = ""
+inputsecuritynumber.value = ""
+accountnumber.value = ""
 }
 creditcarddiv.addEventListener('click', disablebank)
 
@@ -172,8 +181,12 @@ inputsecuritynumber.disabled = true
 inputexpiration.disabled = true
 accountnumber.disabled = false
 accountnumber.value = ""
+inputcreditcardnumber.value = ""
+inputexpiration.value = ""
+inputsecuritynumber.value = ""
 }
 bankdiv.addEventListener('click', disablecreditcard)
 document.addEventListener('DOMContentLoaded', ()=>{
   accountnumber.disabled=true
 })
+
