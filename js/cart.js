@@ -15,7 +15,7 @@ function removeProduct(row) {
   removeFromLocalStorage(productId);
 
   // Actualiza el precio total
-  updateTotalPrice();
+  
 }
 
 // Función para eliminar un producto del carrito en el localStorage
@@ -90,9 +90,7 @@ fetch(API_CART_URL)
     // Agregar la tabla al contenedor de detalles del producto
     productDetails.appendChild(table);
     showProducts();
-    updateTotalPrice(); // Actualizar el precio total al cargar la página
   })
-  .catch(error => console.error('Error:', error));
 
 // Función para validar el campo de entrada
 function validateInput(input) {
@@ -121,7 +119,6 @@ const showProduct = (product, count) => {
       <td><button class="btn btn-danger" onclick="removeProduct(this.parentNode.parentNode)">Eliminar</button></td>
     </tr>
   `;
-  updateTotalPrice(); // Actualizar el precio total cuando se agrega un producto
 }
 
 const fetchToAPI = (idProduct, count) => {
@@ -138,16 +135,6 @@ const showProducts = () => {
   });
 }
 
-function updateTotalPrice() {
-  const rows = document.querySelectorAll('#tableBodyCart tr');
-  let totalPrice = 0;
-  rows.forEach(row => {
-    const subtotalText = row.querySelector('td:nth-child(5) strong').textContent;
-    const subtotal = parseFloat(subtotalText.split(' ')[1]);
-    totalPrice += subtotal;
-  })
-  totalPriceElement.textContent = `Total: ${totalPrice} USD`;
-}
 //Función para restringir valores no númericos en los input del Modal
 // numeric-input.js
 const inputcreditcardnumber= document.getElementById('inputcreditnumber')
@@ -164,7 +151,7 @@ function allowOnlyNumbers(...inputElements) {
 
 allowOnlyNumbers(inputcreditcardnumber, inputsecuritynumber, inputexpiration)
 
-//Función para deshabilitar cambios
+//Función para deshabilitar campos
 const creditcarddiv= document.getElementById('paymentcreditcard')
 const accountnumber= document.getElementById('accountnumber')
 function disablebank(){

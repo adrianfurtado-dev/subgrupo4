@@ -444,3 +444,18 @@ margin: 40px;
 #accountnumber{
   width: 50%
 }
+#creditcardinput{
+color: black;
+}
+#accountnumberlabel{
+  color: black;
+}
+#creditcardnumberlabel{
+color: black;
+}
+#expirationdatelabel{
+  color: black;
+}
+#transferencia{
+  color: black;
+}
