@@ -93,18 +93,18 @@ fetch(API_CART_URL)
   })
 
 // Función para validar el campo de entrada
-function validateInput(input) {
+function validateInput(input, id) {
   input.value = input.value.replace(/[-+e]/ig, '');
-  if (input.value < 1) {
-    input.value = 1;
+  if (input.value <= 0) {
+    input.value = '';
   }
 
   const row = input.parentNode.parentNode;
   const unitCost = parseFloat(row.querySelector('td:nth-child(3)').innerText.split(' ')[1]);
-  const itemCount = parseInt(input.value);
+  const itemCount = parseInt(input.value) ? parseInt(input.value) : 0;
   const currency = row.querySelector('td:nth-child(3)').innerText.split(' ')[0];
   const subtotal = row.querySelector('td:nth-child(5) strong');
-  subtotal.innerText = `${currency} ${itemCount * unitCost}`;
+  subtotal.innerText = `${currency} ${BigInt(itemCount * unitCost)}`;
 }
 
 const showProduct = (product, count) => {
@@ -114,7 +114,7 @@ const showProduct = (product, count) => {
       <td><img src="${product.images[0]}" alt="${product.name}" class="img-thumbnail" width="250"></td>
       <td>${product.name}</td>
       <td>${product.currency} ${product.cost}</td>
-      <td><input type="number" class="item-count" value="${parseInt(count)}" oninput="validateInput(this)"></td>
+      <td><input type="number" class="item-count" value="${parseInt(count)}" oninput="validateInput(this, ${product.id})"></td>
       <td><strong>${product.currency} ${product.cost * parseInt(count)}</strong></td>
       <td><button class="btn btn-danger" onclick="removeProduct(this.parentNode.parentNode)">Eliminar</button></td>
     </tr>
