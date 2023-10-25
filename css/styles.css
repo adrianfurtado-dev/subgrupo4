@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 .family-inter {
-  font-family: 'Inter', sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .jumbotron,
 .card-body,
 .container,
 .site-header {
-  font-family: 'Inter', sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .jumbotron .display-4 {
@@ -42,8 +42,8 @@ nav a {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,12 +83,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -96,7 +96,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -206,7 +206,7 @@ a.custom-card:hover {
 .barrabuscar {
   border: 1px solid #252525;
   max-width: 600px;
-  padding: 10px;  
+  padding: 10px;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -215,14 +215,11 @@ a.custom-card:hover {
   overflow: hidden;
 }
 
-
 .text-left {
   text-align: left;
 }
 
-
-
-.new-comment{
+.new-comment {
   width: 55%;
   border-radius: 5px;
   padding: 20px;
@@ -230,27 +227,17 @@ a.custom-card:hover {
 }
 
 .btn-comment {
-  background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 4px;
   margin-top: 20px;
-  padding: 15px ;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
-  background-size: 200% auto;
-  color: white;            
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  }
+}
 
-.btn-comment:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-  }
-
-  .new-rating {
-width: 10%;
-  }
+.new-rating {
+  width: 10%;
+}
 
 /* estilo estrellas rate */
 .stars-outer {
@@ -276,7 +263,7 @@ width: 10%;
 
 .stars-and-rate {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .rating-container {
@@ -287,9 +274,9 @@ width: 10%;
 }
 
 .stars-and-rate span {
-  margin-left: 5px; 
+  margin-left: 5px;
 }
-#esconder{
+#esconder {
   display: none;
 }
 
@@ -298,11 +285,11 @@ width: 10%;
 }
 
 .carousel-control_btn {
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .carousel-control_btn:hover {
-  background: rgba(20, 20, 20, .15);
+  background: rgba(20, 20, 20, 0.15);
 }
 
 .btn_product-info {
@@ -310,15 +297,15 @@ width: 10%;
   border-radius: 4px;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .btn_product-info:hover {
-  background: rgba(20, 20, 20, .15);
+  background: rgba(20, 20, 20, 0.15);
 }
 
 body.dark-mode .btn_product-info:hover {
-  background: rgba(255, 255, 255, .75);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 #newRating {
@@ -327,7 +314,7 @@ body.dark-mode .btn_product-info:hover {
   border-bottom: 1px solid #767676;
   width: 3.1rem;
   text-align: right;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 #productCarousel {
@@ -374,11 +361,11 @@ body.dark-mode .btn_product-info:hover {
 #productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, 18rem);
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 #productos .list-group-item {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   overflow: hidden;
 }
 
@@ -391,7 +378,7 @@ body.dark-mode .btn_product-info:hover {
   border: none !important;
   border-radius: 8px;
   cursor: pointer;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
   & .card-body {
     background: #dedede;
   }
@@ -410,7 +397,12 @@ body.dark-mode .btn_product-info:hover {
   background: transparent !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   background: transparent !important;
 }
 
@@ -425,38 +417,38 @@ h1, h2, h3, h4, h5, h6 {
 
 #direccion .street1,
 #direccion .number1 {
-  flex: 1; 
-margin: 40px;
+  flex: 1;
+  margin: 40px;
 }
 
 #direccion .number1 {
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 /*Estilos necesarios para el Modal de Cart.html*/
 
-#securitynumber{
+#securitynumber {
   width: 60%;
 }
-#expirationdate{
+#expirationdate {
   width: 50%;
   justify-content: center;
 }
-#accountnumber{
-  width: 50%
+#accountnumber {
+  width: 50%;
 }
-#creditcardinput{
-color: black;
-}
-#accountnumberlabel{
+#creditcardinput {
   color: black;
 }
-#creditcardnumberlabel{
-color: black;
-}
-#expirationdatelabel{
+#accountnumberlabel {
   color: black;
 }
-#transferencia{
+#creditcardnumberlabel {
+  color: black;
+}
+#expirationdatelabel {
+  color: black;
+}
+#transferencia {
   color: black;
 }
 
@@ -471,7 +463,7 @@ color: black;
 }
 
 .showMessage_icon {
-  font-size: .5rem;
+  font-size: 0.5rem;
 }
 
 .swal2-shown {
