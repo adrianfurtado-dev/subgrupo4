@@ -102,76 +102,61 @@
               <!-- Aquí puedes agregar los detalles de los productos en el carrito -->
             </div>
             <div id="graphics-controllers">
-              <h5>Tipo de envio</h5>
+              <h5>Tipo de envío</h5>
               <fieldset>
-                <div>
-                  <input
-                    type="radio"
-                    id="Premium"
-                    name="envio"
-                    value="15"
-                    checked
-                  />
-                  <label for="Premium">Premium 2 a 5 días (15%)</label>
-                </div>
-                <div>
-                  <input type="radio" id="Express" name="envio" value="7" />
-                  <label for="Express">Express 5 a 8 días (7%)</label>
-                </div>
-                <div>
-                  <input type="radio" id="Standard" name="envio" value="5" />
-                  <label for="Standard">Standard 12 a 15 días (5%)</label>
-                </div>
-                <hr />
+                  <div>
+                      <input type="radio" id="Premium" name="shipment" value="Premium" required>
+                      <label for="Premium">Premium 2 a 5 días (15%)</label>
+                  </div>
+                  <div>
+                      <input type="radio" id="Express" name="shipment" value="Express" required>
+                      <label for="Express">Express 5 a 8 días (7%)</label>
+                  </div>
+                  <div>
+                      <input type="radio" id="Standard" name="shipment" value="Standard" required>
+                      <label for="Standard">Standard 12 a 15 días (5%)</label>
+                  </div>
+                  <p id="shipment-error" class="text-danger"></p>
+                  <hr>
               </fieldset>
+          </div>
+              
               <div id="direccion">
                 <div class="d-flex justify-content-center">
-                  <h5>Dirección de envío</h5>
+                    <h5>Dirección de envío</h5>
                 </div>
                 <fieldset>
-                  <div class="street1">
-                    <label for="calle">Calle:</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="calle"
-                      name="calle"
-                      class="form-control"
-                    />
-                  </div>
-                  <div class="number1">
-                    <label for="numero">Numero:</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="numero"
-                      name="numero"
-                      class="form-control"
-                    />
-                  </div>
-                  <div class="esquina1">
-                    <label for="esquina">Esquina:</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="esquina"
-                      name="esquina"
-                      class="form-control"
-                    />
-                  </div>
+                    <div class="street1">
+                        <label for="calle">Calle:</label>
+                        <br>
+                        <input type="text" id="calle" name="calle" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Ingresa una calle.
+                        </div>
+                    </div>
+                    <div class="number1">
+                        <label for="numero">Número:</label>
+                        <br>
+                        <input type="text" id="numero" name="numero" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Ingresa un número.
+                        </div>
+                    </div>
+                    <div class="esquina1">
+                        <label for="esquina">Esquina:</label>
+                        <br>
+                        <input type="text" id="esquina" name="esquina" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Ingresa una esquina.
+                        </div>
+                    </div>
                 </fieldset>
-                <hr />
+                <hr>
                 <div id="modal">
-                  <h2>Forma de pago</h2>
-                  <p id="payment">
-                    No ha seleccionado<a
-                      href="#"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Seleccionar
-                    </a>
-                  </p>
+                    <h2>Forma de pago</h2>
+                    <p id="payment"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> Seleccionar </a></p>
+                    <p id="payment-error" class="text-danger"></p>
+                </div>
 
                   <!-- Modal -->
                   <div
@@ -201,7 +186,7 @@
                               type="radio"
                               name="payment"
                               id="paymentcreditcard"
-                              checked
+                              required
                             />
                             <label for="paymentcreditcard"
                               >Tarjeta de crédito</label
@@ -219,6 +204,9 @@
                                   class="form-control"
                                   id="inputcreditnumber"
                                 />
+                                <div class="invalid-feedback">
+                                  Ingresa el número de la tarjeta.
+                              </div>
                               </div>
                               <div class="col">
                                 <label class="form">Código de seg</label>
@@ -227,6 +215,9 @@
                                   class="form-control"
                                   id="securitynumber"
                                 />
+                                <div class="invalid-feedback">
+                                  Ingresa el CVC.
+                              </div>
                               </div>
                               <div class="row">
                                 <div class="col">
@@ -238,6 +229,9 @@
                                     class="form-control mr-2"
                                     id="expirationdate"
                                   />
+                                  <div class="invalid-feedback">
+                                    Ingresa el vencimiento de la tarjeta.
+                                </div>
                                 </div>
                               </div>
 
@@ -246,6 +240,7 @@
                                   type="radio"
                                   name="payment"
                                   id="paymentbank"
+                                  required
                                 />
                                 <label for="paymentbank"
                                   >Transferencia bancaria</label
@@ -258,9 +253,12 @@
                                     >
                                     <input
                                       type="text"
-                                      class="form-control"
+                                      class="form-control mr-2"
                                       id="accountnumber"
                                     />
+                                    <div class="invalid-feedback">
+                                      Ingresa el número de cuenta.
+                                  </div>
                                   </div>
                                 </div>
                               </div>

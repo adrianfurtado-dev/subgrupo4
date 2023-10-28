@@ -144,7 +144,6 @@ document.querySelectorAll('input[name="envio"]').forEach((input) => {
   });
 });  
 
-
 const showProduct = (product, count) => {
   const tbody = document.querySelector("#tableBodyCart");
   tbody.innerHTML += `
@@ -179,11 +178,12 @@ const showProducts = () => {
   });
 };
 
-//Función para restringir valores no númericos en los input del Modal
+// Funciones para restringir valores no numéricos y el formato de fecha
 const inputcreditcardnumber = document.getElementById("inputcreditnumber");
 const inputsecuritynumber = document.getElementById("securitynumber");
 const inputexpiration = document.getElementById("expirationdate");
 const accountnumber = document.getElementById("accountnumber");
+const numberInput = document.getElementById("numero");
 function allowOnlyNumbers(...inputElements) {
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
@@ -196,9 +196,10 @@ allowOnlyNumbers(
   inputcreditcardnumber,
   inputsecuritynumber,
   inputexpiration,
-  accountnumber
+  accountnumber,
+  numberInput
 );
-//Función para el formato fecha MM/AA
+
 inputexpiration.addEventListener("input", function () {
   // Elimina cualquier carácter que no sea un número
   this.value = this.value.replace(/\D/g, "");
@@ -209,7 +210,7 @@ inputexpiration.addEventListener("input", function () {
   }
 });
 
-//Función para deshabilitar campos
+// Funciones para habilitar/deshabilitar campos
 const creditcarddiv = document.getElementById("paymentcreditcard");
 function disablebank() {
   accountnumber.disabled = true;
@@ -238,3 +239,175 @@ bankdiv.addEventListener("click", disablecreditcard);
 document.addEventListener("DOMContentLoaded", () => {
   accountnumber.disabled = true;
 });
+
+//validaciones
+const confirmButton = document.getElementById("confirm");
+
+const streetInput = document.getElementById("calle");
+const cornerInput = document.getElementById("esquina");
+const shipmentRadios = document.querySelectorAll('input[name="shipment"]');
+const paymentRadios = document.querySelectorAll('input[name="payment"]');
+const shipmentError = document.getElementById("shipment-error");
+const paymentError = document.getElementById("payment-error"); 
+
+streetInput.addEventListener("input", validateStreet);
+numberInput.addEventListener("input", validateNumber);
+cornerInput.addEventListener("input", validateCorner);
+inputcreditcardnumber.addEventListener("input", validateCreditNumber);
+inputsecuritynumber.addEventListener("input", validateCVC);
+inputexpiration.addEventListener("input", validateExpiration);
+accountnumber.addEventListener("input", validateAccountNumber);
+
+function validateStreet() {
+  if (streetInput.value.trim() === "") {
+    streetInput.classList.remove("is-valid");
+    streetInput.classList.add("is-invalid");
+  } else {
+    streetInput.classList.remove("is-invalid");
+    streetInput.classList.add("is-valid");
+  }
+}
+
+function validateNumber() {
+  if (numberInput.value.trim() === "") {
+    numberInput.classList.remove("is-valid");
+    numberInput.classList.add("is-invalid");
+  } else {
+    numberInput.classList.remove("is-invalid");
+    numberInput.classList.add("is-valid");
+  }
+}
+
+function validateCorner() {
+  if (cornerInput.value.trim() === "") {
+    cornerInput.classList.remove("is-valid");
+    cornerInput.classList.add("is-invalid");
+  } else {
+    cornerInput.classList.remove("is-invalid");
+    cornerInput.classList.add("is-valid");
+  }
+}
+
+// Función para validar el envío
+function validateShipment() {
+  let selectedShipment = false;
+  shipmentRadios.forEach((radio) => {
+    if (radio.checked) {
+      selectedShipment = true;
+    }
+  });
+
+  if (!selectedShipment) {
+    shipmentError.textContent = "Seleccione tipo de envío";
+    return false;
+  } else {
+    shipmentError.textContent = "";
+    return true;
+  }
+}
+
+// Función para validar la forma de pago
+function validatePayment() {
+  let selectedPayment = false;
+  paymentRadios.forEach((radio) => {
+    if (radio.checked) {
+      selectedPayment = true;
+    }
+  });
+
+  if (!selectedPayment) {
+    paymentError.textContent = "Debe seleccionar una forma de pago";
+    return false;
+  } else {
+    paymentError.textContent = "";
+    return true;
+  }
+}
+
+// Agregar controladores de eventos para las radios de envío y forma de pago
+shipmentRadios.forEach((radio) => {
+  radio.addEventListener("change", validateShipment);
+});
+
+paymentRadios.forEach((radio) => {
+  radio.addEventListener("change", validatePayment);
+});
+
+// Agregar un controlador de eventos para el botón de confirmación
+confirmButton.addEventListener("click", function (event) {
+  validateStreet();
+  validateNumber();
+  validateCorner();
+  validateShipment();
+  validatePayment();
+  validateCreditCard()
+  validateAccountNumber();
+  event.preventDefault();
+});
+
+//validar datos forma de pago
+function validateCreditCard(){
+  if (creditcarddiv.checked && isCreditCardEmpty()){
+    paymentError.textContent = "Debe cargar los datos de la tarjeta";
+  } else if(bankdiv.checked && isAccountNumberEmpty()) {
+    paymentError.textContent = "Debe cargar los datos de la cuenta";
+  }
+}
+
+function isCreditCardEmpty(){
+  return inputcreditcardnumber.value.trim() === "" || inputsecuritynumber.value.trim() === "" || inputexpiration.value.trim() === ""
+}
+
+function isAccountNumberEmpty(){
+  return accountnumber.value.trim() === ""
+}
+
+//Validar tarjeta de credito
+function validateCreditNumber() {
+  if (inputcreditcardnumber.value.trim() === "") {
+    inputcreditcardnumber.classList.remove("is-valid");
+    inputcreditcardnumber.classList.add("is-invalid");
+  } else {
+    inputcreditcardnumber.classList.remove("is-invalid");
+    inputcreditcardnumber.classList.add("is-valid");
+  }
+}
+
+function validateCVC() {
+  if (inputsecuritynumber.value.trim() === "") {
+    inputsecuritynumber.classList.remove("is-valid");
+    inputsecuritynumber.classList.add("is-invalid");
+  } else {
+    inputsecuritynumber.classList.remove("is-invalid");
+    inputsecuritynumber.classList.add("is-valid");
+  }
+}
+
+function validateExpiration() {
+  if (inputexpiration.value.trim() === "") {
+    inputexpiration.classList.remove("is-valid");
+    inputexpiration.classList.add("is-invalid");
+  } else {
+    inputexpiration.classList.remove("is-invalid");
+    inputexpiration.classList.add("is-valid");
+  }
+}
+
+//Validar numero de cuenta
+function validateAccountNumber() {
+  if (accountnumber.value.trim() === "") {
+    accountnumber.classList.remove("is-valid");
+    accountnumber.classList.add("is-invalid");
+  } else {
+    accountnumber.classList.remove("is-invalid");
+    accountnumber.classList.add("is-valid");
+  }
+}
+
+
+
+
+
+
+
+
