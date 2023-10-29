@@ -114,3 +114,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 if (!localStorage.getItem('cartList')) { localStorage.setItem('cartList', JSON.stringify([])) }
+if (!localStorage.getItem('darkModeEnabled')) { localStorage.setItem('darkModeEnabled', false)}
