@@ -288,9 +288,14 @@
                   <hr />
                 </div>
                 <div class="d-flex justify-content-center">
-                  <button type="submit" id="confirm" class="btn btn-success">
+                  <button type="submit" id="confirm" class="btn btn-success" onclick="openPopup()">
                     Comprar
                   </button>
+                  <div class="popup" id="popup">
+                  <h2>Compra realizada</h2>
+                  <p>Su compra se ha completado con éxito</p>
+                  <button type="button" onclick="closePopup()">Cerrar</button>
+                  </div>
                 </div>
               </div>
             </div>
