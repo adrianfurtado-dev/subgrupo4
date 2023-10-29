@@ -61,8 +61,8 @@ if (!isLoggedIn()) {
 }
 
 function logout() {
-  localStorage.removeItem('email');
-  sessionStorage.removeItem('email');
+  localStorage.clear();
+  sessionStorage.clear();
   window.location.href = 'index.html'; // Redirige a la página de inicio
 }
 
