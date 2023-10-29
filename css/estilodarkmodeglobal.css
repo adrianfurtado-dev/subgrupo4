@@ -101,7 +101,7 @@ body.dark-mode .list-card-item {
 }
 
   
-#exampleModal .modal-content {
+.dark-mode #exampleModal .modal-content {
     background-color: #252525; /* Cambia el color de fondo del contenido del modal */
     border: 1px solid #555; /* Cambia el color del borde del modal */
     /* Otros estilos específicos para el modo oscuro */
