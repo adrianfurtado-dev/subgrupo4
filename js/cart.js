@@ -412,8 +412,15 @@ function openPopup(){
 function closePopup(){
   popup.classList.remove("open-popup");
 }
-
-
+//Valida que los campos esten llenos antes de comprar
+function buy() {
+  if (inputsecuritynumber.value.trim() !== "" || inputexpiration.value.trim() !== "" || accountnumber.value.trim() !== "" || cornerInput.value.trim() !== "" || streetInput.value.trim() !== "" || numberInput.value.trim() !== "") {
+    popup.classList.add("open-popup");
+    document.getElementById("errorAlert").style.display = "none";
+  } else {
+    document.getElementById("errorAlert").style.display = "block";
+  }
+}
 
 
 

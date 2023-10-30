@@ -187,6 +187,7 @@
                               name="payment"
                               id="paymentcreditcard"
                               required
+                              checked
                             />
                             <label for="paymentcreditcard"
                               >Tarjeta de crédito</label
@@ -287,8 +288,12 @@
                   </div>
                   <hr />
                 </div>
+                <div class="alert alert-danger" id="errorAlert" style="display: none;">
+                  Complete los campos para comprar
+                </div>
+                
                 <div class="d-flex justify-content-center">
-                  <button type="submit" id="confirm" class="btn btn-success" onclick="openPopup()">
+                  <button type="submit" id="confirm" class="btn btn-success" onclick="buy()">
                     Comprar
                   </button>
                   <div class="popup" id="popup">
