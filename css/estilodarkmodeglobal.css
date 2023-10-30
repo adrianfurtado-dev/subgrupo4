@@ -99,3 +99,25 @@ body.dark-mode .list-card-item {
 .dark-mode table th {
     color: white;
 }
+
+  
+.dark-mode #exampleModal .modal-content {
+    background-color: #252525; /* Cambia el color de fondo del contenido del modal */
+    border: 1px solid #555; /* Cambia el color del borde del modal */
+    /* Otros estilos específicos para el modo oscuro */
+}
+.dark-mode .modal #divcreditcard label {
+    color: #fff; /* Cambia el color del texto de los labels a blanco en modo oscuro */
+    /* Otros estilos específicos para los labels en modo oscuro */
+  }
+  .dark-mode .modal #divcreditcard p {
+    color: #fff; /* Cambia el color del texto de los labels a blanco en modo oscuro */
+    /* Otros estilos específicos para los labels en modo oscuro */
+  }
+  .dark-mode .modal #divcreditcard input {
+    
+    background-color: #333;
+  }
+  .dark-mode .modal #modalheader h1{
+    color: white;
+  }

@@ -19,10 +19,13 @@ function stars(puntaje) {
 }
 
 const addToCart = idProduct => {
-  let cartList = JSON.parse(localStorage.getItem('cartList'));
+  let cartList = JSON.parse(localStorage.getItem('cartList')).map(product => product.id);
   if (cartList.indexOf(idProduct) === -1) {
     cartList.push( { id: idProduct, count: 1 });
     localStorage.setItem('cartList',  JSON.stringify(cartList));
+    showMessage('center-end', 'success', 'Se añadió el producto al carrito')
+  } else {
+    showMessage('center-end', 'error', 'El producto ya se encuentra en el carrito')
   }
 }
 
@@ -336,4 +339,20 @@ function updateProduct(productID) {
 
 function isLoggedIn() {
   return sessionStorage.getItem("email") || localStorage.getItem("email");
+}
+
+function showMessage(position, icon, title) {
+  Swal.fire({
+    position: position,
+    icon: icon,
+    title: title,
+    showConfirmButton: false,
+    timer: 1500,
+    customClass: {
+      title: 'showMessage_title',
+      icon: 'showMessage_icon'
+    },
+    scrollbarPadding: false,
+    heightAuto: false
+  })
 }

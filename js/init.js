@@ -61,8 +61,8 @@ if (!isLoggedIn()) {
 }
 
 function logout() {
-  localStorage.removeItem('email');
-  sessionStorage.removeItem('email');
+  localStorage.clear();
+  sessionStorage.clear();
   window.location.href = 'index.html'; // Redirige a la página de inicio
 }
 
@@ -114,3 +114,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 if (!localStorage.getItem('cartList')) { localStorage.setItem('cartList', JSON.stringify([])) }
+if (!localStorage.getItem('darkModeEnabled')) { localStorage.setItem('darkModeEnabled', false)}
