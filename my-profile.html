@@ -46,16 +46,94 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="dropdown dropdown-user">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="user" data-bs-toggle="dropdown" aria-expanded="false">
+                iniciar sesion
+              </a>
+              <button class="btn btn-dark" type="button" id="esconder">
+                Iniciar sesión
+              </button>
+              <div id="user-container">
+                
+              </div>
+            
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <button type="button" id="boton-darkmode-registro">
+                  <span><i class="fa-solid fa-sun"></i> </span>
+                  <span><i class="fa-solid fa-moon"></i> </span>
+                </button>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
+                <li><a class="dropdown-item" id="logout" href="#">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
+          
         </ul>
       </div>
     </div>
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
+<!--<div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      </div> -->
+      
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 order-md-1 mt-3">
+          <h3>Perfil</h3>
+          <hr>
+          <form>
+            <div class="form-group">
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="firstname">Primer nombre*</label>
+                  <input type="text" class="form-control" id="firstname" placeholder="Gabriela" required>
+                </div>
+                <div class="col mb-3">
+                  <label for="secondname">Segundo nombre</label>
+                  <input type="text" class="form-control" id="secondname" placeholder="Fernanda">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="lastname">
+                    Primer apellido*
+                  </label>
+                  <input type="text" class="form-control" id="lastname" placeholder="Díaz" required>
+                </div>
+                <div class="col mb-3">
+                  <label for="secondlastname">
+                    Segundo apellido
+                  </label>
+                  <input type="text" class="form-control" id="secondlastname" placeholder="Fagundez">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="email">
+                    E-mail*
+                  </label>
+                  <input type="email" class="form-control" id="emailperfil" placeholder="ejemplo@gmail.com" required>
+                </div>
+                <div class="col mb-3">
+                  <label for="phone">
+                    Telefono
+                  </label>
+                  <input type="text" class="form-control" id="phonenumber" placeholder="090000000">
+                </div>
+              </div>
+              <hr style="margin-top: 8rem;">
+              <button type="button" class="btn btn-primary">Guardar cambios</button>
+             
+              
+            </div>
+          </form>
+           
+        </div>
       </div>
+      
+    
     </div>
     <div>
       <button id="boton-darkmode"><i class="fa-solid fa-sun"></i></button>
