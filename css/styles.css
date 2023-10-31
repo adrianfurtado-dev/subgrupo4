@@ -515,3 +515,26 @@ body.swal2-shown {
   cursor: pointer;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
+.fa-heart-red{
+  transition: 1s;
+  background-color: red;
+}
+.fa-solid{
+  transition: 1s;
+  color: red;
+}
+.fa-cart-shopping{
+  color: black;
+}
+.fa-sun{
+  color: gold;
+}
+.fa-moon{
+  color: gold;
+}
+#blacksun{
+  color: black;
+}
+.fa-eye{
+  color: black;
+}

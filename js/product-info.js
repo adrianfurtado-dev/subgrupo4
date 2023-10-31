@@ -98,12 +98,21 @@ const buttons = data.images
             Agregar al carrito
           </span>
         </button>
-        <button class="px-2 py-1 btn_product-info">
-            <i class="fa-regular fa-heart"></i>
+        <button class="px-2 py-1 btn_product-info" id="heartButton">
+            <i class="fa-regular fa-heart" id="heart"></i>
         </button>
       </div>
     </div>
   `;
+  // Obtener el botón y el ícono de corazón
+const heartButton = document.getElementById('heartButton');
+const heartIcon = document.getElementById('heart');
+
+// Agregar evento de clic al botón
+heartButton.addEventListener('click', function() {
+  // Cambiar la clase del ícono de corazón
+  heartIcon.classList.toggle('fa-solid');
+});
   loadComments(productID);
 };
 
