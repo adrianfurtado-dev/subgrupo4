@@ -28,6 +28,26 @@ const addToCart = idProduct => {
     showMessage('center-end', 'error', 'El producto ya se encuentra en el carrito')
   }
 }
+function addToFavorites(idProduct) {
+    // Obtén la lista de productos favoritos desde el almacenamiento local (si existe)
+    let favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
+  
+    // Verifica si el producto ya está en la lista de favoritos
+    if (favoritesList.some(product => product.id === idProduct)) {
+      showMessage('center-end', 'error', 'Se ha eliminado el producto de tus favoritos');
+      removeFromLocalStorage(productID)
+    } else {
+      // Agrega el producto a la lista de favoritos
+      favoritesList.push({ id: idProduct });
+      localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+  
+      // Muestra un mensaje de éxito
+      showMessage('center-end', 'success', 'Se añadió el producto a tus favoritos');
+  
+      // Actualiza la página de favoritos
+      updateFavoritesPage();
+    }
+  }
 
 const showProduct = (data) => {
   const imgs = data.images
@@ -98,7 +118,7 @@ const buttons = data.images
             Agregar al carrito
           </span>
         </button>
-        <button class="px-2 py-1 btn_product-info" id="heartButton">
+        <button class="px-2 py-1 btn_product-info" id="heartButton" onclick="addToFavorites('${data.id}')">
             <i class="fa-regular fa-heart" id="heart"></i>
         </button>
       </div>
