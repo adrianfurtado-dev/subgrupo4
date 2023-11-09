@@ -1,35 +1,22 @@
-const favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
-function updateFavoritesPage() {
+document.addEventListener('DOMContentLoaded', function() {
   // Obtén la lista de productos favoritos desde el almacenamiento local
+  let favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
 
-  // Obtén el contenedor donde mostrarás los productos favoritos en favorites.html
-  const favoritesContainer = document.getElementById('favorites-container');
+  // Obtén el elemento <ul> donde se mostrarán los productos favoritos
+  let favoritesListElement = document.getElementById('favoritesList');
 
+  // Recorre la lista de productos favoritos y crea los elementos <li> correspondientes
+  favoritesList.forEach(function(product) {
+    let listItem = document.createElement('li');
+    let nameElement = document.createElement('span');
+    let priceElement = document.createElement('span');
   
-
-  // Recorre la lista de productos favoritos y muestra cada producto
-  for (const product of favoritesList) {
-    // Puedes construir el HTML de cada producto y agregarlo al contenedor
-    const productHTML = `
-      <div class="favorite-product">
-        <!-- Aquí puedes mostrar información del producto, como imagen, nombre, precio, etc. -->
-      </div>
-    `;
-  }
-}
-function removeFromLocalStorage(productId) {
-    // Obtiene la lista actual del carrito desde localStorage
-    
+    nameElement.textContent = product.name;
+    priceElement.textContent = product.price;
   
-    // Encuentra el primer índice del producto con el ID correspondiente
-    const index = favoritesList.findIndex((item) => item.id === productId);
+    listItem.appendChild(nameElement);
+    listItem.appendChild(priceElement);
   
-    // Si se encuentra el producto en la lista, elimínalo
-    if (index !== -1) {
-      favoritesList.splice(index, 1);
-    }
-  
-    // Actualiza el carrito en el localStorage
-    localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
-  }
-
+    favoritesListElement.appendChild(listItem);
+  });
+});

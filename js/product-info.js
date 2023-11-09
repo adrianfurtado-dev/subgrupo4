@@ -28,26 +28,41 @@ const addToCart = idProduct => {
     showMessage('center-end', 'error', 'El producto ya se encuentra en el carrito')
   }
 }
-function addToFavorites(idProduct) {
-    // Obtén la lista de productos favoritos desde el almacenamiento local (si existe)
-    let favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
-  
-    // Verifica si el producto ya está en la lista de favoritos
-    if (favoritesList.some(product => product.id === idProduct)) {
-      showMessage('center-end', 'error', 'Se ha eliminado el producto de tus favoritos');
-      removeFromLocalStorage(productID)
-    } else {
-      // Agrega el producto a la lista de favoritos
-      favoritesList.push({ id: idProduct });
-      localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
-  
-      // Muestra un mensaje de éxito
-      showMessage('center-end', 'success', 'Se añadió el producto a tus favoritos');
-  
-      // Actualiza la página de favoritos
-      updateFavoritesPage();
-    }
+//Función para agregar/eliminar respectivamente productos de la lista Favoritos
+function addToFavorites(idProduct, name, price, image) {
+  // Obtén la lista de productos favoritos desde el almacenamiento local (si existe)
+  let favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
+
+  // Verifica si el producto ya está en la lista de favoritos
+  const productIndex = favoritesList.findIndex(product => product.id === idProduct);
+  if (productIndex !== -1) {
+    // Elimina el producto de la lista de favoritos
+    favoritesList.splice(productIndex, 1);
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+
+    // Muestra un mensaje de tipo warning con el fin de diferenciarse
+    showMessage('center-end', 'warning', 'Se ha eliminado el producto de tus favoritos');
+  } else {
+    // Agrega el producto a la lista de favoritos con más información
+    favoritesList.push({ id: idProduct, name: name, price: price, image: image });
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+
+    // Muestra un mensaje de éxito
+    showMessage('center-end', 'success', 'Se añadió el producto a tus favoritos');
   }
+}
+
+const heartFavourites = () => {
+  const favourites = JSON.parse(localStorage.getItem('favoritesList'));
+
+  favourites.map(a => a.id === productID);
+
+  if(favourites.length > 0) {
+    return '<i class="fa-solid fa-heart" id="heart"></i>';
+  } else {
+    return '<i class="fa-regular fa-heart" id="heart"></i>';
+  }
+}
 
 const showProduct = (data) => {
   const imgs = data.images
@@ -118,20 +133,26 @@ const buttons = data.images
             Agregar al carrito
           </span>
         </button>
-        <button class="px-2 py-1 btn_product-info" id="heartButton" onclick="addToFavorites('${data.id}')">
-            <i class="fa-regular fa-heart" id="heart"></i>
-        </button>
+        <button class="px-2 py-1 btn_product-info" id="heartButton" onclick="addToFavorites('${data.id}', '${data.name}', '${data.price}', '${data.image}')">
+        ${heartFavourites()}
+      </button>
       </div>
     </div>
-  `;
-  // Obtener el botón y el ícono de corazón
+  `; 
+
+
+// Obtener el botón y el ícono de corazón
 const heartButton = document.getElementById('heartButton');
 const heartIcon = document.getElementById('heart');
 
 // Agregar evento de clic al botón
 heartButton.addEventListener('click', function() {
   // Cambiar la clase del ícono de corazón
-  heartIcon.classList.toggle('fa-solid');
+  if(heartIcon.classList.contains('fa-solid')) {
+    heartIcon.classList.replace('fa-solid', 'fa-regular');
+  } else {
+    heartIcon.classList.replace('fa-regular', 'fa-solid');
+  }
 });
   loadComments(productID);
 };
