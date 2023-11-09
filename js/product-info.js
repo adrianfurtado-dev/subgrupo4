@@ -29,25 +29,19 @@ const addToCart = idProduct => {
   }
 }
 //Función para agregar/eliminar respectivamente productos de la lista Favoritos
-function addToFavorites(idProduct, name, price, image) {
-  // Obtén la lista de productos favoritos desde el almacenamiento local (si existe)
+function addToFavorites(idProduct) {
   let favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
 
-  // Verifica si el producto ya está en la lista de favoritos
   const productIndex = favoritesList.findIndex(product => product.id === idProduct);
   if (productIndex !== -1) {
-    // Elimina el producto de la lista de favoritos
     favoritesList.splice(productIndex, 1);
     localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
 
-    // Muestra un mensaje de tipo warning con el fin de diferenciarse
     showMessage('center-end', 'warning', 'Se ha eliminado el producto de tus favoritos');
   } else {
-    // Agrega el producto a la lista de favoritos con más información
-    favoritesList.push({ id: idProduct, name: name, price: price, image: image });
+    favoritesList.push({ id: idProduct});
     localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
 
-    // Muestra un mensaje de éxito
     showMessage('center-end', 'success', 'Se añadió el producto a tus favoritos');
   }
 }
