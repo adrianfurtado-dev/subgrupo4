@@ -5,7 +5,7 @@ let favoritesListElement = document.getElementById('favoritesList');
 
 // Recorre la lista de productos favoritos y crea los elementos <li> correspondientes
 favoritesList.forEach(function(product) {
-  let listItem = document.createElement('li');
+  let listItem = document.createElement('tr');
   let nameElement = document.createElement('span');
   let priceElement = document.createElement('span');
   let imageElement = document.createElement('img');
@@ -15,11 +15,13 @@ favoritesList.forEach(function(product) {
     .then((response) => response.json())
     .then((data) => {
       // Actualiza el nombre y el precio del producto en el elemento <li>
+      listItem.classList.add('list-card-item')
       nameElement.textContent = data.name;
       priceElement.textContent = "$ "+data.cost;
       const productImage = data.images[0];
       imageElement.src = productImage;
-      imageElement.style.width='250px'
+      imageElement.classList.add('img-thumbnail')
+      imageElement.style.cssText = 'width: 250px; margin-top: 10px; cursor: pointer;';
       
 
       // Agrega los elementos al elemento <li>
@@ -31,6 +33,7 @@ favoritesList.forEach(function(product) {
       // Agrega el elemento <li> al elemento <ul>
       favoritesListElement.appendChild(listItem);
     })
+    //Manejador de errores
     .catch((error) => {
       console.error('Error al obtener la información del producto:', error);
     });
