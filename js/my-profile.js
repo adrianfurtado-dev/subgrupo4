@@ -12,5 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let emailProfile = document.getElementById('emailperfil');
     if (emailValue) {
         emailProfile.value = emailValue;
+    } else {
+        window.location.href = '/login.html'
     }
 })
