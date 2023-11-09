@@ -17,11 +17,16 @@ favoritesList.forEach(function(product) {
       // Actualiza el nombre y el precio del producto en el elemento <li>
       nameElement.textContent = data.name;
       priceElement.textContent = "$ "+data.cost;
+      const productImage = data.images[0];
+      imageElement.src = productImage;
+      imageElement.style.width='250px'
       
 
       // Agrega los elementos al elemento <li>
+      listItem.appendChild(imageElement);
       listItem.appendChild(nameElement);
       listItem.appendChild(priceElement);
+      
 
       // Agrega el elemento <li> al elemento <ul>
       favoritesListElement.appendChild(listItem);
