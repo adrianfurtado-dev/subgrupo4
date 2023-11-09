@@ -49,9 +49,7 @@ function addToFavorites(idProduct) {
 const heartFavourites = () => {
   const favourites = JSON.parse(localStorage.getItem('favoritesList'));
 
-  favourites.map(a => a.id === productID);
-
-  if(favourites.length > 0) {
+  if(favourites.find(product => product.id === productID)) {
     return '<i class="fa-solid fa-heart" id="heart"></i>';
   } else {
     return '<i class="fa-regular fa-heart" id="heart"></i>';
