@@ -21,11 +21,38 @@ function stars(puntaje) {
 const addToCart = idProduct => {
   let cartList = JSON.parse(localStorage.getItem('cartList')).map(product => product.id);
   if (cartList.indexOf(idProduct) === -1) {
-    cartList.push( { id: idProduct, count: 1 });
-    localStorage.setItem('cartList',  JSON.stringify(cartList));
+    cartList.push({ id: idProduct, count: 1 });
+    localStorage.setItem('cartList', JSON.stringify(cartList));
     showMessage('center-end', 'success', 'Se añadió el producto al carrito')
   } else {
     showMessage('center-end', 'error', 'El producto ya se encuentra en el carrito')
+  }
+}
+//Función para agregar/eliminar respectivamente productos de la lista Favoritos
+function addToFavorites(idProduct) {
+  let favoritesList = JSON.parse(localStorage.getItem('favoritesList')) || [];
+
+  const productIndex = favoritesList.findIndex(product => product.id === idProduct);
+  if (productIndex !== -1) {
+    favoritesList.splice(productIndex, 1);
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+
+    showMessage('center-end', 'warning', 'Se ha eliminado el producto de tus favoritos');
+  } else {
+    favoritesList.push({ id: idProduct});
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+
+    showMessage('center-end', 'success', 'Se añadió el producto a tus favoritos');
+  }
+}
+
+const heartFavourites = () => {
+  const favourites = JSON.parse(localStorage.getItem('favoritesList'));
+
+  if(favourites.find(product => product.id === productID)) {
+    return '<i class="fa-solid fa-heart" id="heart"></i>';
+  } else {
+    return '<i class="fa-regular fa-heart" id="heart"></i>';
   }
 }
 
@@ -37,7 +64,7 @@ const showProduct = (data) => {
   </div>
 `).join('');
 
-const buttons = data.images
+  const buttons = data.images
     .map((_, index) => `
     <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="true" aria-label="Slide ${index + 1}"></button>
 `).join('');
@@ -98,12 +125,27 @@ const buttons = data.images
             Agregar al carrito
           </span>
         </button>
-        <button class="px-2 py-1 btn_product-info">
-            <i class="fa-regular fa-heart"></i>
-        </button>
+        <button class="px-2 py-1 btn_product-info" id="heartButton" onclick="addToFavorites('${data.id}', '${data.name}', '${data.price}', '${data.image}')">
+        ${heartFavourites()}
+      </button>
       </div>
     </div>
-  `;
+  `; 
+
+
+// Obtener el botón y el ícono de corazón
+const heartButton = document.getElementById('heartButton');
+const heartIcon = document.getElementById('heart');
+
+// Agregar evento de clic al botón
+heartButton.addEventListener('click', function() {
+  // Cambiar la clase del ícono de corazón
+  if(heartIcon.classList.contains('fa-solid')) {
+    heartIcon.classList.replace('fa-solid', 'fa-regular');
+  } else {
+    heartIcon.classList.replace('fa-regular', 'fa-solid');
+  }
+});
   loadComments(productID);
 };
 
@@ -150,6 +192,8 @@ const loadComments = (productID) => {
 
             commentsContainer.appendChild(commentElement);
           });
+
+          loadStorageComments();
         } else {
           commentsContainer.innerHTML = '<p>No hay comentarios disponibles.</p>';
         }
@@ -161,6 +205,40 @@ const loadComments = (productID) => {
   }
 };
 
+function loadStorageComments() {
+  const storageComments = JSON.parse(localStorage.getItem('userComments')).filter(a => a.id === productID);
+  if (storageComments.length > 0) {
+    for (comments of storageComments) {
+      const commentElement = document.createElement('div');
+      commentElement.classList.add('comment');
+
+      const productRating = comments.score;
+      const starsElement = stars(productRating);
+
+      commentElement.innerHTML = `
+        <div class="list-group-item list-group-item-action cursor-active">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <strong>${comments.user}</strong> ${comments.dateTime}
+            </div>
+            <div class="d-flex align-items-center">
+                ${starsElement.outerHTML} 
+                <p class="rating-container">(${comments.score})</p> 
+            </div>
+        </div>
+        <div> 
+            <p>${comments.description}</p>
+        </div>
+      </div>
+        `;
+
+      commentsContainer.appendChild(commentElement);
+    }
+  }
+}
+
+
+
 const domLoaded = () => {
   if (productID) {
     const API_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
@@ -169,6 +247,14 @@ const domLoaded = () => {
 };
 
 document.addEventListener('DOMContentLoaded', domLoaded);
+
+const addUserCommentToListOfComments = comment => {
+  const userComments = JSON.parse(localStorage.getItem('userComments'));
+
+  userComments.push(comment);
+
+  localStorage.setItem('userComments', JSON.stringify(userComments));
+}
 
 function newComment(event) {
   event.preventDefault();
@@ -211,6 +297,14 @@ function newComment(event) {
         </div>
       `;
 
+    addUserCommentToListOfComments({
+      id: productID,
+      user: user.textContent,
+      dateTime: fechaYHora.replace(/\//g, '-').replace(',', ''),
+      score: nuevoRating,
+      description: comentarioNuevo.value
+    })
+
     commentsContainer.appendChild(nuevoComentario);
     Swal.fire({
       position: 'center',
@@ -222,7 +316,7 @@ function newComment(event) {
     comentarioNuevo.value = '';
     document.getElementById('newRating').value = '';
   } else {
-    if(!isLoggedIn()) {
+    if (!isLoggedIn()) {
       Swal.fire({
         position: 'center',
         icon: 'error',

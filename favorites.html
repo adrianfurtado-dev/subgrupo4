@@ -60,7 +60,6 @@
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                
                 <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                <li><a class="dropdown-item" href="favorites.html">Favoritos</a></li>
                 <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
                 <li><a class="dropdown-item" id="logout" href="#">Cerrar sesión</a></li>
               </ul>
@@ -73,78 +72,17 @@
   </nav>
   <main>
     <div class="container">
-<!--<div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div> -->
-      
       <div class="row justify-content-md-center">
         <div class="col-md-8 order-md-1 mt-3">
-          <h3>Perfil</h3>
+          <h3>Favoritos</h3>
           <hr>
-          <div class="pfp-section">
-          <div class="hero-pfp">
-          <div class="pf-img">
-            <img class="user-img" src="img/user_icon.png" alt="user_icon" id="profile-Pic">
-            <label class="upld-img" for="input-file">Subir imagen</label>
-            <input class="upld-input" type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+          <ul id="favoritesList"></ul>
+          <!-- Aquí se mostrarán los productos favoritos -->
           </div>
+
         </div>
+        
       </div>
-          <form>
-            <div class="form-group">
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="firstname">Primer nombre*</label>
-                  <input type="text" class="form-control" id="firstname" placeholder="Gabriela" required>
-                  <div class="invalid-feedback">
-                    Ingrese su primer nombre.
-                </div>
-                </div>
-                <div class="col mb-3">
-                  <label for="secondname">Segundo nombre</label>
-                  <input type="text" class="form-control" id="secondname" placeholder="Fernanda">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="lastname">Primer apellido* </label>
-                  <input type="text" class="form-control" id="lastname" placeholder="Díaz" required>
-                  <div class="invalid-feedback">
-                    Ingrese su apellido.
-                </div>
-                </div>
-                <div class="col mb-3">
-                  <label for="secondlastname">
-                    Segundo apellido
-                  </label>
-                  <input type="text" class="form-control" id="secondlastname" placeholder="Fagundez">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="email">
-                    E-mail*
-                  </label>
-                  <input type="email" class="form-control" id="emailperfil" placeholder="ejemplo@gmail.com" required readonly>
-                </div>
-                <div class="col mb-3">
-                  <label for="phone">
-                    Telefono
-                  </label>
-                  <input type="text" class="form-control" id="phonenumber" placeholder="090000000">
-                </div>
-              </div>
-              <hr style="margin-top: 8rem;">
-              <button type="button" class="btn btn-primary">Guardar cambios</button>
-             
-              
-            </div>
-          </form>
-           
-        </div>
-      </div>
-      
-    
     </div>
     <div>
       <button id="boton-darkmode"><i class="fa-solid fa-sun" id="blacksun"></i></button>
@@ -160,9 +98,9 @@
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
   <script src="js/darkmodeglobal.js"></script>
   <script src="https://kit.fontawesome.com/7db21faf09.js" crossorigin="anonymous"></script>
+  <script src="js/favourites.js"></script>
 </body>
 
 </html>

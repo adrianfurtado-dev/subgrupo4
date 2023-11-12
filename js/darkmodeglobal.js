@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     }
 
-    const darkModeButton = document.getElementById('boton-darkmode-registro');
+    const darkModeButton = document.getElementById('boton-darkmode');
     darkModeButton.addEventListener('click', toggleDarkMode);
 
     applyDarkModePreference();
