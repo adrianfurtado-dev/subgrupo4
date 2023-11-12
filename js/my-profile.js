@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (emailValue) {
         emailProfile.value = emailValue;
         saveData();
+        loadUserData();
     } else {
         window.location.href = '/login.html'
     }
@@ -96,6 +97,20 @@ function saveData() {
         alert("Cambios guardados");
     } else {
         alert("Por favor, completa todos los campos obligatorios.");
+    }
+}
+
+function loadUserData() {
+    // Obtener datos almacenados localmente
+    let storedData = JSON.parse(localStorage.getItem("userData"));
+
+    if (storedData) {
+        // Asignar los valores a los campos del formulario
+        document.getElementById('firstname').value = storedData.firstName || '';
+        document.getElementById('secondname').value = storedData.secondName || '';
+        document.getElementById('lastname').value = storedData.lastName || '';
+        document.getElementById('secondlastname').value = storedData.secondLastName || '';
+        document.getElementById('phonenumber').value = storedData.phoneNumber || '';
     }
 }
 
