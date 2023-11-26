@@ -1,0 +1,27 @@
+{
+    "id": 50742,
+    "name": "Pelota de básquetbol",
+    "description": "Balón de baloncesto profesional, para interiores, tamaño 5, 27.5 pulgadas. Oficial de la NBA",
+    "cost": 2999,
+    "currency": "UYU",
+    "soldCount": 11,
+    "category": "Juguetes",
+    "images": [
+        "img/prod50742_1.jpg",
+        "img/prod50742_2.jpg",
+        "img/prod50742_3.jpg",
+        "img/prod50742_4.jpg"
+    ],
+     "relatedProducts": [
+        {
+            "id":50741,
+            "name":"Oso de peluche",
+            "image": "img/prod50741_1.jpg"
+        },
+        {
+            "id":50743,
+            "name":"PlayStation 5",
+            "image": "img/prod50743_1.jpg"
+        }
+    ]
+}

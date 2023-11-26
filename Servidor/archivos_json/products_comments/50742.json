@@ -1,0 +1,30 @@
+[
+    {
+        "product": 50742,
+        "score": 5,
+        "description": "Perfecta. La que me recomendó el entrenador",
+        "user": "karen_gonzalez",
+        "dateTime": "2022-05-21 23:10:41"
+    },
+    {
+        "product": 50742,
+        "score": 4,
+        "description": "Es lo que esperaba. Ahora a entrenar mucho!",
+        "user": "luis_salgueiro",
+        "dateTime": "2021-10-30 06:33:53"
+    },
+    {
+        "product": 50742,
+        "score": 5,
+        "description": "Muy buena calidad.",
+        "user": "carlos_diaz",
+        "dateTime": "2020-11-02 09:28:45"
+    },
+    {
+        "product": 50742,
+        "score": 5,
+        "description": "Excelente. Para rememorar viejos tiempos y volver a sentirse un campeón.",
+        "user": "scottie_pippen",
+        "dateTime": "2019-11-09 21:15:29"
+    }
+]

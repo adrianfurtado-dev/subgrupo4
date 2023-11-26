@@ -1,0 +1,27 @@
+{
+    "id": 50743,
+    "name": "PlayStation 5",
+    "description": "Maravíllate con increíbles gráficos y disfruta de nuevas funciones de PS5. Con E/S integrada.",
+    "cost": 59999,
+    "currency": "UYU",
+    "soldCount": 16,
+    "category": "Juguetes",
+    "images": [
+        "img/prod50743_1.jpg",
+        "img/prod50743_2.jpg",
+        "img/prod50743_3.jpg",
+        "img/prod50743_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id": 50742,
+            "name": "Pelota de básquetbol",
+            "image": "img/prod50742_1.jpg"
+        },
+        {
+            "id": 50744,
+            "name": "Bicicleta",
+            "image": "img/prod50744_1.jpg"
+        }
+    ]
+}

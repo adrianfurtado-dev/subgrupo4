@@ -1,0 +1,27 @@
+{
+    "id": 60801,
+    "name": "Juego de comedor",
+    "description": "Un conjunto sencillo y sólido, ideal para zonas de comedor pequeñas, hecho en madera maciza de pino",
+    "cost": 4000,
+    "currency": "UYU",
+    "soldCount": 88,
+    "category": "Muebles",
+    "images": [
+        "img/prod60801_1.jpg",
+        "img/prod60801_2.jpg",
+        "img/prod60801_3.jpg",
+        "img/prod60801_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":60802,
+            "name":"Sofá",
+            "image": "img/prod60802_1.jpg"
+        },
+        {
+            "id":60804,
+            "name":"Mesa de centro",
+            "image": "img/prod60804_1.jpg"
+        }
+    ]
+}

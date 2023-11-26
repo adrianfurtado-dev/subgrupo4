@@ -1,0 +1,30 @@
+[
+    {
+        "product": 50921,
+        "score": 3,
+        "description": "Ya llevo un año con este auto y la verdad que tiene sus ventajas y desventajas",
+        "user": "juan_pedro",
+        "dateTime": "2020-02-25 18:03:52"
+    },
+    {
+        "product": 50921,
+        "score": 5,
+        "description": "Es un auto muy cómodo y en relación precio/calidad vale la pena!",
+        "user": "maria_sanchez",
+        "dateTime": "2020-01-17 13:42:18"
+    },
+    {
+        "product": 50921,
+        "score": 4,
+        "description": "Casi todo bien!, excepto por algún detalle de gusto personal",
+        "user": "paola_perez",
+        "dateTime": "2020-03-14 09:05:13"
+    },
+    {
+        "product": 50921,
+        "score": 5,
+        "description": "Un espectáculo el auto!",
+        "user": "gustavo_trelles",
+        "dateTime": "2020-02-21 15:05:22"
+    }
+]

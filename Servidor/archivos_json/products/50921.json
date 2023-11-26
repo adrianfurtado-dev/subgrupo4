@@ -1,0 +1,27 @@
+{
+    "id": 50921,
+    "name": "Chevrolet Onix Joy",
+    "description": "Generación 2019, variedad de colores. Motor 1.0, ideal para ciudad.",
+    "cost": 13500,
+    "currency": "USD",
+    "soldCount": 14,
+    "category": "Autos",
+    "images": [
+        "img/prod50921_1.jpg",
+        "img/prod50921_2.jpg",
+        "img/prod50921_3.jpg",
+        "img/prod50921_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":50924,
+            "name":"Peugeot 208",
+            "image": "img/prod50924_1.jpg"
+        },
+        {
+            "id":50922,
+            "name":"Fiat Way",
+            "image": "img/prod50922_1.jpg"
+        }
+    ]
+}
