@@ -1,0 +1,27 @@
+{
+    "id": 50925,
+    "name": "Bugatti Chiron",
+    "description": "El mejor hiperdeportivo de mundo. Producción limitada a 500 unidades.",
+    "cost": 3500000,
+    "currency": "USD",
+    "soldCount": 0,
+    "category": "Autos",
+    "images": [
+        "img/prod50925_1.jpg",
+        "img/prod50925_2.jpg",
+        "img/prod50925_3.jpg",
+        "img/prod50925_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":50924,
+            "name":"Peugeot 208",
+            "image": "img/prod50924_1.jpg"
+        },
+        {
+            "id":50921,
+            "name":"Chevrolet Onix Joy",
+            "image": "img/prod50921_1.jpg"
+        }
+    ]
+}

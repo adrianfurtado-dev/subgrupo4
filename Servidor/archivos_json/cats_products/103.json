@@ -1,0 +1,42 @@
+{
+    "catID": 103,
+    "catName": "Muebles",
+    "products": [
+        {
+            "id": 60801,
+            "name": "Juego de comedor",
+            "description": "Un conjunto sencillo y sólido, ideal para zonas de comedor pequeñas, hecho en madera maciza de pino",
+            "cost": 4000,
+            "currency": "UYU",
+            "soldCount": 88,
+            "image": "img/prod60801_1.jpg"
+        },
+        {
+            "id": 60802,
+            "name": "Sofá",
+            "description": "Cómodo sofá de tres cuerpos, con chaiselongue intercambiable. Ideal para las siestas",
+            "cost": 24000,
+            "currency": "UYU",
+            "soldCount": 12,
+            "image": "img/prod60802_1.jpg"
+        },
+        {
+            "id": 60803,
+            "name": "Armario",
+            "description": "Diseño clásico con puertas con forma de panel. Espejo de cuerpo entero para ver cómo te queda la ropa",
+            "cost": 8000,
+            "currency": "UYU",
+            "soldCount": 24,
+            "image": "img/prod60803_1.jpg"
+        },
+        {
+            "id": 60804,
+            "name": "Mesa de centro",
+            "description": "Añade más funciones a tu sala de estar, ya que te permite cambiar fácilmente de actividad.",
+            "cost": 10000,
+            "currency": "UYU",
+            "soldCount": 37,
+            "image": "img/prod60804_1.jpg"
+        }
+    ]
+}

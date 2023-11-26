@@ -1,0 +1,42 @@
+{
+    "catID": 102,
+    "catName": "Juguetes",
+    "products": [
+        {
+            "id": 50741,
+            "name": "Oso de peluche",
+            "description": "Oso de peluche gigante, con el bebé. Resistente y lavable. Tus hijos los amarán",
+            "cost": 2400,
+            "currency": "UYU",
+            "soldCount": 97,
+            "image": "img/prod50741_1.jpg"
+        },
+        {
+            "id": 50742,
+            "name": "Pelota de básquetbol",
+            "description": "Balón de baloncesto profesional, para interiores, tamaño 5, 27.5 pulgadas. Oficial de la NBA",
+            "cost": 2999,
+            "currency": "UYU",
+            "soldCount": 11,
+            "image": "img/prod50742_1.jpg"
+        },
+        {
+            "id": 50743,
+            "name": "PlayStation 5",
+            "description": "Maravíllate con increíbles gráficos y disfruta de nuevas funciones de PS5. Con E/S integrada.",
+            "cost": 59999,
+            "currency": "UYU",
+            "soldCount": 16,
+            "image": "img/prod50743_1.jpg"
+        },
+        {
+            "id": 50744,
+            "name": "Bicicleta",
+            "description": "¡La mejor BMX pequeña del mercado! Frenos traseros y cuadro duradero de acero Hi-Ten.",
+            "cost": 10999,
+            "currency": "UYU",
+            "soldCount": 8,
+            "image": "img/prod50744_1.jpg"
+        }
+    ]
+}

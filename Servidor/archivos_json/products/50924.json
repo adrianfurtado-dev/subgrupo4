@@ -1,0 +1,27 @@
+{
+    "id": 50924,
+    "name": "Peugeot 208",
+    "description": "El modelo de auto que se sigue renovando y manteniendo su prestigio en comodidad.",
+    "cost": 15200,
+    "currency": "USD",
+    "soldCount": 17,
+    "category": "Autos",
+    "images": [
+        "img/prod50924_1.jpg",
+        "img/prod50924_2.jpg",
+        "img/prod50924_3.jpg",
+        "img/prod50924_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":50921,
+            "name":"Chevrolet Onix Joy",
+            "image": "img/prod50921_1.jpg"
+        },
+        {
+            "id":50923,
+            "name":"Suzuki Celerio",
+            "image": "img/prod50923_1.jpg"
+        }
+    ]
+}

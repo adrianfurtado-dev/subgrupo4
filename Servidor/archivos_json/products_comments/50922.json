@@ -1,0 +1,23 @@
+[
+    {
+        "product": 50922,
+        "score": 3,
+        "description": "Es un buen auto, pero el precio me pareció algo elevado",
+        "user": "ema_perez",
+        "dateTime": "2022-04-05 15:29:40"
+    },
+    {
+        "product": 50922,
+        "score": 5,
+        "description": "Muy buen auto, vale cada centavo",
+        "user": "javier_santoalla",
+        "dateTime": "2021-11-15 19:32:10"
+    },
+    {
+        "product": 50922,
+        "score": 5,
+        "description": "Me gusta como se comporta en tierra y pista",
+        "user": "gonza_rodriguez",
+        "dateTime": "2020-02-21 15:05:22"
+    }
+]

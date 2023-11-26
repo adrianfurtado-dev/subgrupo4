@@ -1,0 +1,23 @@
+[
+    {
+        "product": 50923,
+        "score": 5,
+        "description": "Gran opción. Bueno, bonito y barato",
+        "user": "alfredo_bioy",
+        "dateTime": "2022-02-15 20:19:20"
+    },
+    {
+        "product": 50923,
+        "score": 4,
+        "description": "No había el color que yo quería, pero lo demás está perfecto.",
+        "user": "pablo_cibeles",
+        "dateTime": "2021-05-24 19:25:43"
+    },
+    {
+        "product": 50923,
+        "score": 5,
+        "description": "Lo que busco cuando no compito",
+        "user": "santiago_urrutia",
+        "dateTime": "2020-12-03 14:15:33"
+    }
+]

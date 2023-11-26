@@ -1,0 +1,16 @@
+[
+    {
+        "product": 60802,
+        "score": 4,
+        "description": "Muy cómodo. Ideal para las siestas",
+        "user": "ximena_fagundez",
+        "dateTime": "2022-03-29 09:15:01"
+    },
+    {
+        "product": 60802,
+        "score": 5,
+        "description": "Lo compré para ver los partidos con mis amigos. Valió la pena.",
+        "user": "marcelo_sosa",
+        "dateTime": "2021-08-09 22:05:12"
+    }
+]

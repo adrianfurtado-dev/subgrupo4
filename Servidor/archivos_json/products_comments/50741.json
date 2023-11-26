@@ -1,0 +1,30 @@
+[
+    {
+        "product": 50741,
+        "score": 5,
+        "description": "Precioso, a mi nena le encantó",
+        "user": "silvia_fagundez",
+        "dateTime": "2021-02-20 14:00:42"
+    },
+    {
+        "product": 50741,
+        "score": 4,
+        "description": "Esperaba que fuera más grande, pero es muy lindo.",
+        "user": "majo_sanchez",
+        "dateTime": "2021-01-11 16:26:10"
+    },
+    {
+        "product": 50741,
+        "score": 5,
+        "description": "Hermoso el oso. Quedamos encantados, lo recomiendo.",
+        "user": "raul_añez",
+        "dateTime": "2020-12-16 19:55:19"
+    },
+    {
+        "product": 50741,
+        "score": 1,
+        "description": "Se lo regalé a mi novia para que me perdone, pero no funcionó",
+        "user": "flynn_rider",
+        "dateTime": "2020-02-14 23:19:09"
+    }
+]

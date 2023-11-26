@@ -1,0 +1,27 @@
+{
+    "id": 50741,
+    "name": "Oso de peluche",
+    "description": "Oso de peluche gigante, con el bebé. Resistente y lavable. Tus hijos los amarán",
+    "cost": 2400,
+    "currency": "UYU",
+    "soldCount": 97,
+    "category": "Juguetes",
+    "images": [
+        "img/prod50741_1.jpg",
+        "img/prod50741_2.jpg",
+        "img/prod50741_3.jpg",
+        "img/prod50741_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":50742,
+            "name":"Pelota de básquetbol",
+            "image": "img/prod50742_1.jpg"
+        },
+        {
+            "id":50744,
+            "name":"Bicicleta",
+            "image": "img/prod50744_1.jpg"
+        }
+    ]
+}

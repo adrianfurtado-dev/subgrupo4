@@ -1,0 +1,30 @@
+[
+    {
+        "product": 50743,
+        "score": 5,
+        "description": "Un lujo. Se la compré a mis hijos, pero creo que me la quedo yo.",
+        "user": "saul_dominguez",
+        "dateTime": "2022-04-18 13:20:56"
+    },
+    {
+        "product": 50743,
+        "score": 5,
+        "description": "Increibles los gráficos que tiene.",
+        "user": "lucia_ralek",
+        "dateTime": "2022-04-05 11:20:09"
+    },
+    {
+        "product": 50743,
+        "score": 5,
+        "description": "IM PRE SIO NAN TE.",
+        "user": "mateo_diestre",
+        "dateTime": "2022-03-21 22:38:39"
+    },
+    {
+        "product": 50743,
+        "score": 5,
+        "description": "Me cuesta creer lo que han avanzado las consolas",
+        "user": "ralph_baer",
+        "dateTime": "2022-01-04 11:16:48"
+    }
+]

@@ -1,0 +1,27 @@
+{
+    "id": 60803,
+    "name": "Armario",
+    "description": "Diseño clásico con puertas con forma de panel. Espejo de cuerpo entero para ver cómo te queda la ropa",
+    "cost": 8000,
+    "currency": "UYU",
+    "soldCount": 24,
+    "category": "Muebles",
+    "images": [
+        "img/prod60803_1.jpg",
+        "img/prod60803_2.jpg",
+        "img/prod60803_3.jpg",
+        "img/prod60803_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":60802,
+            "name":"Sofá",
+            "image": "img/prod60802_1.jpg"
+        },
+        {
+            "id":60804,
+            "name":"Mesa de centro",
+            "image": "img/prod60804_1.jpg"
+        }
+    ]
+}

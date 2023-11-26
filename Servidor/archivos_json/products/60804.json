@@ -1,0 +1,27 @@
+{
+    "id": 60804,
+    "name": "Mesa de centro",
+    "description": "Añade más funciones a tu sala de estar, ya que te permite cambiar fácilmente de actividad.",
+    "cost": 10000,
+    "currency": "UYU",
+    "soldCount": 37,
+    "category": "Muebles",
+    "images": [
+        "img/prod60804_1.jpg",
+        "img/prod60804_2.jpg",
+        "img/prod60804_3.jpg",
+        "img/prod60804_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":60801,
+            "name":"Juego de comedor",
+            "image": "img/prod60801_1.jpg"
+        },
+        {
+            "id":60803,
+            "name":"Armario",
+            "image": "img/prod60803_1.jpg"
+        }
+    ]
+}

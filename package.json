@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "json": "^11.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mariadb": "^3.2.2"
+  },
+  "name": "subgrupo4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

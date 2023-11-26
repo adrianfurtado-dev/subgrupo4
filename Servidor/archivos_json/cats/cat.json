@@ -1,0 +1,65 @@
+[
+    {
+        "id": 101,
+        "name": "Autos",
+        "description": "Los mejores precios en autos 0 kilómetro, de alta y media gama.",
+        "productCount": "5",
+        "imgSrc": "img/cat101_1.jpg"
+    },
+    {
+        "id": 102,
+        "name": "Juguetes",
+        "description": "Encuentra aquí los mejores precios para niños/as de cualquier edad.",
+        "productCount": "4",
+        "imgSrc": "img/cat102_1.jpg"
+    },
+    {
+        "id": 103,
+        "name": "Muebles",
+        "description": "Muebles antiguos, nuevos y para ser armados por uno mismo.",
+        "productCount": "4",
+        "imgSrc": "img/cat103_1.jpg"
+    },
+    {
+        "id": 104,
+        "name": "Herramientas",
+        "description": "Herramientas para cualquier tipo de trabajo.",
+        "productCount": 0,
+        "imgSrc": "img/cat104_1.jpg"
+    },
+    {
+        "id": 105,
+        "name": "Computadoras",
+        "description": "Todo en cuanto a computadoras, para uso de oficina y/o juegos.",
+        "productCount": 1,
+        "imgSrc": "img/cat105_1.jpg"
+    },
+    {
+        "id": 106,
+        "name": "Vestimenta",
+        "description": "Gran variedad de ropa, nueva y de segunda mano.",
+        "productCount": 0,
+        "imgSrc": "img/cat106_1.jpg"
+    },
+    {
+        "id": 107,
+        "name": "Electrodomésticos",
+        "description": "Todos los electrodomésticos modernos y de bajo consumo.",
+        "productCount": 0,
+        "imgSrc": "img/cat107_1.jpg"
+    },
+    {
+        "id": 108,
+        "name": "Deporte",
+        "description": "Toda la variedad de indumentaria para todo tipo de deporte.",
+        "productCount": 0,
+        "imgSrc": "img/cat108_1.jpg"
+    },
+    {
+        "id": 109,
+        "name": "Celulares",
+        "description": "Celulares de todo tipo para cubrir todas las necesidades.",
+        "productCount": 0,
+        "imgSrc": "img/cat109_1.jpg"
+    }
+]

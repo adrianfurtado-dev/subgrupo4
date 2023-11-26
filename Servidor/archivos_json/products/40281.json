@@ -1,0 +1,27 @@
+{
+    "id": 40281,
+    "name": "Computadora de escritorio",
+    "description": "Computadora de escritorio. Potencia y rendimiento, para juegos o trabajo",
+    "cost": 2599,
+    "currency": "USD",
+    "soldCount": 11,
+    "category": "Computadoras",
+    "images": [
+        "img/prod40281_1.jpg",
+        "img/prod40281_2.jpg",
+        "img/prod40281_3.jpg",
+        "img/prod40281_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":50743,
+            "name":"PlayStation 5",
+            "image": "img/prod50743_1.jpg"
+        },
+        {
+            "id":50744,
+            "name":"Bicicleta",
+            "image": "img/prod50744_1.jpg"
+        }
+    ]
+}

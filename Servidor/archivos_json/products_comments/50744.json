@@ -1,0 +1,30 @@
+[
+    {
+        "product": 50744,
+        "score": 5,
+        "description": "Compra de último momento para la navidad. A mi nieto le gustó.",
+        "user": "ignacio_paremon",
+        "dateTime": "2021-12-24 23:59:59"
+    },
+    {
+        "product": 50744,
+        "score": 2,
+        "description": "Les pedí azul y me mandaron verde. La bicicleta es buena",
+        "user": "mia_barboza",
+        "dateTime": "2021-09-15 01:27:19"
+    },
+    {
+        "product": 50744,
+        "score": 3,
+        "description": "Es buena, pero le faltaron las rueditas.",
+        "user": "julian_surech",
+        "dateTime": "2021-03-24 20:11:19"
+    },
+    {
+        "product": 50744,
+        "score": 4,
+        "description": "Perfecta para que mis hijos vayan empezando a practicar.",
+        "user": "mariana_pajon",
+        "dateTime": "2021-01-18 05:22:50"
+    }
+]

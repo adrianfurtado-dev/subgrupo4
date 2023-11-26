@@ -1,0 +1,27 @@
+{
+    "id": 50922,
+    "name": "Fiat Way",
+    "description": "La versión de Fiat que brinda confort y a un precio accesible.",
+    "cost": 14500,
+    "currency": "USD",
+    "soldCount": 52,
+    "category": "Autos",
+    "images": [
+        "img/prod50922_1.jpg",
+        "img/prod50922_2.jpg",
+        "img/prod50922_3.jpg",
+        "img/prod50922_4.jpg"
+    ],
+    "relatedProducts": [
+        {
+            "id":50921,
+            "name":"Chevrolet Onix Joy",
+            "image": "img/prod50921_1.jpg"
+        },
+        {
+            "id":50923,
+            "name":"Suzuki Celerio",
+            "image": "img/prod50923_1.jpg"
+        }
+    ]
+}
