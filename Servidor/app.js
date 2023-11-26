@@ -8,6 +8,7 @@ let cart = require("./archivos_json/cart/buy.json");
 let cats = require("./archivos_json/cats/cat.json");
 let sell = require("./archivos_json/sell/publish.json");
 let userCart = require("./archivos_json/user_cart/25801.json");
+const cartRouter = require("./routes/cartRoutes");
 
 
 const pool = mariadb.createPool({
@@ -51,3 +52,19 @@ app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
   });
 
+
+
+app.use("/user_cart", (req, res, next) => {
+  try {
+    const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+    next();
+  } catch (err) {
+    res.status(401).json({ message: "Usuario no autorizado" });
+  }
+});
+
+app.use("/user_cart", cartRouter);
+
+app.get("/cart", async (req, res) => {
+  res.json(cart);
+});
